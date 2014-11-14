@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry exported="true" kind="src" path="/SwagDTUEJB"/>
+	<classpathentry excluding="**/*.svn|**/.svn/*" kind="src" path="web-src"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
+		<attributes>
+			<attribute name="owner.project.facets" value="jst.java"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/modules-org.apache.commons.httpclient"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/modules-org.apache.commons.logging"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/modules-org.jboss.msc"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/3rdParty-jersey"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/modules-org.codehaus.jettison"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/3rdParty-junit"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/modules-org.apache.log4j"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/modules-org.jboss.resteasy.resteasy-jaxrs"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/modules-org.jboss.resteasy.resteasy-jettison-provider"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/modules-org.jboss.resteasy.resteasy-multipart-provider"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/modules-org.apache.commons.codec"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/modules-org.apache.httpcomponents"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/modules-org.infinispan"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/3rdParty-jaxb"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/modules-javax.ws.rs.api"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/modules-javax.annotation.api"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/modules-org.jboss.as.server"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/modules-org.jboss.resteasy.resteasy-jaxb-provider"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/modules-org.scannotation.scannotation"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/3rdParty-ezmorph"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/modules-javax.ejb.api"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/modules-javax.persistence.api"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/modules-javax.servlet.api"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/modules-org.jboss.logging"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/modules-org.jboss.vfs"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/modules-org.apache.james.mime4j"/>
+	<classpathentry kind="lib" path="/SwagDTU/EarContent/lib/junos-space/cems-interfaces.jar"/>
+	<classpathentry kind="lib" path="/SwagDTU/EarContent/lib/junos-space/cems-shared.jar"/>
+	<classpathentry kind="lib" path="/SwagDTU/EarContent/lib/junos-space/jmpsubsystem.jar"/>
+	<classpathentry kind="lib" path="/SwagDTU/EarContent/lib/junos-space/SDK-Interceptors.jar"/>
+	<classpathentry kind="lib" path="/SwagDTU/EarContent/lib/junos-space/SDK-WebSvc-Common.jar"/>
+	<classpathentry kind="lib" path="/SwagDTU/EarContent/lib/junos-space/uicommon.jar"/>
+	<classpathentry kind="lib" path="/SwagDTU/EarContent/lib/junos-space/cmp-shared.jar"/>
+	<classpathentry kind="output" path="build/classes"/>
+</classpath>

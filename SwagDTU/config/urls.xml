@@ -1,0 +1,6 @@
+<GLOBAL>
+<ALLOW>
+/api/jssdk/swag-dtu
+/ui/jssdk/swag-dtu
+</ALLOW>
+</GLOBAL>

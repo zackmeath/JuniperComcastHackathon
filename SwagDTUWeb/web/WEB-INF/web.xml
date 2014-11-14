@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+	<servlet>
+		<servlet-name>CMPServlet</servlet-name>
+		<servlet-class>net.juniper.common.client.server.JxServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CMPServlet</servlet-name>
+		<url-pattern>/CMPServlet</url-pattern>
+	</servlet-mapping>
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>Secure Content</web-resource-name>
+			<url-pattern>/*</url-pattern>
+			<http-method>GET</http-method>
+			<http-method>POST</http-method>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>JmpSecurityAdmin</role-name>
+		</auth-constraint>
+	</security-constraint>
+	<security-constraint>
+		<!-- list all the directories that we don't want to protect -->
+		<web-resource-collection>
+			<web-resource-name>images</web-resource-name>
+			<url-pattern>/images/*</url-pattern>
+		</web-resource-collection>
+		<web-resource-collection>
+			<web-resource-name>js</web-resource-name>
+			<url-pattern>/js/*</url-pattern>
+		</web-resource-collection>
+	</security-constraint>
+	<security-role>
+		<role-name>JmpSecurityAdmin</role-name>
+	</security-role>
+</web-app>

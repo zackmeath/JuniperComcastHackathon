@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="app-info.xsd"> 
+<version>2.0</version>
+<prop displayName="SwagDTU" firstTitle="Swag DTU" id="22" isPlatform="false" key="SwagDTU" lastTitle="" maxPlatformVersion="150" minPlatformVersion="99.99" paradigmModule="SwagDTU" releaseType="R1" rpmName="JSSwagDTU" subVersion="" title="Swag DTU" vendorId="jssdk" vendorName="marist" version="1.0"/> 
+</app>
