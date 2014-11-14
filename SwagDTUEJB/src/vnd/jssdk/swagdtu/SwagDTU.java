@@ -32,12 +32,47 @@ public interface SwagDTU  {
 	 */
 	public PagingResult<Device> getAllDevices(ApiContext apic, PagingContext ctx) throws PreconditionFailedException, ForbiddenException;
  
-
+	/**
+	 * get all Ptp objects
+	 * @param apic
+	 * @param ctx
+	 * @return
+	 * @throws PreconditionFailedException
+	 * @throws ForbiddenException
+	 */
 	public PagingResult<PTP> getAllPtps(ApiContext apic, PagingContext ctx) throws PreconditionFailedException, ForbiddenException;
 	
-
+	/**
+	 * get individual device based on ID
+	 * @param apic
+	 * @param id
+	 * @return
+	 * @throws PreconditionFailedException
+	 */
 	public Device getDevice(ApiContext apic, int id) throws PreconditionFailedException;
-	
+	/**
+	 * get PTP object based on id
+	 * @param apic
+	 * @param id
+	 * @return
+	 * @throws PreconditionFailedException
+	 */
 	public PTP getPtp(ApiContext apic,int id) throws PreconditionFailedException;
+	
+	/**
+	 * Get image associated with the platform name
+	 * @param platform
+	 * 			Platform name for looking up platform image
+	 * @return
+	 * @throws Exception
+	 */
+	public byte [] getImage(String platform) throws Exception;
+	
+	/**
+	 * Accepts an image, which is a byte array of data, and writes it to 'filename'
+	 * @param bytes		- image content
+	 * @param fileName	- image file, or platform name
+	 */
+	public void addImage(byte[] imageFileBytes, String imageFile) throws Exception;
 	 
 }  

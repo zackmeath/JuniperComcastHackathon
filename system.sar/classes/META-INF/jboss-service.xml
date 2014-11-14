@@ -1,0 +1,24 @@
+<server>
+
+    <mbean code="net.juniper.jmp.cmp.system.EjbTracker"
+       name="jnpr.jmp:service=EjbTracker,component=SwagDTU">
+      <depends>jnpr.jmp:service=InventoryTracker,component=cmp</depends>
+    </mbean>
+
+    <!-- launch web app tracker to log all the web apps in current ear -->
+    <!-- <mbean code="net.juniper.jmp.cmp.system.WebappTracker"
+       name="jnpr.jmp:service=WebappTracker,component=SwagDTU">
+      <depends>jnpr.jmp:service=InventoryTracker,component=cmp</depends>
+    </mbean> -->
+
+    <!-- launch app initializer to initialize app related data after current ear deployment -->
+    <mbean code="net.juniper.jmp.cmp.system.AppInitializer"
+       name="jnpr.jmp:service=AppInitializer,component=SwagDTU">
+    </mbean>
+    
+    <!-- load resource bundle when needed -->
+    <mbean code="net.juniper.jmp.cmp.system.ResourceBundleLoader"
+       name="jnpr.jmp:service=ResourceBundleLoader,component=SwagDTU">
+    </mbean>
+
+ </server>

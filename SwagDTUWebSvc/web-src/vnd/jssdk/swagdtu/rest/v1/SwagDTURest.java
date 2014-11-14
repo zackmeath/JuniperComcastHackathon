@@ -2,12 +2,16 @@ package vnd.jssdk.swagdtu.rest.v1;
 
 import javax.ws.rs.Path;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.Produces;
 import net.juniper.jmp.annotation.rbac.CRUDEnum;
 import net.juniper.jmp.annotation.rbac.RBAC;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.core.Context;
 import net.juniper.jmp.parsers.common.UriContext;
+import javax.ws.rs.QueryParam;
+import net.juniper.jmp.cmp.info.Required;
 import javax.annotation.Generated;
 
 /*******************************************************************************
@@ -262,6 +266,37 @@ public interface SwagDTURest {
   @Generated(value = "REST Wizard", comments = "yieldTime:100,retryEnabled:false,retryCount:3,audit_detail_enabled:false,generation:0,signature:(QApiContext;I)QPTP;")
   public vnd.jssdk.swagdtu.rest.v1.PTP getPtp(@Context UriContext apic, @PathParam("id") Integer id)
       throws Exception;
+
+  /***
+   * Get image associated with the platform name
+   * 
+   * @summary Get image associated with the platform name
+   * 
+   * @param platform Platform
+   **/
+  @Path("/images/{platform}")
+  @GET
+  @RBAC(type = {CRUDEnum.READ}, capability = {"SwagDTUCap"})
+  @Produces({"application/octet-stream"})
+  @Generated(value = "REST Wizard", comments = "retryEnabled:false,yieldTime:100,response_multipart:&#44;BA&#44;false&#44;_M_R,retryCount:3,audit_detail_enabled:false,generation:0,signature:(QString;)[B")
+  public javax.ws.rs.core.Response getImage(@Required @QueryParam("platform") String platform)
+      throws Exception;
+
+  /***
+   * Accepts an image, which is a byte array of data, and writes it to 'filename'
+   * 
+   * @summary Accepts an image, which is a byte array of data, and writes it to 'filename'
+   * 
+   * @param imageFile Image File
+   **/
+  @Path("/images")
+  @POST
+  @RBAC(type = {CRUDEnum.CREATE}, capability = {"SwagDTUCap"})
+  @Consumes({"multipart/form-data"})
+  @Generated(value = "REST Wizard", comments = "retryEnabled:true,yieldTime:100,retryCount:3,request_multipart:&#44;BA&#44;false&#44;imageFileBytes,audit_detail_enabled:false,generation:0,signature:([BQString;)V")
+  public void addImage(
+      org.jboss.resteasy.plugins.providers.multipart.MultipartFormDataInput imageFileBytes,
+      @Required @QueryParam("image-file") String imageFile) throws Exception;
 
   /**
    * Root Resource.
