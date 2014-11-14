@@ -60,7 +60,7 @@ public class SwagDTUImpl  implements SwagDTU, SwagDTULocal {
 	private static final String PTP_COUNT = "Count ptps.@size";
 	private static final String NO_RESPONSE = "Unable to get response";
 	private PagingResult<Device> deviceCollection = null;
-	private PagingResult<PTP> ptpCollection=null;
+	private PagingResult<PTP> ptpCollection = null;
 	private String JSON_STRING_DATA = "Could not obtain the json string for key: ";
 	private String JSON_INT_DATA = "Could not obtain the json int for key: ";
 	private String DEVICES_URL = AppConstants.SPACE_URL_PREFIX + "/device-management/devices";
@@ -144,6 +144,25 @@ public class SwagDTUImpl  implements SwagDTU, SwagDTULocal {
 	 * @return PagingResult<Device> paging result of list of devices
 	 * 
 	 */
+	
+	public PagingResult<Link> getAllLinks(ApiContext apiCtx,
+			PagingContext pagingCtx) throws PreconditionFailedException {
+		PagingResult<Link> result = null;
+		ArrayList<Link> list = new ArrayList<Link>();
+		//Logic to compare all of the ptps to eachother:
+		PTP ptpa = null;
+		PTP ptpb = null;
+				
+		//when a match is found
+		Link x = new Link(apiCtx, ptpa, getDevice(apiCtx, ptpa.getDeviceID()), ptpb, getDevice(apiCtx, ptpb.getDeviceID()));
+		list.add(x);
+		//end match found
+		
+		
+		//after all matches are found
+		
+		return null;
+	}
 	public PagingResult<Device> getAllDevices(ApiContext apiCtx,
 			PagingContext pagingCtx) throws PreconditionFailedException, ForbiddenException {
 
@@ -582,6 +601,7 @@ public class SwagDTUImpl  implements SwagDTU, SwagDTULocal {
 
 		return ptp;
 	}
+	
 	
 	/**
 	 * Private method to write a byte array to a temporary file
