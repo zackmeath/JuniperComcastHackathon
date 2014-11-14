@@ -42,5 +42,6 @@
 	<classpathentry kind="lib" path="/SwagDTU/EarContent/lib/junos-space/SDK-WebSvc-Common.jar"/>
 	<classpathentry kind="lib" path="/SwagDTU/EarContent/lib/junos-space/uicommon.jar"/>
 	<classpathentry kind="lib" path="/SwagDTU/EarContent/lib/junos-space/cmp-shared.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/modules-org.apache.commons.io"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

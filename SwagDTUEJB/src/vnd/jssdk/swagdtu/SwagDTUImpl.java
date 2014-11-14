@@ -7,7 +7,12 @@
  * Wed Nov 12 16:16:16 EST 2014   ${USERNAME}      Initial creation  
  *******************************************************************************/  
 package vnd.jssdk.swagdtu; 
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.File;
+import java.io.RandomAccessFile;
+import java.net.URL;
+import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -33,6 +38,9 @@ import org.apache.log4j.Logger;
 import org.codehaus.jettison.json.JSONArray;
 import org.codehaus.jettison.json.JSONException;
 import org.codehaus.jettison.json.JSONObject;
+import org.jboss.vfs.VirtualFile;
+
+
 
 import vnd.AppConstants;
 
@@ -377,7 +385,7 @@ public class SwagDTUImpl  implements SwagDTU, SwagDTULocal {
 							ptp.setMtuStr(getString(jsonPtp,"hardwarePhysicalAddress"));
 							
 
-							//ptp.setinfoUrl(getString(jsonPtp,"platform"));
+							
 
 							// Handle if device URI is in response.
 							if (uri != null) {
@@ -539,15 +547,21 @@ public class SwagDTUImpl  implements SwagDTU, SwagDTULocal {
 				ptp.setOperationStatus(ptpObj.getString("operationStatus"));
 				ptp.setSpeed(ptpObj.getInt("speed"));
 				ptp.setSpeedStr(ptpObj.getString("speedStr"));
-				ptp.setMtu(ptpObj.getInt("mtu"));
-				//ptpDescription=null;
-				//ptpDescription = ptpObj.getString("description");
-				//if(ptpDescription!=null){
-				//	ptp.setDescription(ptpDescription);
-				//}
-				ptp.setMacAddress(ptpObj.getString("hardwarePhysicalAddress"));
-				ptp.setLinkType(ptpObj.getString("linkLevelType"));
-				ptp.setMtuStr(ptpObj.getString("mtuStr"));
+				ptp.setMtu(ptpObj.getInt("mtu"));				
+				if (ptpObj.has("description")){
+					ptp.setDescription(ptpObj.getString("description"));
+					
+				}			
+				if(ptpObj.has("hardwarePhysicalAddress")){
+					ptp.setMacAddress(ptpObj.getString("hardwarePhysicalAddress"));
+				}
+				if (ptpObj.has("linkLevelType")){
+					ptp.setLinkType(ptpObj.getString("linkLevelType"));
+				}
+				if(ptpObj.has("mtuStr")){
+					ptp.setMtuStr(ptpObj.getString("mtuStr"));					
+				}
+				
 				
 				/*
 				String managedElementURL=ptpObj.getJSONObject("managed-element").getString("href");
@@ -568,6 +582,117 @@ public class SwagDTUImpl  implements SwagDTU, SwagDTULocal {
 
 		return ptp;
 	}
+	
+	/**
+	 * Private method to write a byte array to a temporary file
+	 * @param content
+	 * @param filename
+	 * @throws IOException
+	 */
+	private void writeFile(byte[] content, String filename) throws IOException {
+
+		File file = new File(filename);
+
+		if (!file.exists()) {
+			file.createNewFile();
+		}
+
+		FileOutputStream fop = new FileOutputStream(file);
+
+		fop.write(content);
+		fop.flush();
+		fop.close();
+
+	}	
+
+	/**
+	 * Accepts an image, which is a byte array of data and writes it to 'filename'
+	 * @param bytes - image bytes
+	 * @param fileName- image file (or platform) name
+	 */
+	public void addImage(byte[] imageFileBytes, String imageFile) throws Exception {
+
+		//constructs upload file path
+		String tmpFile = "/tmp/" + imageFile;
+		writeFile(imageFileBytes, tmpFile);
+
+	}
+	
+	
+	
+	/**
+	 * Get the image associated with the platform name
+	 * @param platform
+	 * @return
+	 * @throws Exception
+	 */
+	public byte [] getImage(String platform) throws Exception {
+		File imageFile = getImageFile(platform);
+		if (imageFile == null || !imageFile.exists())
+			return null;
+		return readFile(imageFile);
+	}
+
+	
+	/**
+	 * Construct a file name and return the image file for the give platform
+	 * @param platform
+	 * @return
+	 */
+	private File getImageFile(String platform) {
+		try {
+			File imageFile = new File("/tmp/" + platform + ".png");
+			if (imageFile.exists())
+				return imageFile;
+			imageFile = new File("/tmp/" + platform + ".jpg");
+			if (imageFile.exists())
+				return imageFile;
+			URL fileURL = getClass().getClassLoader().getResource("./images/devices/" + platform + ".jpg");
+			if (fileURL == null) {
+				fileURL = getClass().getClassLoader().getResource("./images/devices/router.jpg");
+			}
+			if (fileURL == null) {
+				return null;
+			}
+			if (fileURL.getPath().indexOf("!") > 0 || fileURL.getProtocol().equals("vfs")) {
+				URLConnection conn = fileURL.openConnection();
+				VirtualFile vf = (VirtualFile)conn.getContent();
+				  File contentsFile = vf.getPhysicalFile();
+				  File dir = contentsFile.getParentFile();
+				  File physicalFile = new File(dir, contentsFile.getName());
+				  return physicalFile;
+			} 
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	/**
+	 * Read a file and return byte content
+	 * @param file
+	 * @return
+	 * @throws IOException
+	 */
+	private static byte[] readFile(File file) throws IOException {
+		// Open file
+		RandomAccessFile f = new RandomAccessFile(file, "r");
+		try {
+			// Get and check length
+			long longlength = f.length();
+			int length = (int) longlength;
+			if (length != longlength)
+				throw new IOException("File size >= 2 GB");
+			// Read file and return data
+			byte[] data = new byte[length];
+			f.readFully(data);
+			return data;
+		} finally {
+			f.close();
+		}
+	}
+
+
 
 	/**
 	 * Description: This method converts the response into the JSON object and
