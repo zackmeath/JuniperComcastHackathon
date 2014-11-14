@@ -1,0 +1,8 @@
+JSVAENABLED=true
+XSD_FILE_CACHE=<?xml version\="1.0" encoding\="UTF-8" standalone\="yes"?><filenamecache><fileNamesForUrl/></filenamecache>
+eclipse.preferences.version=1
+restclient_host=172.16.0.150
+restclient_login=super
+restclient_password=juniper123
+restclient_port=443
+restclient_protocol=https

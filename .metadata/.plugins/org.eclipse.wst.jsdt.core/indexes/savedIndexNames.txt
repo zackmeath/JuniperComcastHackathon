@@ -1,0 +1,8 @@
+INDEX VERSION 1.3+C:\Users\Zack\Desktop\juniperHackathon\workspace1\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+4208903764.index
+3875746309.index
+2225133450.index
+1680951169.index
+581410601.index
+2870718180.index
+3969655729.index

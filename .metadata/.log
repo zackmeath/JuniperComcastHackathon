@@ -1,0 +1,714 @@
+!SESSION 2014-11-14 14:38:49.672 -----------------------------------------------
+eclipse.buildId=4.3.2.M20140221-1700
+java.version=1.8.0_25
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.ui 2 0 2014-11-14 14:39:04.265
+!MESSAGE Warnings while parsing the commands from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.actionDefinitions' extension points.
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:39:04.265
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.createJunosSpaceProject', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:39:04.265
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.addWebSvcSpaceProject', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:39:04.265
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.addWebSpaceProject', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:39:04.265
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.addEJBSpaceProject', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:39:04.265
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.addUtilityProject', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:39:04.265
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.JavaScriptImport', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:39:04.265
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.deleteJSApplication', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:39:04.265
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.JSOpenJunosAppInfoEditor', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:39:04.265
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.JSOpenJunosEditor', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:39:04.265
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.JSCreateEditSettingsXSD', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:39:04.265
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.JSOpenJunosLogger', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:39:04.265
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.JSOpenJsvaProfile', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:39:04.265
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.JSOpenJunosDmiSimulatorStatus', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:39:04.265
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.buildJSApplication', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:39:04.265
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.deployJunosSpaceApplication', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:39:04.265
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.packageJunosSpaceImage', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:39:04.265
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.uninstallJunosSpaceImageMenu', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:39:04.265
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.createJunosSpaceApplicationImage1', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:39:04.265
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.createJunosSpaceApplicationImage', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:39:04.265
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.generateDatabaseMigrationScript', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:39:04.266
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.upgradeToCompleteApplication', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:39:04.266
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.manageCertificate', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:39:04.266
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.manageRestInterfaceMenu', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:39:04.266
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.newManageRestInterfaceMenu', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:39:04.266
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.exploreRestServicesMenu', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:39:04.266
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.sdkMigrationApplication', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:39:04.266
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.generatecountry', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:39:04.266
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.generateRestDocumentation', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:39:04.266
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.exportRestDocumentation', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:39:04.266
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.exportRestDocumentationAsPLugin', categoryId='jspace.sdk.plugin.project.commands.category'
+
+!ENTRY org.eclipse.ui 2 0 2014-11-14 14:39:04.958
+!MESSAGE Warnings while parsing the commands from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.actionDefinitions' extension points.
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:39:04.958
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.createJunosSpaceProject', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:39:04.958
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.addWebSvcSpaceProject', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:39:04.958
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.addWebSpaceProject', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:39:04.958
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.addEJBSpaceProject', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:39:04.958
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.addUtilityProject', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:39:04.958
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.JavaScriptImport', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:39:04.958
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.deleteJSApplication', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:39:04.958
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.JSOpenJunosAppInfoEditor', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:39:04.958
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.JSOpenJunosEditor', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:39:04.958
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.JSCreateEditSettingsXSD', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:39:04.958
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.JSOpenJunosLogger', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:39:04.958
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.JSOpenJsvaProfile', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:39:04.958
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.JSOpenJunosDmiSimulatorStatus', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:39:04.958
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.buildJSApplication', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:39:04.958
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.deployJunosSpaceApplication', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:39:04.959
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.packageJunosSpaceImage', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:39:04.959
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.uninstallJunosSpaceImageMenu', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:39:04.959
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.createJunosSpaceApplicationImage1', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:39:04.959
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.createJunosSpaceApplicationImage', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:39:04.959
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.generateDatabaseMigrationScript', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:39:04.959
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.upgradeToCompleteApplication', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:39:04.959
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.manageCertificate', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:39:04.959
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.manageRestInterfaceMenu', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:39:04.959
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.newManageRestInterfaceMenu', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:39:04.959
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.exploreRestServicesMenu', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:39:04.959
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.sdkMigrationApplication', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:39:04.959
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.generatecountry', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:39:04.959
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.generateRestDocumentation', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:39:04.959
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.exportRestDocumentation', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:39:04.959
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.exportRestDocumentationAsPLugin', categoryId='jspace.sdk.plugin.project.commands.category'
+
+!ENTRY com.perforce.team.core 2 0 2014-11-14 14:39:09.952
+!MESSAGE unable to get manifest version attribute: Not running from jar file: bundleresource://873.fwk1112280004:1/com/perforce/p4java/Metadata.class
+
+!ENTRY com.perforce.team.core 2 0 2014-11-14 14:39:09.985
+!MESSAGE unable to get manifest date attribute: Not running from jar file: bundleresource://873.fwk1112280004:1/com/perforce/p4java/Metadata.class
+
+!ENTRY com.perforce.team.core 1 0 2014-11-14 14:39:09.996
+!MESSAGE P4Java server factory loaded; version: Internal 2010.1 Perforce Development; date: unknown
+
+!ENTRY com.perforce.team.core 1 0 2014-11-14 14:39:10.001
+!MESSAGE Using default charset: windows-1252; JVM charset: windows-1252
+
+!ENTRY com.perforce.team.core 1 0 2014-11-14 14:39:10.010
+!MESSAGE Checking this Java for symbolic link support...
+
+!ENTRY com.perforce.team.core 1 0 2014-11-14 14:39:10.019
+!MESSAGE It seems this Java supports symbolic links.
+
+!ENTRY com.perforce.team.core 1 0 2014-11-14 14:39:10.025
+!MESSAGE Symbolic link support at the OS level will be determined at runtime...
+
+!ENTRY com.perforce.team.core 1 0 2014-11-14 14:39:10.032
+!MESSAGE initializing system file command helper class: java.io.File
+
+!ENTRY com.perforce.team.core 1 0 2014-11-14 14:39:10.037
+!MESSAGE Using default RPC system file command helper: com.perforce.p4java.impl.mapbased.rpc.sys.helper.RpcSystemFileCommandsHelper
+
+!ENTRY com.perforce.team.core 1 0 2014-11-14 14:39:10.042
+!MESSAGE setting RPC system file helper to class com.perforce.team.core.p4java.P4JavaSysFileCommandsHelper
+
+!ENTRY org.eclipse.egit.ui 2 0 2014-11-14 14:39:13.328
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Zack'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.osgi 2 1 2014-11-14 14:39:14.421
+!MESSAGE NLS unused message: missingOneOfTwoAttributes in: org.eclipse.wst.common.project.facet.core.internal.FacetedProjectFrameworkImpl
+
+!ENTRY org.eclipse.osgi 2 1 2014-11-14 14:39:14.424
+!MESSAGE NLS unused message: categoryNotDefined in: org.eclipse.wst.common.project.facet.core.internal.FacetedProjectFrameworkImpl
+
+!ENTRY org.eclipse.osgi 2 1 2014-11-14 14:39:14.428
+!MESSAGE NLS unused message: actionNotDefined in: org.eclipse.wst.common.project.facet.core.internal.FacetedProjectFrameworkImpl
+
+!ENTRY org.eclipse.osgi 2 1 2014-11-14 14:39:14.433
+!MESSAGE NLS unused message: actionAlreadyDefined in: org.eclipse.wst.common.project.facet.core.internal.FacetedProjectFrameworkImpl
+
+!ENTRY org.eclipse.osgi 2 1 2014-11-14 14:39:14.437
+!MESSAGE NLS unused message: presetNotDefined in: org.eclipse.wst.common.project.facet.core.internal.FacetedProjectFrameworkImpl
+
+!ENTRY org.eclipse.osgi 2 1 2014-11-14 14:39:14.440
+!MESSAGE NLS unused message: templateNotDefined in: org.eclipse.wst.common.project.facet.core.internal.FacetedProjectFrameworkImpl
+
+!ENTRY org.eclipse.osgi 2 1 2014-11-14 14:39:14.444
+!MESSAGE NLS unused message: invalidActionType in: org.eclipse.wst.common.project.facet.core.internal.FacetedProjectFrameworkImpl
+
+!ENTRY org.eclipse.osgi 2 1 2014-11-14 14:39:14.448
+!MESSAGE NLS unused message: invalidEventHandlerType in: org.eclipse.wst.common.project.facet.core.internal.FacetedProjectFrameworkImpl
+
+!ENTRY org.eclipse.osgi 2 1 2014-11-14 14:39:14.452
+!MESSAGE NLS unused message: invalidRequiresConstraint in: org.eclipse.wst.common.project.facet.core.internal.FacetedProjectFrameworkImpl
+
+!ENTRY org.eclipse.osgi 2 1 2014-11-14 14:39:14.455
+!MESSAGE NLS unused message: invalidConflictsConstraint in: org.eclipse.wst.common.project.facet.core.internal.FacetedProjectFrameworkImpl
+
+!ENTRY org.eclipse.osgi 2 1 2014-11-14 14:39:14.459
+!MESSAGE NLS unused message: deprecatedRuntimeChangedAction in: org.eclipse.wst.common.project.facet.core.internal.FacetedProjectFrameworkImpl
+
+!ENTRY org.eclipse.osgi 2 1 2014-11-14 14:39:14.463
+!MESSAGE NLS unused message: tracingActionSorting in: org.eclipse.wst.common.project.facet.core.internal.FacetedProjectFrameworkImpl
+
+!ENTRY org.eclipse.osgi 2 1 2014-11-14 14:39:14.468
+!MESSAGE NLS unused message: tracingFrameworkActivationStarting in: org.eclipse.wst.common.project.facet.core.internal.FacetedProjectFrameworkImpl
+
+!ENTRY org.eclipse.osgi 2 1 2014-11-14 14:39:14.471
+!MESSAGE NLS unused message: tracingFrameworkActivationFinished in: org.eclipse.wst.common.project.facet.core.internal.FacetedProjectFrameworkImpl
+
+!ENTRY org.eclipse.osgi 2 1 2014-11-14 14:39:14.476
+!MESSAGE NLS missing message: problemCaseNotRecognized in: org.eclipse.wst.common.project.facet.core.internal.FacetedProjectFrameworkImpl
+
+!ENTRY org.eclipse.osgi 2 1 2014-11-14 14:39:14.480
+!MESSAGE NLS missing message: runtimeComponentTypeNotDefined in: org.eclipse.wst.common.project.facet.core.internal.FacetedProjectFrameworkImpl
+
+!ENTRY org.eclipse.wst.common.project.facet.core 4 0 2014-11-14 14:39:14.484
+!MESSAGE Project facet jst.java has not been defined. It is used in plugin org.eclipse.jst.ws.jaxrs.core.
+
+!ENTRY org.eclipse.wst.common.project.facet.core 4 0 2014-11-14 14:39:14.489
+!MESSAGE Project facet jst.java has not been defined. It is used in plugin org.eclipse.jst.j2ee.jca.
+
+!ENTRY org.eclipse.wst.common.project.facet.core 4 0 2014-11-14 14:39:14.493
+!MESSAGE Project facet jst.java has not been defined. It is used in plugin org.eclipse.jst.j2ee.
+
+!ENTRY org.eclipse.wst.common.project.facet.core 4 0 2014-11-14 14:39:14.497
+!MESSAGE Project facet jst.java has not been defined. It is used in plugin org.eclipse.jst.j2ee.web.
+
+!ENTRY org.eclipse.wst.common.project.facet.core 4 0 2014-11-14 14:39:14.501
+!MESSAGE Project facet jst.java has not been defined. It is used in plugin org.eclipse.jst.j2ee.ejb.
+
+!ENTRY org.eclipse.wst.common.project.facet.core 4 0 2014-11-14 14:39:14.506
+!MESSAGE Project facet jst.java has not been defined. It is used in plugin org.eclipse.jst.ws.cxf.core.
+
+!ENTRY org.eclipse.wst.common.project.facet.core 4 0 2014-11-14 14:39:14.523
+!MESSAGE Class "org.eclipse.jst.common.project.facet.core.internal.JavaFacetDefaultVersionProvider" does not implement "java.lang.Class" interface.
+
+!ENTRY org.eclipse.wst.common.project.facet.core 4 0 2014-11-14 14:39:14.530
+!MESSAGE Class "org.eclipse.jst.ws.jaxrs.core.internal.project.facet.JAXRSFacetDefaultVersionProvider" does not implement "java.lang.Class" interface.
+
+!ENTRY org.eclipse.jst.j2ee.core 4 0 2014-11-14 14:40:07.691
+!MESSAGE 
+!STACK 0
+java.lang.InterruptedException
+	at org.eclipse.core.internal.jobs.OrderedLock.acquire(OrderedLock.java:100)
+	at org.eclipse.jst.j2ee.internal.J2EEInit.aquireInitializePackageContentsLock(J2EEInit.java:454)
+	at org.eclipse.jst.j2ee.webservice.wsclient.internal.impl.Webservice_clientPackageImpl.initializePackageContents(Webservice_clientPackageImpl.java:457)
+	at org.eclipse.jst.j2ee.webservice.wsclient.internal.impl.Webservice_clientPackageImpl.init(Webservice_clientPackageImpl.java:141)
+	at org.eclipse.jst.j2ee.webservice.wsclient.Webservice_clientPackage.<clinit>(Webservice_clientPackage.java:75)
+	at sun.misc.Unsafe.ensureClassInitialized(Native Method)
+	at sun.reflect.UnsafeFieldAccessorFactory.newFieldAccessor(Unknown Source)
+	at sun.reflect.ReflectionFactory.newFieldAccessor(Unknown Source)
+	at java.lang.reflect.Field.acquireFieldAccessor(Unknown Source)
+	at java.lang.reflect.Field.getFieldAccessor(Unknown Source)
+	at java.lang.reflect.Field.get(Unknown Source)
+	at org.eclipse.emf.ecore.plugin.RegistryReader$EPackageDescriptor.getEPackage(RegistryReader.java:273)
+	at org.eclipse.emf.ecore.impl.EPackageRegistryImpl.getEPackage(EPackageRegistryImpl.java:127)
+	at org.eclipse.jst.j2ee.common.internal.impl.CommonPackageImpl.initializePackageContents(CommonPackageImpl.java:1332)
+	at org.eclipse.jst.j2ee.common.internal.impl.CommonPackageImpl.init(CommonPackageImpl.java:297)
+	at org.eclipse.jst.j2ee.common.CommonPackage.<clinit>(CommonPackage.java:243)
+	at org.eclipse.jst.j2ee.internal.provider.J2EEAdapterFactoryLabelProvider.<clinit>(J2EEAdapterFactoryLabelProvider.java:41)
+	at org.eclipse.jst.j2ee.navigator.internal.J2EELabelProvider.initialize(J2EELabelProvider.java:57)
+	at org.eclipse.jst.j2ee.navigator.internal.J2EELabelProvider.init(J2EELabelProvider.java:246)
+	at org.eclipse.ui.internal.navigator.extensions.NavigatorContentExtension$2.run(NavigatorContentExtension.java:176)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.navigator.extensions.NavigatorContentExtension.getLabelProvider(NavigatorContentExtension.java:169)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceLabelProvider.findStyledText(NavigatorContentServiceLabelProvider.java:163)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceLabelProvider.getStyledText(NavigatorContentServiceLabelProvider.java:151)
+	at org.eclipse.ui.internal.navigator.NavigatorDecoratingLabelProvider$StyledLabelProviderAdapter.getStyledText(NavigatorDecoratingLabelProvider.java:67)
+	at org.eclipse.jface.viewers.DelegatingStyledCellLabelProvider.getStyledText(DelegatingStyledCellLabelProvider.java:195)
+	at org.eclipse.jface.viewers.DecoratingStyledCellLabelProvider.getStyledText(DecoratingStyledCellLabelProvider.java:192)
+	at org.eclipse.jface.viewers.DelegatingStyledCellLabelProvider.update(DelegatingStyledCellLabelProvider.java:103)
+	at org.eclipse.jface.viewers.DecoratingStyledCellLabelProvider.update(DecoratingStyledCellLabelProvider.java:134)
+	at org.eclipse.jface.viewers.ViewerColumn.refresh(ViewerColumn.java:152)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.doUpdateItem(AbstractTreeViewer.java:953)
+	at org.eclipse.jface.viewers.AbstractTreeViewer$UpdateItemSafeRunnable.run(AbstractTreeViewer.java:113)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.JFaceUtil$1.run(JFaceUtil.java:49)
+	at org.eclipse.jface.util.SafeRunnable.run(SafeRunnable.java:175)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.doUpdateItem(AbstractTreeViewer.java:1033)
+	at org.eclipse.jface.viewers.StructuredViewer$UpdateItemSafeRunnable.run(StructuredViewer.java:485)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.JFaceUtil$1.run(JFaceUtil.java:49)
+	at org.eclipse.jface.util.SafeRunnable.run(SafeRunnable.java:175)
+	at org.eclipse.jface.viewers.StructuredViewer.updateItem(StructuredViewer.java:2167)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.createTreeItem(AbstractTreeViewer.java:848)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.createAddedElements(AbstractTreeViewer.java:346)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.internalAdd(AbstractTreeViewer.java:280)
+	at org.eclipse.jface.viewers.TreeViewer.internalAdd(TreeViewer.java:662)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.add(AbstractTreeViewer.java:155)
+	at org.eclipse.ui.navigator.CommonViewer.add(CommonViewer.java:303)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.add(AbstractTreeViewer.java:667)
+	at org.eclipse.jdt.internal.ui.packageview.PackageExplorerContentProvider$4.run(PackageExplorerContentProvider.java:977)
+	at org.eclipse.jdt.internal.ui.packageview.PackageExplorerContentProvider.runUpdates(PackageExplorerContentProvider.java:195)
+	at org.eclipse.jdt.internal.ui.packageview.PackageExplorerContentProvider.runPendingUpdates(PackageExplorerContentProvider.java:187)
+	at org.eclipse.jdt.internal.ui.packageview.PackageExplorerContentProvider$1.runInUIThread(PackageExplorerContentProvider.java:165)
+	at org.eclipse.ui.progress.UIJob$1.run(UIJob.java:95)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4145)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3762)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.block(ModalContext.java:173)
+	at org.eclipse.jface.operation.ModalContext.run(ModalContext.java:388)
+	at org.eclipse.jface.dialogs.ProgressMonitorDialog.run(ProgressMonitorDialog.java:507)
+	at jspace.sdk.plugin.project.handlers.JSProjectService.create(JSProjectService.java:536)
+	at jspace.sdk.plugin.project.handlers.wizards.JSWizard.createProject(JSWizard.java:251)
+	at jspace.sdk.plugin.project.handlers.wizards.JSWizard.performFinish(JSWizard.java:300)
+	at org.eclipse.jface.wizard.WizardDialog.finishPressed(WizardDialog.java:827)
+	at org.eclipse.jface.wizard.WizardDialog.buttonPressed(WizardDialog.java:432)
+	at org.eclipse.jface.dialogs.Dialog$2.widgetSelected(Dialog.java:628)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:248)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1057)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4170)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3759)
+	at org.eclipse.jface.window.Window.runEventLoop(Window.java:826)
+	at org.eclipse.jface.window.Window.open(Window.java:802)
+	at jspace.sdk.plugin.project.handlers.JSProjectCreateHandler.execute(JSProjectCreateHandler.java:117)
+	at org.eclipse.ui.internal.handlers.HandlerProxy.execute(HandlerProxy.java:290)
+	at org.eclipse.ui.internal.handlers.E4HandlerProxy.execute(E4HandlerProxy.java:90)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:56)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.invokeUsingClass(InjectorImpl.java:243)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.invoke(InjectorImpl.java:224)
+	at org.eclipse.e4.core.contexts.ContextInjectionFactory.invoke(ContextInjectionFactory.java:132)
+	at org.eclipse.e4.core.commands.internal.HandlerServiceHandler.execute(HandlerServiceHandler.java:167)
+	at org.eclipse.core.commands.Command.executeWithChecks(Command.java:499)
+	at org.eclipse.core.commands.ParameterizedCommand.executeWithChecks(ParameterizedCommand.java:508)
+	at org.eclipse.e4.core.commands.internal.HandlerServiceImpl.executeHandler(HandlerServiceImpl.java:213)
+	at org.eclipse.e4.ui.workbench.renderers.swt.HandledContributionItem.executeItem(HandledContributionItem.java:850)
+	at org.eclipse.e4.ui.workbench.renderers.swt.HandledContributionItem.handleWidgetSelection(HandledContributionItem.java:743)
+	at org.eclipse.e4.ui.workbench.renderers.swt.HandledContributionItem.access$7(HandledContributionItem.java:727)
+	at org.eclipse.e4.ui.workbench.renderers.swt.HandledContributionItem$4.handleEvent(HandledContributionItem.java:662)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1057)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4170)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3759)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$9.run(PartRenderingEngine.java:1113)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:997)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:140)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:611)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:567)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:124)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:354)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:181)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:636)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:591)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1450)
+
+!ENTRY org.eclipse.jst.j2ee 4 2 2014-11-14 14:40:18.960
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jst.j2ee".
+!STACK 0
+java.util.ConcurrentModificationException
+	at org.eclipse.emf.common.util.AbstractEList$EIterator.checkModCount(AbstractEList.java:758)
+	at org.eclipse.emf.common.util.AbstractEList$EIterator.doNext(AbstractEList.java:706)
+	at org.eclipse.emf.common.util.AbstractEList$EIterator.next(AbstractEList.java:692)
+	at org.eclipse.wst.common.componentcore.internal.resources.VirtualComponent.getReferences(VirtualComponent.java:436)
+	at org.eclipse.jst.j2ee.componentcore.util.EARVirtualComponent.getHardReferences(EARVirtualComponent.java:89)
+	at org.eclipse.jst.j2ee.componentcore.util.EARVirtualComponent.getReferences(EARVirtualComponent.java:192)
+	at org.eclipse.jst.j2ee.componentcore.util.EARVirtualComponent.getReferences(EARVirtualComponent.java:216)
+	at org.eclipse.jst.j2ee.project.EarUtilities.getComponentReferencesAsList(EarUtilities.java:195)
+	at org.eclipse.jst.j2ee.project.EarUtilities.getComponentReferencesAsList(EarUtilities.java:178)
+	at org.eclipse.jst.j2ee.project.EarUtilities.getComponentReferences(EarUtilities.java:171)
+	at org.eclipse.jst.j2ee.project.EarUtilities.getComponentReferences(EarUtilities.java:138)
+	at org.eclipse.jst.j2ee.internal.project.J2EEProjectUtilities.getComponentReferences(J2EEProjectUtilities.java:1009)
+	at org.eclipse.jst.j2ee.internal.common.classpath.J2EEComponentClasspathUpdater$ModuleUpdateJob.processEars(J2EEComponentClasspathUpdater.java:350)
+	at org.eclipse.jst.j2ee.internal.common.classpath.J2EEComponentClasspathUpdater$ModuleUpdateJob.access$2(J2EEComponentClasspathUpdater.java:343)
+	at org.eclipse.jst.j2ee.internal.common.classpath.J2EEComponentClasspathUpdater$ModuleUpdateJob$1.run(J2EEComponentClasspathUpdater.java:400)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jst.j2ee.internal.common.classpath.J2EEComponentClasspathUpdater$ModuleUpdateJob.run(J2EEComponentClasspathUpdater.java:391)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+
+!ENTRY org.eclipse.jst.j2ee 4 0 2014-11-14 14:40:18.967
+!MESSAGE 
+!STACK 0
+java.util.ConcurrentModificationException
+	at org.eclipse.emf.common.util.AbstractEList$EIterator.checkModCount(AbstractEList.java:758)
+	at org.eclipse.emf.common.util.AbstractEList$EIterator.doNext(AbstractEList.java:706)
+	at org.eclipse.emf.common.util.AbstractEList$EIterator.next(AbstractEList.java:692)
+	at org.eclipse.wst.common.componentcore.internal.resources.VirtualComponent.getReferences(VirtualComponent.java:436)
+	at org.eclipse.jst.j2ee.componentcore.util.EARVirtualComponent.getHardReferences(EARVirtualComponent.java:89)
+	at org.eclipse.jst.j2ee.componentcore.util.EARVirtualComponent.getReferences(EARVirtualComponent.java:192)
+	at org.eclipse.jst.j2ee.componentcore.util.EARVirtualComponent.getReferences(EARVirtualComponent.java:216)
+	at org.eclipse.jst.j2ee.project.EarUtilities.getComponentReferencesAsList(EarUtilities.java:195)
+	at org.eclipse.jst.j2ee.project.EarUtilities.getComponentReferencesAsList(EarUtilities.java:178)
+	at org.eclipse.jst.j2ee.project.EarUtilities.getComponentReferences(EarUtilities.java:171)
+	at org.eclipse.jst.j2ee.project.EarUtilities.getComponentReferences(EarUtilities.java:138)
+	at org.eclipse.jst.j2ee.internal.project.J2EEProjectUtilities.getComponentReferences(J2EEProjectUtilities.java:1009)
+	at org.eclipse.jst.j2ee.internal.common.classpath.J2EEComponentClasspathUpdater$ModuleUpdateJob.processEars(J2EEComponentClasspathUpdater.java:350)
+	at org.eclipse.jst.j2ee.internal.common.classpath.J2EEComponentClasspathUpdater$ModuleUpdateJob.access$2(J2EEComponentClasspathUpdater.java:343)
+	at org.eclipse.jst.j2ee.internal.common.classpath.J2EEComponentClasspathUpdater$ModuleUpdateJob$1.run(J2EEComponentClasspathUpdater.java:400)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jst.j2ee.internal.common.classpath.J2EEComponentClasspathUpdater$ModuleUpdateJob.run(J2EEComponentClasspathUpdater.java:391)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+
+!ENTRY org.eclipse.ui 4 0 2014-11-14 14:46:58.722
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.IllegalArgumentException: Comparison method violates its general contract!
+	at java.util.TimSort.mergeHi(Unknown Source)
+	at java.util.TimSort.mergeAt(Unknown Source)
+	at java.util.TimSort.mergeForceCollapse(Unknown Source)
+	at java.util.TimSort.sort(Unknown Source)
+	at java.util.Arrays.sort(Unknown Source)
+	at org.eclipse.jface.viewers.TreePathViewerSorter.sort(TreePathViewerSorter.java:103)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.getSortedChildren(AbstractTreeViewer.java:639)
+	at org.eclipse.jface.viewers.AbstractTreeViewer$1.run(AbstractTreeViewer.java:818)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.createChildren(AbstractTreeViewer.java:797)
+	at org.eclipse.jface.viewers.TreeViewer.createChildren(TreeViewer.java:644)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.createChildren(AbstractTreeViewer.java:768)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.handleTreeExpand(AbstractTreeViewer.java:1500)
+	at org.eclipse.jface.viewers.TreeViewer.handleTreeExpand(TreeViewer.java:952)
+	at org.eclipse.jface.viewers.AbstractTreeViewer$4.treeExpanded(AbstractTreeViewer.java:1511)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:132)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1057)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1081)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1066)
+	at org.eclipse.swt.widgets.Tree.wmNotifyChild(Tree.java:7612)
+	at org.eclipse.swt.widgets.Control.wmNotify(Control.java:5617)
+	at org.eclipse.swt.widgets.Composite.wmNotify(Composite.java:1935)
+	at org.eclipse.swt.widgets.Control.WM_NOTIFY(Control.java:5169)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4667)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4977)
+	at org.eclipse.swt.internal.win32.OS.CallWindowProcW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.CallWindowProc(OS.java:2443)
+	at org.eclipse.swt.widgets.Tree.callWindowProc(Tree.java:1534)
+	at org.eclipse.swt.widgets.Tree.WM_LBUTTONDOWN(Tree.java:6482)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4647)
+	at org.eclipse.swt.widgets.Tree.windowProc(Tree.java:6005)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4977)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessageW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessage(OS.java:2549)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3757)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$9.run(PartRenderingEngine.java:1113)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:997)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:140)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:611)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:567)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:124)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:354)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:181)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:636)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:591)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1450)
+!SESSION 2014-11-14 14:47:05.095 -----------------------------------------------
+eclipse.buildId=4.3.2.M20140221-1700
+java.version=1.8.0_25
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.ui 2 0 2014-11-14 14:47:19.855
+!MESSAGE Warnings while parsing the commands from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.actionDefinitions' extension points.
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:47:19.855
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.createJunosSpaceProject', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:47:19.855
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.addWebSvcSpaceProject', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:47:19.855
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.addWebSpaceProject', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:47:19.855
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.addEJBSpaceProject', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:47:19.855
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.addUtilityProject', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:47:19.855
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.JavaScriptImport', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:47:19.855
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.deleteJSApplication', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:47:19.856
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.JSOpenJunosAppInfoEditor', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:47:19.856
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.JSOpenJunosEditor', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:47:19.856
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.JSCreateEditSettingsXSD', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:47:19.856
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.JSOpenJunosLogger', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:47:19.856
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.JSOpenJsvaProfile', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:47:19.856
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.JSOpenJunosDmiSimulatorStatus', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:47:19.856
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.buildJSApplication', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:47:19.856
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.deployJunosSpaceApplication', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:47:19.856
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.packageJunosSpaceImage', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:47:19.856
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.uninstallJunosSpaceImageMenu', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:47:19.856
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.createJunosSpaceApplicationImage1', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:47:19.856
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.createJunosSpaceApplicationImage', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:47:19.856
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.generateDatabaseMigrationScript', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:47:19.856
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.upgradeToCompleteApplication', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:47:19.856
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.manageCertificate', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:47:19.856
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.manageRestInterfaceMenu', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:47:19.856
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.newManageRestInterfaceMenu', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:47:19.856
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.exploreRestServicesMenu', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:47:19.856
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.sdkMigrationApplication', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:47:19.856
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.generatecountry', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:47:19.856
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.generateRestDocumentation', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:47:19.856
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.exportRestDocumentation', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:47:19.856
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.exportRestDocumentationAsPLugin', categoryId='jspace.sdk.plugin.project.commands.category'
+
+!ENTRY org.eclipse.ui 2 0 2014-11-14 14:47:20.396
+!MESSAGE Warnings while parsing the commands from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.actionDefinitions' extension points.
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:47:20.396
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.createJunosSpaceProject', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:47:20.396
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.addWebSvcSpaceProject', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:47:20.396
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.addWebSpaceProject', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:47:20.396
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.addEJBSpaceProject', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:47:20.396
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.addUtilityProject', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:47:20.396
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.JavaScriptImport', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:47:20.397
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.deleteJSApplication', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:47:20.397
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.JSOpenJunosAppInfoEditor', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:47:20.397
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.JSOpenJunosEditor', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:47:20.397
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.JSCreateEditSettingsXSD', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:47:20.397
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.JSOpenJunosLogger', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:47:20.397
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.JSOpenJsvaProfile', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:47:20.397
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.JSOpenJunosDmiSimulatorStatus', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:47:20.397
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.buildJSApplication', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:47:20.397
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.deployJunosSpaceApplication', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:47:20.397
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.packageJunosSpaceImage', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:47:20.397
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.uninstallJunosSpaceImageMenu', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:47:20.397
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.createJunosSpaceApplicationImage1', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:47:20.397
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.createJunosSpaceApplicationImage', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:47:20.397
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.generateDatabaseMigrationScript', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:47:20.397
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.upgradeToCompleteApplication', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:47:20.397
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.manageCertificate', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:47:20.397
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.manageRestInterfaceMenu', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:47:20.397
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.newManageRestInterfaceMenu', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:47:20.397
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.exploreRestServicesMenu', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:47:20.397
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.sdkMigrationApplication', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:47:20.397
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.generatecountry', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:47:20.397
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.generateRestDocumentation', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:47:20.397
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.exportRestDocumentation', categoryId='jspace.sdk.plugin.project.commands.category'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-14 14:47:20.397
+!MESSAGE Commands should really have a category: plug-in='JunosSpaceSdkPlugin', id='jspace.sdk.plugin.project.commands.exportRestDocumentationAsPLugin', categoryId='jspace.sdk.plugin.project.commands.category'
+
+!ENTRY org.eclipse.osgi 2 1 2014-11-14 14:47:22.266
+!MESSAGE NLS unused message: missingOneOfTwoAttributes in: org.eclipse.wst.common.project.facet.core.internal.FacetedProjectFrameworkImpl
+
+!ENTRY org.eclipse.osgi 2 1 2014-11-14 14:47:22.270
+!MESSAGE NLS unused message: categoryNotDefined in: org.eclipse.wst.common.project.facet.core.internal.FacetedProjectFrameworkImpl
+
+!ENTRY org.eclipse.osgi 2 1 2014-11-14 14:47:22.274
+!MESSAGE NLS unused message: actionNotDefined in: org.eclipse.wst.common.project.facet.core.internal.FacetedProjectFrameworkImpl
+
+!ENTRY org.eclipse.osgi 2 1 2014-11-14 14:47:22.278
+!MESSAGE NLS unused message: actionAlreadyDefined in: org.eclipse.wst.common.project.facet.core.internal.FacetedProjectFrameworkImpl
+
+!ENTRY org.eclipse.osgi 2 1 2014-11-14 14:47:22.282
+!MESSAGE NLS unused message: presetNotDefined in: org.eclipse.wst.common.project.facet.core.internal.FacetedProjectFrameworkImpl
+
+!ENTRY org.eclipse.osgi 2 1 2014-11-14 14:47:22.285
+!MESSAGE NLS unused message: templateNotDefined in: org.eclipse.wst.common.project.facet.core.internal.FacetedProjectFrameworkImpl
+
+!ENTRY org.eclipse.osgi 2 1 2014-11-14 14:47:22.289
+!MESSAGE NLS unused message: invalidActionType in: org.eclipse.wst.common.project.facet.core.internal.FacetedProjectFrameworkImpl
+
+!ENTRY org.eclipse.osgi 2 1 2014-11-14 14:47:22.292
+!MESSAGE NLS unused message: invalidEventHandlerType in: org.eclipse.wst.common.project.facet.core.internal.FacetedProjectFrameworkImpl
+
+!ENTRY org.eclipse.osgi 2 1 2014-11-14 14:47:22.296
+!MESSAGE NLS unused message: invalidRequiresConstraint in: org.eclipse.wst.common.project.facet.core.internal.FacetedProjectFrameworkImpl
+
+!ENTRY org.eclipse.osgi 2 1 2014-11-14 14:47:22.300
+!MESSAGE NLS unused message: invalidConflictsConstraint in: org.eclipse.wst.common.project.facet.core.internal.FacetedProjectFrameworkImpl
+
+!ENTRY org.eclipse.osgi 2 1 2014-11-14 14:47:22.303
+!MESSAGE NLS unused message: deprecatedRuntimeChangedAction in: org.eclipse.wst.common.project.facet.core.internal.FacetedProjectFrameworkImpl
+
+!ENTRY org.eclipse.osgi 2 1 2014-11-14 14:47:22.307
+!MESSAGE NLS unused message: tracingActionSorting in: org.eclipse.wst.common.project.facet.core.internal.FacetedProjectFrameworkImpl
+
+!ENTRY org.eclipse.osgi 2 1 2014-11-14 14:47:22.311
+!MESSAGE NLS unused message: tracingFrameworkActivationStarting in: org.eclipse.wst.common.project.facet.core.internal.FacetedProjectFrameworkImpl
+
+!ENTRY org.eclipse.osgi 2 1 2014-11-14 14:47:22.314
+!MESSAGE NLS unused message: tracingFrameworkActivationFinished in: org.eclipse.wst.common.project.facet.core.internal.FacetedProjectFrameworkImpl
+
+!ENTRY org.eclipse.osgi 2 1 2014-11-14 14:47:22.318
+!MESSAGE NLS missing message: problemCaseNotRecognized in: org.eclipse.wst.common.project.facet.core.internal.FacetedProjectFrameworkImpl
+
+!ENTRY org.eclipse.osgi 2 1 2014-11-14 14:47:22.323
+!MESSAGE NLS missing message: runtimeComponentTypeNotDefined in: org.eclipse.wst.common.project.facet.core.internal.FacetedProjectFrameworkImpl
+
+!ENTRY org.eclipse.wst.common.project.facet.core 4 0 2014-11-14 14:47:22.326
+!MESSAGE Project facet jst.java has not been defined. It is used in plugin org.eclipse.jst.j2ee.web.
+
+!ENTRY org.eclipse.wst.common.project.facet.core 4 0 2014-11-14 14:47:22.330
+!MESSAGE Project facet jst.java has not been defined. It is used in plugin org.eclipse.jst.j2ee.jca.
+
+!ENTRY org.eclipse.wst.common.project.facet.core 4 0 2014-11-14 14:47:22.332
+!MESSAGE Project facet jst.java has not been defined. It is used in plugin org.eclipse.jst.j2ee.
+
+!ENTRY org.eclipse.wst.common.project.facet.core 4 0 2014-11-14 14:47:22.337
+!MESSAGE Project facet jst.java has not been defined. It is used in plugin org.eclipse.jst.ws.jaxrs.core.
+
+!ENTRY org.eclipse.wst.common.project.facet.core 4 0 2014-11-14 14:47:22.340
+!MESSAGE Project facet jst.java has not been defined. It is used in plugin org.eclipse.jst.j2ee.ejb.
+
+!ENTRY org.eclipse.wst.common.project.facet.core 4 0 2014-11-14 14:47:22.344
+!MESSAGE Project facet jst.java has not been defined. It is used in plugin org.eclipse.jst.ws.cxf.core.
+
+!ENTRY org.eclipse.wst.common.project.facet.core 4 0 2014-11-14 14:47:22.357
+!MESSAGE Class "org.eclipse.jst.common.project.facet.core.internal.JavaFacetDefaultVersionProvider" does not implement "java.lang.Class" interface.
+
+!ENTRY org.eclipse.wst.common.project.facet.core 4 0 2014-11-14 14:47:22.363
+!MESSAGE Class "org.eclipse.jst.ws.jaxrs.core.internal.project.facet.JAXRSFacetDefaultVersionProvider" does not implement "java.lang.Class" interface.
+
+!ENTRY com.perforce.team.core 2 0 2014-11-14 14:47:25.687
+!MESSAGE unable to get manifest version attribute: Not running from jar file: bundleresource://873.fwk1112280004:1/com/perforce/p4java/Metadata.class
+
+!ENTRY com.perforce.team.core 2 0 2014-11-14 14:47:25.696
+!MESSAGE unable to get manifest date attribute: Not running from jar file: bundleresource://873.fwk1112280004:1/com/perforce/p4java/Metadata.class
+
+!ENTRY com.perforce.team.core 1 0 2014-11-14 14:47:25.702
+!MESSAGE P4Java server factory loaded; version: Internal 2010.1 Perforce Development; date: unknown
+
+!ENTRY com.perforce.team.core 1 0 2014-11-14 14:47:25.708
+!MESSAGE Using default charset: windows-1252; JVM charset: windows-1252
+
+!ENTRY com.perforce.team.core 1 0 2014-11-14 14:47:25.723
+!MESSAGE Checking this Java for symbolic link support...
+
+!ENTRY com.perforce.team.core 1 0 2014-11-14 14:47:25.739
+!MESSAGE It seems this Java supports symbolic links.
+
+!ENTRY com.perforce.team.core 1 0 2014-11-14 14:47:25.743
+!MESSAGE Symbolic link support at the OS level will be determined at runtime...
+
+!ENTRY com.perforce.team.core 1 0 2014-11-14 14:47:25.747
+!MESSAGE initializing system file command helper class: java.io.File
+
+!ENTRY com.perforce.team.core 1 0 2014-11-14 14:47:25.750
+!MESSAGE Using default RPC system file command helper: com.perforce.p4java.impl.mapbased.rpc.sys.helper.RpcSystemFileCommandsHelper
+
+!ENTRY com.perforce.team.core 1 0 2014-11-14 14:47:25.754
+!MESSAGE setting RPC system file helper to class com.perforce.team.core.p4java.P4JavaSysFileCommandsHelper
+
+!ENTRY org.eclipse.egit.ui 2 0 2014-11-14 14:47:30.325
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Zack'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.

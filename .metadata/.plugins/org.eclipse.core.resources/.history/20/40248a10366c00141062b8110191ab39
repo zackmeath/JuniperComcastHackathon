@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="SwagDTU">
+    	<wb-resource deploy-path="/META-INF" source-path="/EarContent/META-INF"/>
+        <wb-resource deploy-path="/lib" source-path="/EarContent/lib/3rdParty/3rdParty-BouncyCastle"/>
+        <wb-resource deploy-path="/lib" source-path="/EarContent/lib/3rdParty/3rdParty-apache-commons-compress"/>
+        <wb-resource deploy-path="/lib" source-path="/EarContent/lib/3rdParty/3rdParty-apache-commons-net"/>
+        <wb-resource deploy-path="/lib" source-path="/EarContent/lib/3rdParty/3rdParty-apache-jrcs"/>
+        <wb-resource deploy-path="/lib" source-path="/EarContent/lib/3rdParty/3rdParty-ezmorph"/>
+        <wb-resource deploy-path="/lib" source-path="/EarContent/lib/3rdParty/3rdParty-javacup"/>
+        <wb-resource deploy-path="/lib" source-path="/EarContent/lib/3rdParty/3rdParty-jaxb"/>
+        <wb-resource deploy-path="/lib" source-path="/EarContent/lib/3rdParty/3rdParty-jersey"/>
+        <wb-resource deploy-path="/lib" source-path="/EarContent/lib/3rdParty/3rdParty-junit"/>
+        <wb-resource deploy-path="/lib" source-path="/EarContent/lib/junos-space"/>
+        <wb-resource deploy-path="/lib" source-path="/EarContent/lib/3rdParty/3rdParty-adventnet"/>
+        <wb-resource deploy-path="/lib" source-path="/EarContent/lib/3rdParty/3rdParty-tacacs-plus"/>
+         <dependent-module archiveName="system.sar" deploy-path="/" handle="module:/resource/system.sar/system.sar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jboss-common-client.jar" deploy-path="/lib" handle="module:/classpath/lib/SwagDTU/EarContent/lib/3rdParty/jboss-common-client.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="SwagDTUEJB.jar" deploy-path="/" handle="module:/resource/SwagDTUEJB/SwagDTUEJB">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+    </wb-module>
+    
+    
+</project-modules>
