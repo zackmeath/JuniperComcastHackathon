@@ -37,10 +37,10 @@ public class Link {
 	private Device deviceB;
 	
 	public Link(PTP pa, Device a, PTP pb, Device b) {
-		this.deviceA = a;
-		this.deviceB = b;
 		this.ptpA = pa;
+		this.deviceA = a;
 		this.ptpB = pb; // & J!
+		this.deviceB = b;
 	}
 	
 //getters and setters

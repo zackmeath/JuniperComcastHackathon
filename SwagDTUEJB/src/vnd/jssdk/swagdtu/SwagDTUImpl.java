@@ -150,16 +150,15 @@ public class SwagDTUImpl  implements SwagDTU, SwagDTULocal {
 	public PagingResult<Link> getAllLinks(ApiContext apiCtx,
 			PagingContext pagingCtx) throws PreconditionFailedException {
 		PagingResult<Link> result = new PagingResult<Link>();
-		ArrayList<Link> list = new ArrayList<Link>();
-		//Logic to compare all of the ptps to eachother:
-		PTP ptpa = null;
-		PTP ptpb = null;
-		//Array
+		result.setPagingContext(pagingCtx);
+		//ArrayList<Link> list = new ArrayList<Link>();
+		//Logic to compare all of the ptps to each other:
 		for (int i = 0; i < ptpCollection.size(); i += 2) {
 			PTP ii = ptpCollection.get(i);
 			for (int j = i; j < ptpCollection.size(); j++) {
-				if (ptpMatch(apiCtx, ii, ptpCollection.get(j))){
-					result.add(new Link(ii, getDevice(apiCtx, ii.getDeviceID()), ptpCollection.get(j), getDevice(apiCtx, ptpCollection.get(j).getDeviceID())));
+				PTP jj = ptpCollection.get(j);
+				if (ptpMatch(apiCtx, ii, jj)){
+					result.add(new Link(ii, getDevice(apiCtx, ii.getDeviceID()), jj, getDevice(apiCtx, jj.getDeviceID())));
 					swapArrayPosPTP(ptpCollection, (i + 1), j);
 					break;
 				} else {
@@ -167,11 +166,6 @@ public class SwagDTUImpl  implements SwagDTU, SwagDTULocal {
 				}
 			}
 		}
-				
-		//when a match is found
-		//end match found
-		
-		result = (PagingResult<Link>) list;
 		//after all matches are found
 		//get it into json and stuff and things
 		return result;
