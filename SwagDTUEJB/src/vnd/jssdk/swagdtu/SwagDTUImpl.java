@@ -19,12 +19,24 @@ import java.util.Random;
 import javax.ejb.Local;
 import javax.ejb.Remote;
 import javax.ejb.Stateless;
+import javax.ejb.TransactionAttribute;
+import javax.ejb.TransactionAttributeType;
 import javax.ws.rs.core.Response;
 
 import net.juniper.jmp.ApiContext;
 import net.juniper.jmp.PagingContext;
 import net.juniper.jmp.PagingResult;
+import net.juniper.jmp.ScheduleContext;
+import net.juniper.jmp.annotation.scheduler.JobData;
+import net.juniper.jmp.annotation.scheduler.Schedulable;
+import net.juniper.jmp.cmp.cursor.InternalPagingContext;
+import net.juniper.jmp.cmp.jobManager.InternalScheduleContext;
+import net.juniper.jmp.cmp.jobManager.JobInfoTO;
+import net.juniper.jmp.cmp.jobManager.JobManager;
+import net.juniper.jmp.cmp.jobManager.JobStatus;
+import net.juniper.jmp.cmp.jobManager.JobWorker;
 import net.juniper.jmp.cmp.serviceApiCommon.InternalApiContext;
+import net.juniper.jmp.cmp.system.JxServiceLocator;
 import net.juniper.jmp.exception.ForbiddenException;
 import net.juniper.jmp.exception.PreconditionFailedException;
 import net.juniper.jmp.security.JSRestClient2;
@@ -42,14 +54,28 @@ import org.jboss.vfs.VirtualFile;
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 import vnd.AppConstants;
 
 //lold
 @Stateless(name = "SwagDTU")
 @Remote(SwagDTU.class)
 @Local(SwagDTULocal.class)
-public class SwagDTUImpl  implements SwagDTU, SwagDTULocal { 
+public class SwagDTUImpl extends JobWorker implements SwagDTU, SwagDTULocal { 
 	static Random random = new Random();
+	private static JobManager jobMgr = JxServiceLocator
+			.lookup("cmp.JobManagerEJB");
 	private static final String NO_DEVICE = "No Device found in database";
 	private static final String NO_PTP ="No Ptp found in database";
 	private static final String ERROR_DATA = "Could not obtain the device details";
@@ -59,8 +85,10 @@ public class SwagDTUImpl  implements SwagDTU, SwagDTULocal {
 	private static final String DEVICE_COUNT = "Count devices.@size:";
 	private static final String PTP_COUNT = "Count ptps.@size";
 	private static final String NO_RESPONSE = "Unable to get response";
-	private PagingResult<Device> deviceCollection = null;
-	private PagingResult<PTP> ptpCollection=null;
+	private static PagingResult<Device> deviceCollection = null;
+	private static PagingResult<Device> deviceListGettable=null;
+	private PagingResult<PTP> ptpCollection= null;
+	private static PagingResult<PTP> ptpListGettable= null;
 	private String JSON_STRING_DATA = "Could not obtain the json string for key: ";
 	private String JSON_INT_DATA = "Could not obtain the json int for key: ";
 	private String DEVICES_URL = AppConstants.SPACE_URL_PREFIX + "/device-management/devices";
@@ -69,6 +97,8 @@ public class SwagDTUImpl  implements SwagDTU, SwagDTULocal {
 	private String JSON_DEVICE = AppConstants.SPACE_DATATYPE_PREFIX + ".device-management.device+json;version=1";
 	private String JSON_PTPS = AppConstants.SPACE_DATATYPE_PREFIX+".managed-domain.ptps+json;version=1";
 	private String JSON_PTP=AppConstants.SPACE_DATATYPE_PREFIX+".managed-domain.ptp+json;version=1";
+	private String ptpQueueURL="/api/hornet-q/queues/jms.queue.ptpQueue";
+	private String linkQueueURL="/api/hornet-q/queues/jms.queue.linkQueue";
 	private JSRestClient2 client;
 	/**
 	 * Instance Logger to log messages
@@ -85,6 +115,69 @@ public class SwagDTUImpl  implements SwagDTU, SwagDTULocal {
 	 * @throws ForbiddenException
 	 */
 	
+	/**
+	 * This method schedules a LRR job to get list of all Ptps, to be run
+	 * @return JobInfoTO reference to JobInfoTo
+	 */
+	@JobData(
+			name = "Refresh Topology", iconFileName = "/tmp/mx960.png"
+			)
+	@Schedulable
+	@TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
+	public JobInfoTO refreshTopology(ApiContext apiCtx, ScheduleContext scheduleCtx) throws Exception{
+		 int jobInstanceId=-1;
+		 InternalScheduleContext iSctx=null;
+		 
+		if (scheduleCtx != null) {
+             iSctx = (InternalScheduleContext) scheduleCtx;
+             jobInstanceId = iSctx.getJobInstanceId();
+     } else {
+             logger.error("ScheduleContext is null");
+             return null;
+     }
+		JobInfoTO jobinfo = new JobInfoTO();
+		jobinfo.setId(jobInstanceId);
+		jobinfo.setPercentComplete(10);
+		jobinfo.setDetails("Getting Devices");
+		PagingResult<Device> deviceObject = getAllDevices(apiCtx,new InternalPagingContext());
+		logger.info("Got Devices succesfully!"+this.toString());
+		if (deviceObject!=null){
+			logger.info("got all devices");
+			SwagDTUImpl.deviceListGettable=deviceObject;
+		}else{
+			logger.error("Failed to retrieve the data.");
+			jobMgr.setJobInstanceResult(jobInstanceId,"Long running request failed",JobStatus.FAILURE,null);
+		}
+		
+		
+		jobinfo.setDetails("Getting Ptps");
+		PagingResult<PTP> ptpObject = getAllPtps(apiCtx, new InternalPagingContext());
+		logger.info("Got the ptps succesfully!"+this.toString());			
+		if(ptpObject!= null){
+			logger.info("Got ptps completely");
+			SwagDTUImpl.ptpListGettable=ptpObject;			
+		//Now this should create the array of links
+		}else{
+			logger.error("Failed to retrieve the data.");
+			jobMgr.setJobInstanceResult(jobInstanceId,"Long running request failed",JobStatus.FAILURE,null);
+		}
+		
+		jobinfo.setDetails("generating links");
+		jobMgr.setJobInstanceResult(jobInstanceId,ptpObject,JobStatus.SUCCESS);
+		return jobinfo;
+	}
+	
+	public PagingResult<Device> getCurrentDeviceList(){
+		return SwagDTUImpl.deviceListGettable;
+	}
+	
+	//test: see if the collection list stays persistant
+	public PagingResult<PTP> getCurrentPtpList(){
+		return SwagDTUImpl.ptpListGettable;
+	}
+	/**
+	 * Gets all ptps from the apis
+	 */
 	public PagingResult<PTP> getAllPtps(ApiContext apiCtx, 
 		PagingContext pagingCtx) throws PreconditionFailedException,ForbiddenException{
 		
@@ -129,6 +222,7 @@ public class SwagDTUImpl  implements SwagDTU, SwagDTULocal {
 		return result;
 			
 	}
+	
 	
 	/**
 	 * Description: This method set up HTTP Client and calls JUNOS SPACE API and
@@ -322,6 +416,8 @@ public class SwagDTUImpl  implements SwagDTU, SwagDTULocal {
 	}
 	
 	
+	
+	
 	/**
 	 * This method converts the response into JSON Object and returns collection of PTPs
 	 */
@@ -408,9 +504,9 @@ public class SwagDTUImpl  implements SwagDTU, SwagDTULocal {
 								ptp.setMtu(getInt(jsonPtp,"mtu"));
 								ptp.setMtuStr(getString(jsonPtp,"mtuStr"));
 								ptp.setMtuStr(getString(jsonPtp,"hardwarePhysicalAddress"));								
-							}
-							//setLocation(device);
+							}							
 							ptpCollection.add(ptp);
+						
 						}
 					}
 				}

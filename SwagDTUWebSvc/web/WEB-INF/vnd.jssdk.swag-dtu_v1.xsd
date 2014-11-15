@@ -6,7 +6,23 @@
     <xs:complexContent>
       <xs:extension base="webSvcAbstract">
         <xs:sequence>
-			<xs:element name="images" type="hateoasMethodObject" minOccurs="1" maxOccurs="1">
+			<xs:element name="ptps" type="hateoasMethodObject" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+                	<xs:appinfo>
+                		<collection/>
+						<read-only/>
+                	</xs:appinfo>
+    			</xs:annotation>
+            </xs:element>
+			<xs:element name="current-ptp-lists" type="hateoasMethodObject" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+                	<xs:appinfo>
+                		<collection/>
+						<read-only/>
+                	</xs:appinfo>
+    			</xs:annotation>
+            </xs:element>
+			<xs:element name="refresh-topology" type="hateoasMethodObject" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
                 	<xs:appinfo>
                 		<method/>
@@ -14,7 +30,7 @@
                 	</xs:appinfo>
     			</xs:annotation>
             </xs:element>
-			<xs:element name="ptps" type="hateoasMethodObject" minOccurs="1" maxOccurs="1">
+			<xs:element name="current-device-lists" type="hateoasMethodObject" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
                 	<xs:appinfo>
                 		<collection/>

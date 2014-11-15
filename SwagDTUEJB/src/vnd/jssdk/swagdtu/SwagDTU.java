@@ -11,11 +11,15 @@ package vnd.jssdk.swagdtu;
 import net.juniper.jmp.ApiContext;
 import net.juniper.jmp.PagingContext;
 import net.juniper.jmp.PagingResult;
+import net.juniper.jmp.ScheduleContext;
+import net.juniper.jmp.annotation.scheduler.Schedulable;
+import net.juniper.jmp.cmp.jobManager.JobInfoTO;
+import net.juniper.jmp.cmp.jobManager.JobManagerCallerInterface3;
 import net.juniper.jmp.exception.ForbiddenException;
 import net.juniper.jmp.exception.PreconditionFailedException;
 
  
-public interface SwagDTU  { 
+public interface SwagDTU extends JobManagerCallerInterface3 { 
 	/**
 	 * Returns list of devices listing their ID ,IP and Name
 	 * 
@@ -74,5 +78,20 @@ public interface SwagDTU  {
 	 * @param fileName	- image file, or platform name
 	 */
 	public void addImage(byte[] imageFileBytes, String imageFile) throws Exception;
-	 
-}  
+	
+	/*
+	 * When called will run the method for getting all ptps in background 
+	 */
+	@Schedulable
+	public JobInfoTO refreshTopology(ApiContext apiCtx,ScheduleContext scheduleCtx)throws Exception;
+	
+	/**
+	 * return current list of Ptps
+	 */
+	public PagingResult<PTP> getCurrentPtpList();
+	
+	/**
+	 * return current list of devices
+	 */
+	public PagingResult<Device> getCurrentDeviceList();
+}   
