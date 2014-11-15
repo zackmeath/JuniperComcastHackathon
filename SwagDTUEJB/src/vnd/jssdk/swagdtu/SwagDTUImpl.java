@@ -74,8 +74,8 @@ public class SwagDTUImpl extends JobWorker implements SwagDTU, SwagDTULocal {
 	private static final String NO_RESPONSE = "Unable to get response";
 	private PagingResult<Device> deviceCollection = null;
 	private PagingResult<PTP> ptpCollection = null;
+	private static PagingResult<Link> linkListGettable=null;
 	private static PagingResult<Device> deviceListGettable=null;
-	private PagingResult<PTP> ptpCollection= null;
 	private static PagingResult<PTP> ptpListGettable= null;
 	private String JSON_STRING_DATA = "Could not obtain the json string for key: ";
 	private String JSON_INT_DATA = "Could not obtain the json int for key: ";
@@ -137,16 +137,29 @@ public class SwagDTUImpl extends JobWorker implements SwagDTU, SwagDTULocal {
 			jobMgr.setJobInstanceResult(jobInstanceId,"Long running request failed",JobStatus.FAILURE,null);
 		}
 		
-		
+		jobinfo.setPercentComplete(40);
 		jobinfo.setDetails("Getting Ptps");
 		PagingResult<PTP> ptpObject = getAllPtps(apiCtx, new InternalPagingContext());
 		logger.info("Got the ptps succesfully!"+this.toString());			
 		if(ptpObject!= null){
 			logger.info("Got ptps completely");
 			SwagDTUImpl.ptpListGettable=ptpObject;			
-		//Now this should create the array of links
 		}else{
-			logger.error("Failed to retrieve the data.");
+			logger.error("Failed to retrieve ptps.");
+			jobMgr.setJobInstanceResult(jobInstanceId,"Long running request failed",JobStatus.FAILURE,null);
+		}
+		//Now this should create the array of links
+		jobinfo.setPercentComplete(70);
+		
+		jobinfo.setDetails("Getting Links");
+		PagingResult<Link> linkObject = getAllLinks(apiCtx, new InternalPagingContext());
+		logger.info("got links?");
+		jobinfo.setPercentComplete(100);
+		if(linkObject!=null){
+			logger.info("Got Links completely");
+			SwagDTUImpl.linkListGettable=linkObject;
+		}else{
+			logger.error("Failed to retrieve links.");
 			jobMgr.setJobInstanceResult(jobInstanceId,"Long running request failed",JobStatus.FAILURE,null);
 		}
 		
