@@ -121,7 +121,7 @@ public class SwagDTUImpl  implements SwagDTU, SwagDTULocal {
 			} else if (status == Response.Status.UNAUTHORIZED.getStatusCode()) {
 				throw new ForbiddenException(response.getStatusLine().getReasonPhrase());		// Since client had access to run this API, we should never hit this.
 			} else if (status == Response.Status.OK.getStatusCode()) {
-				result = getJSONPtpObject(response, pagingCtx);
+				result = getJSONPtpObject(response, pagingCtx,apiCtx);
 			} else {
 				throw new PreconditionFailedException(response.getStatusLine().getReasonPhrase());
 			}
@@ -325,7 +325,7 @@ public class SwagDTUImpl  implements SwagDTU, SwagDTULocal {
 	/**
 	 * This method converts the response into JSON Object and returns collection of PTPs
 	 */
-	private PagingResult<PTP> getJSONPtpObject(HttpResponse response,PagingContext ctx){
+	private PagingResult<PTP> getJSONPtpObject(HttpResponse response,PagingContext ctx,ApiContext apic){
 		ptpCollection = new PagingResult<PTP>();
 		ptpCollection.setPagingContext(ctx);
 		String responseJson = getEntity(response);
@@ -363,31 +363,13 @@ public class SwagDTUImpl  implements SwagDTU, SwagDTULocal {
 					if (array != null) {
 						ctx.setTotalRecords(ptpCount);
 						for (int i = 0; i < array.length(); i++) {
+							//NEW
+							//Populates the ptp collection with the complete details of every PTP							
 							JSONObject jsonPtp = array.getJSONObject(i);
-							String uri = getString(jsonPtp, "@uri");
 							PTP ptp = new PTP();
-							// Set queried Device data
-							ptp.setName(getString(jsonPtp, "name"));
-							ptp.setID(getInt(jsonPtp, "id"));
-							ptp.setDescription(getString(jsonPtp, "description"));
-							ptp.setDeviceID(getInt(jsonPtp,"deviceId"));
-							ptp.setLoopbackEnabled(getString(jsonPtp,"looback"));
-							ptp.setEncapsulation(getString(jsonPtp,"encapsulation"));
-							//ptp.setTagging(getString(jsonPtp,"tagging"));
-							ptp.setAdminStatus(getString(jsonPtp,"adminStatus"));
-							ptp.setOperationStatus(getString(jsonPtp,"operationStatus"));
-							ptp.setLinkLevelType(getString(jsonPtp,"linkLevelType"));
-							ptp.setLinkType(getString(jsonPtp,"linkType"));
-							ptp.setSpeed(getInt(jsonPtp,"speed"));
-							ptp.setSpeedStr(getString(jsonPtp,"speedStr"));
-							ptp.setMtu(getInt(jsonPtp,"mtu"));
-							ptp.setMtuStr(getString(jsonPtp,"mtuStr"));
-							ptp.setMtuStr(getString(jsonPtp,"hardwarePhysicalAddress"));
-							
-
-							
-
-							// Handle if device URI is in response.
+							String uri = getString(jsonPtp, "@uri");			
+													
+							// IF device uri is in response, get all possible attributes from the ptp
 							if (uri != null) {
 								response = get(uri, JSON_PTP);
 								int status = response.getStatusLine()
@@ -404,7 +386,28 @@ public class SwagDTUImpl  implements SwagDTU, SwagDTULocal {
 									JSONObject ptpObj = (JSONObject) jsonObj
 											.get("ptp");
 									ptp.setID(getInt(ptpObj, "id"));
+									//new
+									ptp=getPtp(apic,ptp.getID());
 								}
+							//if the uri isn't in the response, just get what we can	
+							}else{
+								// Set queried Device data
+								ptp.setName(getString(jsonPtp, "name"));
+								ptp.setID(getInt(jsonPtp, "id"));
+								ptp.setDescription(getString(jsonPtp, "description"));
+								ptp.setDeviceID(getInt(jsonPtp,"deviceId"));
+								ptp.setLoopbackEnabled(getString(jsonPtp,"looback"));
+								ptp.setEncapsulation(getString(jsonPtp,"encapsulation"));
+								//ptp.setTagging(getString(jsonPtp,"tagging"));
+								ptp.setAdminStatus(getString(jsonPtp,"adminStatus"));
+								ptp.setOperationStatus(getString(jsonPtp,"operationStatus"));
+								ptp.setLinkLevelType(getString(jsonPtp,"linkLevelType"));
+								ptp.setLinkType(getString(jsonPtp,"linkType"));
+								ptp.setSpeed(getInt(jsonPtp,"speed"));
+								ptp.setSpeedStr(getString(jsonPtp,"speedStr"));
+								ptp.setMtu(getInt(jsonPtp,"mtu"));
+								ptp.setMtuStr(getString(jsonPtp,"mtuStr"));
+								ptp.setMtuStr(getString(jsonPtp,"hardwarePhysicalAddress"));								
 							}
 							//setLocation(device);
 							ptpCollection.add(ptp);
@@ -425,7 +428,7 @@ public class SwagDTUImpl  implements SwagDTU, SwagDTULocal {
 			return null;
 		}
 		return ptpCollection;
-	}
+	}	
 
 	
 	/**
