@@ -36,7 +36,7 @@ public class Link {
 	private Device deviceA;
 	private Device deviceB;
 	
-	public Link(ApiContext apic, PTP pa, Device a, PTP pb, Device b) {
+	public Link(PTP pa, Device a, PTP pb, Device b) {
 		this.deviceA = a;
 		this.deviceB = b;
 		this.ptpA = pa;
@@ -44,6 +44,9 @@ public class Link {
 	}
 	
 //getters and setters
+	public Boolean isDown() {
+		return (ptpA.getOperationStatus().compareTo("up") != 0 || ptpB.getOperationStatus().compareTo("up") != 0);
+	}
 	public String getType(){
 		return ptpA.getLinkType();
 	}

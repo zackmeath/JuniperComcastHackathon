@@ -130,6 +130,53 @@ public class SwagDTUImpl  implements SwagDTU, SwagDTULocal {
 			
 	}
 	
+	private ArrayList<PTP> swapArrayPosPTP(ArrayList<PTP> list, int a, int b ) {
+		PTP temp = list.get(a);
+		list.set(a, list.get(b));
+		list.set(b, temp);
+		return list;
+	}
+	
+	private Boolean ptpMatch(ApiContext apic, PTP a, PTP b) {
+		try {
+			Device devicea = getDevice(apic, a.getDeviceID());
+			Device deviceb = getDevice(apic, b.getDeviceID());
+			return devicea.getName() == b.getDescription() && deviceb.getName() == a.getDescription();
+		} catch (Exception Ex) {
+			return null;
+		}
+	}
+	
+	public PagingResult<Link> getAllLinks(ApiContext apiCtx,
+			PagingContext pagingCtx) throws PreconditionFailedException {
+		PagingResult<Link> result = null;
+		ArrayList<Link> list = new ArrayList<Link>();
+		//Logic to compare all of the ptps to eachother:
+		PTP ptpa = null;
+		PTP ptpb = null;
+		//Array
+		for (int i = 0; i < ptpCollection.size(); i += 2){
+			PTP ii = ptpCollection.get(i);
+			for (int j = i; j < ptpCollection.size(); j++) {
+				if (ptpMatch(apiCtx, ii, ptpCollection.get(j))){
+					list.add(new Link(ii, getDevice(apiCtx, ii.getDeviceID()), ptpCollection.get(j), getDevice(apiCtx, ptpCollection.get(j).getDeviceID())));
+					swapArrayPosPTP(ptpCollection, (i + 1), j);
+					break;
+				} else {
+					continue;
+				}
+			}
+		}
+				
+		//when a match is found
+		//end match found
+		
+		
+		//after all matches are found
+		//get it into json and stuff and things
+		return null;
+	}
+	
 	/**
 	 * Description: This method set up HTTP Client and calls JUNOS SPACE API and
 	 * return the list of JUNOS devices.
@@ -144,25 +191,6 @@ public class SwagDTUImpl  implements SwagDTU, SwagDTULocal {
 	 * @return PagingResult<Device> paging result of list of devices
 	 * 
 	 */
-	
-	public PagingResult<Link> getAllLinks(ApiContext apiCtx,
-			PagingContext pagingCtx) throws PreconditionFailedException {
-		PagingResult<Link> result = null;
-		ArrayList<Link> list = new ArrayList<Link>();
-		//Logic to compare all of the ptps to eachother:
-		PTP ptpa = null;
-		PTP ptpb = null;
-				
-		//when a match is found
-		Link x = new Link(apiCtx, ptpa, getDevice(apiCtx, ptpa.getDeviceID()), ptpb, getDevice(apiCtx, ptpb.getDeviceID()));
-		list.add(x);
-		//end match found
-		
-		
-		//after all matches are found
-		
-		return null;
-	}
 	public PagingResult<Device> getAllDevices(ApiContext apiCtx,
 			PagingContext pagingCtx) throws PreconditionFailedException, ForbiddenException {
 
