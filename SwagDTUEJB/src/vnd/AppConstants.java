@@ -25,7 +25,7 @@ public interface AppConstants {
 	public static final String JUNIPER_VND = APPLICATION_VND + ".net.juniper.space";
 	public static final String SPACE_URL_PREFIX = API_URL_PREFIX + "/space";
 	public static final String SPACE_DATATYPE_PREFIX = APPLICATION_VND + ".net.juniper.space";
-	public static final String APP_PREFIX = "hello-space";
+	public static final String APP_PREFIX = "swag-dtu";
 	public static final String APP_URL_PREFIX = API_URL_PREFIX + "/" + VENDOR_ID + "/" + APP_PREFIX;
 	public static final String APP_DATATYPE_PREFIX = APPLICATION_VND + "." + VENDOR_ID + "." + APP_PREFIX;
 }  

@@ -1,6 +1,14 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0">
 
-  <xs:element name="ptps" type="ptPs"/>
+  <xs:element name="ptps" type="ptps">
+      <xs:annotation>
+         <xs:appinfo>
+            <space-appinfo>
+               <collection/>
+            </space-appinfo>
+         </xs:appinfo>
+      </xs:annotation>
+   </xs:element>
 
   <xs:complexType name="gen_ptps-ptps">
     <xs:sequence>
@@ -45,7 +53,7 @@
       </xs:attribute>
   </xs:complexType>
 
-  <xs:complexType name="ptPs">
+  <xs:complexType name="ptps">
     <xs:sequence>
       <xs:element maxOccurs="unbounded" minOccurs="0" name="ptp" type="gen_ptps-ptps"/>
     </xs:sequence>
