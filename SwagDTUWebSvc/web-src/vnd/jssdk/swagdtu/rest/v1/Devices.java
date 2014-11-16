@@ -155,7 +155,7 @@ public class Devices {
      * IP Addr
      **/
 
-    @XmlElement(name = "ip-addr", required = true)
+    @XmlElement(name = "ipAddr", required = true)
     @Generated(value = "Generated", comments = "hasDefaultValue:false,title:IP Addr,javaname:String,readOnly:false,ejbType:java.lang.String")
     @Title(name = "IP Addr")
     private String ipAddr;

@@ -154,7 +154,7 @@ public class Ptps {
      * Speed Str
      **/
 
-    @XmlElement(name = "speed-str", required = true)
+    @XmlElement(name = "speedStr", required = true)
     @Generated(value = "Generated", comments = "hasDefaultValue:false,title:Speed Str,javaname:String,readOnly:false,ejbType:java.lang.String")
     @Title(name = "Speed Str")
     private String speedStr;
@@ -163,7 +163,7 @@ public class Ptps {
      * Managed Device ID
      **/
 
-    @XmlElement(name = "managed-device-id", required = true, type = Integer.class)
+    @XmlElement(name = "managedDeviceId", required = true, type = Integer.class)
     @Generated(value = "Generated", comments = "hasDefaultValue:false,title:Managed Device ID,javaname:int,readOnly:false,defaultValue:0,ejbType:I")
     @Title(name = "Managed Device ID")
     private Integer managedDeviceID;
@@ -190,7 +190,7 @@ public class Ptps {
      * Admin Status
      **/
 
-    @XmlElement(name = "admin-status", required = true)
+    @XmlElement(name = "adminStatus", required = true)
     @Generated(value = "Generated", comments = "hasDefaultValue:false,title:Admin Status,javaname:String,readOnly:false,ejbType:java.lang.String")
     @Title(name = "Admin Status")
     private String adminStatus;
@@ -199,7 +199,7 @@ public class Ptps {
      * Operation Status
      **/
 
-    @XmlElement(name = "operation-status", required = true)
+    @XmlElement(name = "operationStatus", required = true)
     @Generated(value = "Generated", comments = "hasDefaultValue:false,title:Operation Status,javaname:String,readOnly:false,ejbType:java.lang.String")
     @Title(name = "Operation Status")
     private String operationStatus;
@@ -208,7 +208,7 @@ public class Ptps {
      * Device ID
      **/
 
-    @XmlElement(name = "device-id", required = true, type = Integer.class)
+    @XmlElement(name = "deviceId", required = true, type = Integer.class)
     @Generated(value = "Generated", comments = "hasDefaultValue:false,title:Device ID,javaname:int,readOnly:false,defaultValue:0,ejbType:I")
     @Title(name = "Device ID")
     private Integer deviceID;
@@ -217,7 +217,7 @@ public class Ptps {
      * Link Type
      **/
 
-    @XmlElement(name = "link-type", required = true)
+    @XmlElement(name = "linkType", required = true)
     @Generated(value = "Generated", comments = "hasDefaultValue:false,title:Link Type,javaname:String,readOnly:false,ejbType:java.lang.String")
     @Title(name = "Link Type")
     private String linkType;
@@ -226,7 +226,7 @@ public class Ptps {
      * Mac Address
      **/
 
-    @XmlElement(name = "mac-address", required = true)
+    @XmlElement(name = "macAddress", required = true)
     @Generated(value = "Generated", comments = "hasDefaultValue:false,title:Mac Address,javaname:String,readOnly:false,ejbType:java.lang.String")
     @Title(name = "Mac Address")
     private String macAddress;
@@ -253,7 +253,7 @@ public class Ptps {
      * Loopback Enabled
      **/
 
-    @XmlElement(name = "loopback-enabled", required = true)
+    @XmlElement(name = "loopbackEnabled", required = true)
     @Generated(value = "Generated", comments = "title:Loopback Enabled,hasDefaultValue:false,javaname:String,readOnly:false")
     @Title(name = "Loopback Enabled")
     private String loopbackEnabled;
@@ -298,7 +298,7 @@ public class Ptps {
      * Mtu Str
      **/
 
-    @XmlElement(name = "mtu-str", required = true)
+    @XmlElement(name = "mtuStr", required = true)
     @Generated(value = "Generated", comments = "hasDefaultValue:false,title:Mtu Str,javaname:String,readOnly:false,ejbType:java.lang.String")
     @Title(name = "Mtu Str")
     private String mtuStr;

@@ -13,15 +13,15 @@
   <xs:complexType name="gen_ptps-ptps">
     <xs:sequence>
       <xs:element name="mtu" type="xs:int"/>
-      <xs:element name="speed-str" type="xs:string"/>
-      <xs:element name="managed-device-id" type="xs:int"/>
+      <xs:element name="speedStr" type="xs:string"/>
+      <xs:element name="managedDeviceId" type="xs:int"/>
       <xs:element name="speed" type="xs:int"/>
       <xs:element name="tagging" type="xs:string"/>
-      <xs:element name="admin-status" type="xs:string"/>
-      <xs:element name="operation-status" type="xs:string"/>
-      <xs:element name="device-id" type="xs:int"/>
-      <xs:element name="link-type" type="xs:string"/>
-      <xs:element name="mac-address" type="xs:string"/>
+      <xs:element name="adminStatus" type="xs:string"/>
+      <xs:element name="operationStatus" type="xs:string"/>
+      <xs:element name="deviceId" type="xs:int"/>
+      <xs:element name="linkType" type="xs:string"/>
+      <xs:element name="macAddress" type="xs:string"/>
       <xs:element name="id" type="xs:int"/>
       <xs:element minOccurs="0" name="ptpid" type="xs:int">
             <xs:annotation>
@@ -32,12 +32,12 @@
                </xs:appinfo>
             </xs:annotation>
          </xs:element>
-      <xs:element name="loopback-enabled" type="xs:string"/>
+      <xs:element name="loopbackEnabled" type="xs:string"/>
       <xs:element name="managed-dev-ip-address" type="xs:string"/>
       <xs:element name="link-level-type" type="xs:string"/>
       <xs:element name="description" type="xs:string"/>
       <xs:element name="name" type="xs:string"/>
-      <xs:element name="mtu-str" type="xs:string"/>
+      <xs:element name="mtuStr" type="xs:string"/>
       <xs:element name="info-url" type="xs:string"/>
       <xs:element name="encapsulation" type="xs:string"/>
     </xs:sequence>

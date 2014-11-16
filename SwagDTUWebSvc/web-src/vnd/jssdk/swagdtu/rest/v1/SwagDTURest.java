@@ -64,23 +64,23 @@ public interface SwagDTURest {
    * &lt;ptps total=&quot;Integer&quot; uri=&quot;/api/jssdk/swag-dtu/ptps&quot;&gt;<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;	 &lt;ptp href=&quot;/api/jssdk/swag-dtu/ptps/{pTPId}&quot; uri=&quot;/api/jssdk/swag-dtu/ptps/{pTPId}&quot;&gt;<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;mtu&gt;Integer&lt;/mtu&gt;<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;speed-str&gt;String&lt;/speed-str&gt;<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;managed-device-id&gt;Integer&lt;/managed-device-id&gt;<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;speedStr&gt;String&lt;/speedStr&gt;<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;managedDeviceId&gt;Integer&lt;/managedDeviceId&gt;<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;speed&gt;Integer&lt;/speed&gt;<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;tagging&gt;String&lt;/tagging&gt;<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;admin-status&gt;String&lt;/admin-status&gt;<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;operation-status&gt;String&lt;/operation-status&gt;<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;device-id&gt;Integer&lt;/device-id&gt;<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;link-type&gt;String&lt;/link-type&gt;<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;mac-address&gt;String&lt;/mac-address&gt;<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;adminStatus&gt;String&lt;/adminStatus&gt;<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;operationStatus&gt;String&lt;/operationStatus&gt;<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;deviceId&gt;Integer&lt;/deviceId&gt;<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;linkType&gt;String&lt;/linkType&gt;<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;macAddress&gt;String&lt;/macAddress&gt;<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;id&gt;Integer&lt;/id&gt;<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;ptpid&gt;Integer&lt;/ptpid&gt;<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;loopback-enabled&gt;String&lt;/loopback-enabled&gt;<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;loopbackEnabled&gt;String&lt;/loopbackEnabled&gt;<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;managed-dev-ip-address&gt;String&lt;/managed-dev-ip-address&gt;<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;link-level-type&gt;String&lt;/link-level-type&gt;<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;description&gt;String&lt;/description&gt;<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;name&gt;String&lt;/name&gt;<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;mtu-str&gt;String&lt;/mtu-str&gt;<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;mtuStr&gt;String&lt;/mtuStr&gt;<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;info-url&gt;String&lt;/info-url&gt;<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;encapsulation&gt;String&lt;/encapsulation&gt;<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;	 &lt;/ptp&gt;<br/>
@@ -96,23 +96,23 @@ public interface SwagDTURest {
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;@href&quot; : &quot;/api/jssdk/swag-dtu/ptps/{pTPId}&quot; ,<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;@uri&quot; : &quot;/api/jssdk/swag-dtu/ptps/{pTPId}&quot; ,<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;mtu&quot; : &quot;Integer&quot; ,<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;speed-str&quot; : &quot;String&quot; ,<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;managed-device-id&quot; : &quot;Integer&quot; ,<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;speedStr&quot; : &quot;String&quot; ,<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;managedDeviceId&quot; : &quot;Integer&quot; ,<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;speed&quot; : &quot;Integer&quot; ,<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;tagging&quot; : &quot;String&quot; ,<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;admin-status&quot; : &quot;String&quot; ,<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;operation-status&quot; : &quot;String&quot; ,<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;device-id&quot; : &quot;Integer&quot; ,<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;link-type&quot; : &quot;String&quot; ,<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;mac-address&quot; : &quot;String&quot; ,<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;adminStatus&quot; : &quot;String&quot; ,<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;operationStatus&quot; : &quot;String&quot; ,<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;deviceId&quot; : &quot;Integer&quot; ,<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;linkType&quot; : &quot;String&quot; ,<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;macAddress&quot; : &quot;String&quot; ,<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;id&quot; : &quot;Integer&quot; ,<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;ptpid&quot; : &quot;Integer&quot; ,<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;loopback-enabled&quot; : &quot;String&quot; ,<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;loopbackEnabled&quot; : &quot;String&quot; ,<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;managed-dev-ip-address&quot; : &quot;String&quot; ,<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;link-level-type&quot; : &quot;String&quot; ,<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;description&quot; : &quot;String&quot; ,<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;name&quot; : &quot;String&quot; ,<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;mtu-str&quot; : &quot;String&quot; ,<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;mtuStr&quot; : &quot;String&quot; ,<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;info-url&quot; : &quot;String&quot; ,<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;encapsulation&quot; : &quot;String&quot;<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;	}<br/>
@@ -139,23 +139,23 @@ public interface SwagDTURest {
    * &lt;ptps total=&quot;Integer&quot; uri=&quot;/api/jssdk/swag-dtu/current-ptp-lists&quot;&gt;<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;	 &lt;ptp href=&quot;/api/jssdk/swag-dtu/ptps/{pTPId}&quot; uri=&quot;/api/jssdk/swag-dtu/current-ptp-lists/{pTPId}&quot;&gt;<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;mtu&gt;Integer&lt;/mtu&gt;<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;speed-str&gt;String&lt;/speed-str&gt;<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;managed-device-id&gt;Integer&lt;/managed-device-id&gt;<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;speedStr&gt;String&lt;/speedStr&gt;<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;managedDeviceId&gt;Integer&lt;/managedDeviceId&gt;<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;speed&gt;Integer&lt;/speed&gt;<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;tagging&gt;String&lt;/tagging&gt;<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;admin-status&gt;String&lt;/admin-status&gt;<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;operation-status&gt;String&lt;/operation-status&gt;<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;device-id&gt;Integer&lt;/device-id&gt;<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;link-type&gt;String&lt;/link-type&gt;<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;mac-address&gt;String&lt;/mac-address&gt;<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;adminStatus&gt;String&lt;/adminStatus&gt;<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;operationStatus&gt;String&lt;/operationStatus&gt;<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;deviceId&gt;Integer&lt;/deviceId&gt;<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;linkType&gt;String&lt;/linkType&gt;<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;macAddress&gt;String&lt;/macAddress&gt;<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;id&gt;Integer&lt;/id&gt;<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;ptpid&gt;Integer&lt;/ptpid&gt;<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;loopback-enabled&gt;String&lt;/loopback-enabled&gt;<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;loopbackEnabled&gt;String&lt;/loopbackEnabled&gt;<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;managed-dev-ip-address&gt;String&lt;/managed-dev-ip-address&gt;<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;link-level-type&gt;String&lt;/link-level-type&gt;<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;description&gt;String&lt;/description&gt;<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;name&gt;String&lt;/name&gt;<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;mtu-str&gt;String&lt;/mtu-str&gt;<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;mtuStr&gt;String&lt;/mtuStr&gt;<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;info-url&gt;String&lt;/info-url&gt;<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;encapsulation&gt;String&lt;/encapsulation&gt;<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;	 &lt;/ptp&gt;<br/>
@@ -171,23 +171,23 @@ public interface SwagDTURest {
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;@href&quot; : &quot;/api/jssdk/swag-dtu/ptps/{pTPId}&quot; ,<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;@uri&quot; : &quot;/api/jssdk/swag-dtu/current-ptp-lists/{pTPId}&quot; ,<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;mtu&quot; : &quot;Integer&quot; ,<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;speed-str&quot; : &quot;String&quot; ,<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;managed-device-id&quot; : &quot;Integer&quot; ,<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;speedStr&quot; : &quot;String&quot; ,<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;managedDeviceId&quot; : &quot;Integer&quot; ,<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;speed&quot; : &quot;Integer&quot; ,<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;tagging&quot; : &quot;String&quot; ,<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;admin-status&quot; : &quot;String&quot; ,<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;operation-status&quot; : &quot;String&quot; ,<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;device-id&quot; : &quot;Integer&quot; ,<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;link-type&quot; : &quot;String&quot; ,<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;mac-address&quot; : &quot;String&quot; ,<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;adminStatus&quot; : &quot;String&quot; ,<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;operationStatus&quot; : &quot;String&quot; ,<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;deviceId&quot; : &quot;Integer&quot; ,<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;linkType&quot; : &quot;String&quot; ,<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;macAddress&quot; : &quot;String&quot; ,<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;id&quot; : &quot;Integer&quot; ,<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;ptpid&quot; : &quot;Integer&quot; ,<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;loopback-enabled&quot; : &quot;String&quot; ,<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;loopbackEnabled&quot; : &quot;String&quot; ,<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;managed-dev-ip-address&quot; : &quot;String&quot; ,<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;link-level-type&quot; : &quot;String&quot; ,<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;description&quot; : &quot;String&quot; ,<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;name&quot; : &quot;String&quot; ,<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;mtu-str&quot; : &quot;String&quot; ,<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;mtuStr&quot; : &quot;String&quot; ,<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;info-url&quot; : &quot;String&quot; ,<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;encapsulation&quot; : &quot;String&quot;<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;	}<br/>
@@ -212,7 +212,7 @@ public interface SwagDTURest {
    * &nbsp;&nbsp;&nbsp;&nbsp;	 &lt;device href=&quot;/api/jssdk/swag-dtu/devices/{id}&quot; uri=&quot;/api/jssdk/swag-dtu/devices/{id}&quot;&gt;<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;id&gt;Integer&lt;/id&gt;<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;platform&gt;String&lt;/platform&gt;<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;ip-addr&gt;String&lt;/ip-addr&gt;<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;ipAddr&gt;String&lt;/ipAddr&gt;<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;status&gt;String&lt;/status&gt;<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;name&gt;String&lt;/name&gt;<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;longitude&gt;Float&lt;/longitude&gt;<br/>
@@ -232,7 +232,7 @@ public interface SwagDTURest {
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;@uri&quot; : &quot;/api/jssdk/swag-dtu/devices/{id}&quot; ,<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;id&quot; : &quot;Integer&quot; ,<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;platform&quot; : &quot;String&quot; ,<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;ip-addr&quot; : &quot;String&quot; ,<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;ipAddr&quot; : &quot;String&quot; ,<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;status&quot; : &quot;String&quot; ,<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;name&quot; : &quot;String&quot; ,<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;longitude&quot; : &quot;Float&quot; ,<br/>
@@ -263,7 +263,7 @@ public interface SwagDTURest {
    * &nbsp;&nbsp;&nbsp;&nbsp;	 &lt;device href=&quot;/api/jssdk/swag-dtu/devices/{id}&quot; uri=&quot;/api/jssdk/swag-dtu/current-device-lists/{id}&quot;&gt;<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;id&gt;Integer&lt;/id&gt;<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;platform&gt;String&lt;/platform&gt;<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;ip-addr&gt;String&lt;/ip-addr&gt;<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;ipAddr&gt;String&lt;/ipAddr&gt;<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;status&gt;String&lt;/status&gt;<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;name&gt;String&lt;/name&gt;<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;longitude&gt;Float&lt;/longitude&gt;<br/>
@@ -283,7 +283,7 @@ public interface SwagDTURest {
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;@uri&quot; : &quot;/api/jssdk/swag-dtu/current-device-lists/{id}&quot; ,<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;id&quot; : &quot;Integer&quot; ,<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;platform&quot; : &quot;String&quot; ,<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;ip-addr&quot; : &quot;String&quot; ,<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;ipAddr&quot; : &quot;String&quot; ,<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;status&quot; : &quot;String&quot; ,<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;name&quot; : &quot;String&quot; ,<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;longitude&quot; : &quot;Float&quot; ,<br/>
@@ -382,7 +382,7 @@ public interface SwagDTURest {
    * &lt;device href=&quot;/api/jssdk/swag-dtu/devices/{id}&quot; uri=&quot;/api/jssdk/swag-dtu/devices/{id}&quot;&gt;<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;	 &lt;id&gt;Integer&lt;/id&gt;<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;	 &lt;platform&gt;String&lt;/platform&gt;<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;	 &lt;ip-addr&gt;String&lt;/ip-addr&gt;<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;	 &lt;ipAddr&gt;String&lt;/ipAddr&gt;<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;	 &lt;status&gt;String&lt;/status&gt;<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;	 &lt;name&gt;String&lt;/name&gt;<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;	 &lt;longitude&gt;Float&lt;/longitude&gt;<br/>
@@ -398,7 +398,7 @@ public interface SwagDTURest {
    * &nbsp;&nbsp;&nbsp;&nbsp;	&quot;@uri&quot; : &quot;/api/jssdk/swag-dtu/devices/{id}&quot; ,<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;	&quot;id&quot; : &quot;Integer&quot; ,<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;	&quot;platform&quot; : &quot;String&quot; ,<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;	&quot;ip-addr&quot; : &quot;String&quot; ,<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;	&quot;ipAddr&quot; : &quot;String&quot; ,<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;	&quot;status&quot; : &quot;String&quot; ,<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;	&quot;name&quot; : &quot;String&quot; ,<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;	&quot;longitude&quot; : &quot;Float&quot; ,<br/>
