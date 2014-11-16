@@ -74,7 +74,7 @@ public class SwagDTUImpl extends JobWorker implements SwagDTU, SwagDTULocal {
 	private static final String NO_RESPONSE = "Unable to get response";
 	private PagingResult<Device> deviceCollection = null;
 	private PagingResult<PTP> ptpCollection = null;
-	private static PagingResult<Link> linkListGettable=null;
+	private static PagingResult<Link> linkListGettable=new PagingResult<Link>();
 	private static PagingResult<Device> deviceListGettable=null;
 	private static PagingResult<PTP> ptpListGettable= null;
 	private String JSON_STRING_DATA = "Could not obtain the json string for key: ";
@@ -148,6 +148,7 @@ public class SwagDTUImpl extends JobWorker implements SwagDTU, SwagDTULocal {
 			logger.error("Failed to retrieve ptps.");
 			jobMgr.setJobInstanceResult(jobInstanceId,"Long running request failed",JobStatus.FAILURE,null);
 		}
+		
 		//Now this should create the array of links
 		jobinfo.setPercentComplete(70);
 		
@@ -171,10 +172,17 @@ public class SwagDTUImpl extends JobWorker implements SwagDTU, SwagDTULocal {
 	public PagingResult<Device> getCurrentDeviceList(){
 		return SwagDTUImpl.deviceListGettable;
 	}
-	
-	//test: see if the collection list stays persistant
+	/**
+	public Device getCurrentDevice(int id){
+		return SwagDTUImpl.deviceListGettable.get(id);
+	}
+	*/
 	public PagingResult<PTP> getCurrentPtpList(){
 		return SwagDTUImpl.ptpListGettable;
+	}
+	
+	public PagingResult<Link> getCurrentLinkList(){
+		return SwagDTUImpl.linkListGettable;
 	}
 	/**
 	 * Gets all ptps from the apis
@@ -243,8 +251,44 @@ public class SwagDTUImpl extends JobWorker implements SwagDTU, SwagDTULocal {
 	
 	public PagingResult<Link> getAllLinks(ApiContext apiCtx,
 			PagingContext pagingCtx) throws PreconditionFailedException {
-		PagingResult<Link> result = new PagingResult<Link>();
-		result.setPagingContext(pagingCtx);
+		PagingResult<Link> resultLinks = new PagingResult<Link>();
+		resultLinks.setPagingContext(pagingCtx);
+		String connection;
+		boolean preExistingLink;
+		//Start by going through the static device list
+		for (Device tmpDevice : deviceListGettable){
+			//set name of device iterating on. This should be equivalent to any ptps description if involved in link
+			String name = tmpDevice.getName();
+			//iterate through all ptps
+			for (PTP tmpPtp : ptpListGettable){				
+				//set connection as the description of ptp,
+				connection= tmpPtp.getDescription();
+				if (name.equalsIgnoreCase(connection)){					
+					preExistingLink = false;
+					//should indicate that there is already a link created.
+					if(!resultLinks.isEmpty()){
+						for (Link link : resultLinks){
+							if((tmpDevice.equals(link.getDeviceA()) || tmpDevice.equals(link.getDeviceB())) && (tmpPtp.getDeviceID()==link.getDeviceB().getId() || tmpPtp.getDeviceID()==link.getDeviceA().getId())){								
+								preExistingLink=true;
+							}
+						}
+					}
+					//if PreExistingLink isn't true, then create new link and set device A and other attributes.
+					if(!preExistingLink){
+						Link tmplink = new Link();
+						tmplink.setDeviceA(tmpDevice);
+						Device devB = getDevice(apiCtx,tmpPtp.deviceID);
+						tmplink.setDeviceB(devB);
+						tmplink.setPtpB(tmpPtp);						
+						resultLinks.add(tmplink);
+						
+					}
+				}
+			}
+					
+		}
+		
+		/**
 		//ArrayList<Link> list = new ArrayList<Link>();
 		//Logic to compare all of the ptps to each other:
 		for (int i = 0; i < ptpCollection.size(); i += 2) {
@@ -260,9 +304,10 @@ public class SwagDTUImpl extends JobWorker implements SwagDTU, SwagDTULocal {
 				}
 			}
 		}
+		*/
 		//after all matches are found
 		//get it into json and stuff and things
-		return result;
+		return resultLinks;
 	}
 	
 	/**

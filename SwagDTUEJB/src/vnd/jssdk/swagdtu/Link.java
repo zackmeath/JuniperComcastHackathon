@@ -30,20 +30,20 @@ package vnd.jssdk.swagdtu;
 import net.juniper.jmp.ApiContext;
 
 public class Link {
-	
+	private static final long serialVersionUID = -719368919349306773L;
 	private PTP ptpA;
 	private PTP ptpB;
 	private Device deviceA;
 	private Device deviceB;
-	
-	public Link(PTP pa, Device a, PTP pb, Device b) {
-		this.ptpA = pa;
-		this.deviceA = a;
-		this.ptpB = pb; // & J!
-		this.deviceB = b;
-	}
+	private String linkId;	
 	
 //getters and setters
+	public void setlinkId(String linkId){
+		this.linkId = linkId;
+	}
+	public String getLinkId(){
+		return linkId;
+	}
 	public Boolean isDown() {
 		return (ptpA.getOperationStatus().compareTo("up") != 0 || ptpB.getOperationStatus().compareTo("up") != 0);
 	}

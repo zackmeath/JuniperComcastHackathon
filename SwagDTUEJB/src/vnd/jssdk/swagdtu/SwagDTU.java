@@ -90,8 +90,20 @@ public interface SwagDTU extends JobManagerCallerInterface3 {
 	 */
 	public PagingResult<PTP> getCurrentPtpList();
 	
+	
 	/**
 	 * return current list of devices
 	 */
 	public PagingResult<Device> getCurrentDeviceList();
+	
+	/**
+	 * return current list of links
+	 */
+	public PagingResult<Link> getCurrentLinkList();
+	
+	/**
+	 * get single device form list
+	 
+	public Device getCurrentDevice(int id);
+	*/
 }   
