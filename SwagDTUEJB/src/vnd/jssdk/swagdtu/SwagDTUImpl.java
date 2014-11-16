@@ -262,14 +262,25 @@ public class SwagDTUImpl extends JobWorker implements SwagDTU, SwagDTULocal {
 			//iterate through all ptps
 			for (PTP tmpPtp : ptpListGettable){				
 				//set connection as the description of ptp,
-				connection= tmpPtp.getDescription();
+				connection = tmpPtp.getDescription();
 				if (name.equalsIgnoreCase(connection)){					
 					preExistingLink = false;
 					//should indicate that there is already a link created.
-					if(!resultLinks.isEmpty()){
-						for (Link link : resultLinks){
-							if((tmpDevice.equals(link.getDeviceA()) || tmpDevice.equals(link.getDeviceB())) && (tmpPtp.getDeviceID()==link.getDeviceB().getId() || tmpPtp.getDeviceID()==link.getDeviceA().getId())){								
-								preExistingLink=true;
+					//if(!resultLinks.isEmpty()){
+					//	for (Link link : resultLinks){
+					//		if((tmpDevice.equals(link.getDeviceA()) || tmpDevice.equals(link.getDeviceB())) 
+					//				&& (tmpPtp.getDeviceID()==link.getDeviceB().getId() || tmpPtp.getDeviceID()==link.getDeviceA().getId())){								
+					//			preExistingLink=true;
+					//		}
+					//	}
+					//}
+					
+					if(!resultLinks.isEmpty()) {
+						for (Link link : resultLinks) {
+							if ((    tmpDevice.getId() == link.getDeviceA().getId() || tmpDevice.getId() == link.getDeviceB().getId())  &&  
+									(tmpPtp.getDeviceID() == link.getDeviceB().getId() || tmpPtp.getDeviceID() == link.getDeviceA().getId())
+							   ) {
+								preExistingLink = true;
 							}
 						}
 					}
