@@ -168,7 +168,6 @@ public class SwagDTUImpl extends JobWorker implements SwagDTU, SwagDTULocal {
 		jobMgr.setJobInstanceResult(jobInstanceId,ptpObject,JobStatus.SUCCESS);
 		return jobinfo;
 	}
-	
 	public PagingResult<Device> getCurrentDeviceList(){
 		return SwagDTUImpl.deviceListGettable;
 	}
@@ -292,7 +291,16 @@ public class SwagDTUImpl extends JobWorker implements SwagDTU, SwagDTULocal {
 						Link tmplink = new Link();
 						tmplink.setDeviceA(tmpDevice);
 						tmplink.setDeviceB(devB);
-						tmplink.setPtpB(tmpPtp);	
+						tmplink.setPtpB(tmpPtp);
+						tmplink.setDevAIpAddr(tmpDevice.getIpAddr());
+						tmplink.setDevBIpAddr(devB.getIpAddr());
+						tmplink.setDevAName(tmpDevice.getName());
+						tmplink.setDevBName(devB.getName());
+						tmplink.setDevBInterface(tmpPtp.getName());
+						tmplink.setCurrSpeed(tmpPtp.getSpeed());
+						tmplink.setSpeedStr(tmpPtp.getSpeedStr());
+						tmplink.setMtuStr(tmpPtp.getMtuStr());
+						tmplink.setOperationStatus(tmpPtp.getOperationStatus());
 						//Link ID will be the id of the two devices added together.						
 						//so that the larger id is always in front
 						if(devB.getId() > tmpDevice.getId()){
@@ -300,16 +308,20 @@ public class SwagDTUImpl extends JobWorker implements SwagDTU, SwagDTULocal {
 						}else{
 							tmpLinkId=tmpDevice.getId()+""+devB.getId();
 						}
-						
 						tmplink.setlinkId(tmpLinkId);
 						resultLinks.add(tmplink);						
 					}else{
 						//Link already exists, so we need to get it from the list and populate it with the ptpa
-						if(devB.getId() > tmpDevice.getId()){
-							tmpLinkId = devB.getId()+""+tmpDevice.getId();
-						}else{
-							tmpLinkId=tmpDevice.getId()+""+devB.getId();
+						//if the speed of the second interface is slower,set that to the speed
+						if(existingLink.getCurrSpeed() > tmpPtp.getSpeed()){
+							existingLink.setCurrSpeed(tmpPtp.getSpeed());
+							existingLink.setSpeedStr(tmpPtp.getSpeedStr());
 						}
+						//If the other interface is up, and this is down. Then set the link state to down, since won't work
+						if( (!existingLink.getOperationStatus().equalsIgnoreCase("down")) &&(! existingLink.getOperationStatus().equalsIgnoreCase(tmpPtp.getOperationStatus()))){
+							existingLink.setOperationStatus(tmpPtp.getOperationStatus());
+						}
+						existingLink.setDevAInterface(tmpPtp.getName());
 						existingLink.setPtpA(tmpPtp);
 						resultLinks.remove(existingLink);
 						resultLinks.add(existingLink);

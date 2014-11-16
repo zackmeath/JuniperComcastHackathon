@@ -36,6 +36,16 @@ public class Link {
 	private Device deviceA;
 	private Device deviceB;
 	private String linkId;	
+	private int currSpeed;
+	private String speedStr;
+	private String mtuStr;
+	private String devAIpAddr;
+	private String devBIpAddr;
+	private String devAName;
+	private String devBName;
+	private String devBInterface;
+	private String devAInterface;
+	private String operationStatus;
 	
 //getters and setters
 	public void setlinkId(String tmpLinkId){
@@ -43,31 +53,7 @@ public class Link {
 	}
 	public String getLinkId(){
 		return linkId;
-	}
-	public Boolean isDown() {
-		return (ptpA.getOperationStatus().compareTo("up") != 0 || ptpB.getOperationStatus().compareTo("up") != 0);
-	}
-	public String getType(){
-		return ptpA.getLinkType();
-	}
-	public String getLevelType(){
-		return ptpA.getLinkLevelType();
-	}
-	public int getSpeed(){
-		return ptpA.getSpeed();
-	}
-	public String getSpeedStr(){
-		return ptpA.getSpeedStr();
-	}
-	public int getMtu(){
-		return ptpA.getMtu();
-	}
-	public String getMtuStr(){
-		return ptpA.getMtuStr();
-	}
-	public int getEncapsulation(){
-		return ptpA.getMtu();
-	}
+	}	
 	public PTP getPtpA() {
 		return ptpA;
 	}
@@ -93,6 +79,66 @@ public class Link {
 		this.deviceB = deviceB;
 	}
 //
+	public int getCurrSpeed() {
+		return currSpeed;
+	}
+	public void setCurrSpeed(int currSpeed) {
+		this.currSpeed = currSpeed;
+	}
+	public String getSpeedStr() {
+		return speedStr;
+	}
+	public void setSpeedStr(String speedStr) {
+		this.speedStr = speedStr;
+	}
+	public String getMtuStr() {
+		return mtuStr;
+	}
+	public void setMtuStr(String string) {
+		this.mtuStr = string;
+	}
+	public String getDevAIpAddr() {
+		return devAIpAddr;
+	}
+	public void setDevAIpAddr(String devAIpAddr) {
+		this.devAIpAddr = devAIpAddr;
+	}
+	public String getDevBIpAddr() {
+		return devBIpAddr;
+	}
+	public void setDevBIpAddr(String devBIpAddr) {
+		this.devBIpAddr = devBIpAddr;
+	}
+	public String getDevAName() {
+		return devAName;
+	}
+	public void setDevAName(String devAName) {
+		this.devAName = devAName;
+	}
+	public String getDevBName() {
+		return devBName;
+	}
+	public void setDevBName(String devBName) {
+		this.devBName = devBName;
+	}
+	public String getDevBInterface() {
+		return devBInterface;
+	}
+	public void setDevBInterface(String devBInterface) {
+		this.devBInterface = devBInterface;
+	}
+	public String getOperationStatus() {
+		return operationStatus;
+	}
+	public void setOperationStatus(String operationStatus) {
+		this.operationStatus = operationStatus;
+	}
+	public String getDevAInterface() {
+		return devAInterface;
+	}
+	public void setDevAInterface(String devAInterface) {
+		this.devAInterface = devAInterface;
+	}
 	
 
 }

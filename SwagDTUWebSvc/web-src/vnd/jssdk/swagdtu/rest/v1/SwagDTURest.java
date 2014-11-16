@@ -356,15 +356,10 @@ public interface SwagDTURest {
    * @outputXML 
    * &lt;links total=&quot;Integer&quot; uri=&quot;/api/jssdk/swag-dtu/current-link-lists&quot;&gt;<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;	 &lt;link href=&quot;/api/jssdk/swag-dtu/current-link-list/{linkId}&quot; uri=&quot;/api/jssdk/swag-dtu/current-link-lists/{linkId}&quot;&gt;<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;linkId&gt;String&lt;/linkId&gt;<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;ptpb href=&quot;/api/jssdk/swag-dtu/ptps/{pTPId}&quot; uri=&quot;/api/jssdk/swag-dtu/current-link-lists/{linkId}&quot;&gt;<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	 &lt;ptpid&gt;Integer&lt;/ptpid&gt;<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	 &lt;name&gt;String&lt;/name&gt;<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;/ptpb&gt;<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;ptpa href=&quot;/api/jssdk/swag-dtu/ptps/{pTPId}&quot; uri=&quot;/api/jssdk/swag-dtu/current-link-lists/{linkId}&quot;&gt;<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	 &lt;ptpid&gt;Integer&lt;/ptpid&gt;<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	 &lt;name&gt;String&lt;/name&gt;<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;/ptpa&gt;<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;dev-a-ip-addr&gt;String&lt;/dev-a-ip-addr&gt;<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;speed-str&gt;String&lt;/speed-str&gt;<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;operation-status&gt;String&lt;/operation-status&gt;<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;dev-b-name&gt;String&lt;/dev-b-name&gt;<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;deviceb href=&quot;/api/jssdk/swag-dtu/devices/{id}&quot; uri=&quot;/api/jssdk/swag-dtu/current-link-lists/{linkId}&quot;&gt;<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	 &lt;id&gt;Integer&lt;/id&gt;<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	 &lt;name&gt;String&lt;/name&gt;<br/>
@@ -373,6 +368,21 @@ public interface SwagDTURest {
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	 &lt;id&gt;Integer&lt;/id&gt;<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	 &lt;name&gt;String&lt;/name&gt;<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;/devicea&gt;<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;linkId&gt;String&lt;/linkId&gt;<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;curr-speed&gt;Integer&lt;/curr-speed&gt;<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;ptpb href=&quot;/api/jssdk/swag-dtu/ptps/{pTPId}&quot; uri=&quot;/api/jssdk/swag-dtu/current-link-lists/{linkId}&quot;&gt;<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	 &lt;ptpid&gt;Integer&lt;/ptpid&gt;<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	 &lt;name&gt;String&lt;/name&gt;<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;/ptpb&gt;<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;dev-a-name&gt;String&lt;/dev-a-name&gt;<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;ptpa href=&quot;/api/jssdk/swag-dtu/ptps/{pTPId}&quot; uri=&quot;/api/jssdk/swag-dtu/current-link-lists/{linkId}&quot;&gt;<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	 &lt;ptpid&gt;Integer&lt;/ptpid&gt;<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	 &lt;name&gt;String&lt;/name&gt;<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;/ptpa&gt;<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;dev-b-ip-addr&gt;String&lt;/dev-b-ip-addr&gt;<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;mtu-str&gt;String&lt;/mtu-str&gt;<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;dev-b-interface&gt;String&lt;/dev-b-interface&gt;<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;dev-a-interface&gt;String&lt;/dev-a-interface&gt;<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;	 &lt;/link&gt;<br/>
    * &lt;/links&gt;
    * 
@@ -385,19 +395,10 @@ public interface SwagDTURest {
    * &nbsp;&nbsp;&nbsp;&nbsp;	&quot;link&quot; : {<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;@href&quot; : &quot;/api/jssdk/swag-dtu/current-link-list/{linkId}&quot; ,<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;@uri&quot; : &quot;/api/jssdk/swag-dtu/current-link-lists/{linkId}&quot; ,<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;linkId&quot; : &quot;String&quot; ,<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;ptpb&quot; : {<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;@href&quot; : &quot;/api/jssdk/swag-dtu/ptps/{pTPId}&quot; ,<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;@uri&quot; : &quot;/api/jssdk/swag-dtu/current-link-lists/{linkId}&quot; ,<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;ptpid&quot; : &quot;Integer&quot; ,<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;name&quot; : &quot;String&quot;<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	} ,<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;ptpa&quot; : {<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;@href&quot; : &quot;/api/jssdk/swag-dtu/ptps/{pTPId}&quot; ,<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;@uri&quot; : &quot;/api/jssdk/swag-dtu/current-link-lists/{linkId}&quot; ,<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;ptpid&quot; : &quot;Integer&quot; ,<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;name&quot; : &quot;String&quot;<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	} ,<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;dev-a-ip-addr&quot; : &quot;String&quot; ,<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;speed-str&quot; : &quot;String&quot; ,<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;operation-status&quot; : &quot;String&quot; ,<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;dev-b-name&quot; : &quot;String&quot; ,<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;deviceb&quot; : {<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;@href&quot; : &quot;/api/jssdk/swag-dtu/devices/{id}&quot; ,<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;@uri&quot; : &quot;/api/jssdk/swag-dtu/current-link-lists/{linkId}&quot; ,<br/>
@@ -409,7 +410,26 @@ public interface SwagDTURest {
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;@uri&quot; : &quot;/api/jssdk/swag-dtu/current-link-lists/{linkId}&quot; ,<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;id&quot; : &quot;Integer&quot; ,<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;name&quot; : &quot;String&quot;<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	}<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	} ,<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;linkId&quot; : &quot;String&quot; ,<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;curr-speed&quot; : &quot;Integer&quot; ,<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;ptpb&quot; : {<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;@href&quot; : &quot;/api/jssdk/swag-dtu/ptps/{pTPId}&quot; ,<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;@uri&quot; : &quot;/api/jssdk/swag-dtu/current-link-lists/{linkId}&quot; ,<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;ptpid&quot; : &quot;Integer&quot; ,<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;name&quot; : &quot;String&quot;<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	} ,<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;dev-a-name&quot; : &quot;String&quot; ,<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;ptpa&quot; : {<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;@href&quot; : &quot;/api/jssdk/swag-dtu/ptps/{pTPId}&quot; ,<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;@uri&quot; : &quot;/api/jssdk/swag-dtu/current-link-lists/{linkId}&quot; ,<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;ptpid&quot; : &quot;Integer&quot; ,<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;name&quot; : &quot;String&quot;<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	} ,<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;dev-b-ip-addr&quot; : &quot;String&quot; ,<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;mtu-str&quot; : &quot;String&quot; ,<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;dev-b-interface&quot; : &quot;String&quot; ,<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;dev-a-interface&quot; : &quot;String&quot;<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;	}<br/>
    * &nbsp;&nbsp;	}<br/>
    * }
@@ -433,15 +453,10 @@ public interface SwagDTURest {
    * 
    * @outputXML 
    * &lt;link href=&quot;/api/jssdk/swag-dtu/current-link-list/{linkId}&quot; uri=&quot;/api/jssdk/swag-dtu/links/{linkId}&quot;&gt;<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;	 &lt;linkId&gt;String&lt;/linkId&gt;<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;	 &lt;ptpb href=&quot;/api/jssdk/swag-dtu/ptps/{pTPId}&quot; uri=&quot;/api/jssdk/swag-dtu/links/{linkId}&quot;&gt;<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;ptpid&gt;Integer&lt;/ptpid&gt;<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;name&gt;String&lt;/name&gt;<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;	 &lt;/ptpb&gt;<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;	 &lt;ptpa href=&quot;/api/jssdk/swag-dtu/ptps/{pTPId}&quot; uri=&quot;/api/jssdk/swag-dtu/links/{linkId}&quot;&gt;<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;ptpid&gt;Integer&lt;/ptpid&gt;<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;name&gt;String&lt;/name&gt;<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;	 &lt;/ptpa&gt;<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;	 &lt;dev-a-ip-addr&gt;String&lt;/dev-a-ip-addr&gt;<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;	 &lt;speed-str&gt;String&lt;/speed-str&gt;<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;	 &lt;operation-status&gt;String&lt;/operation-status&gt;<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;	 &lt;dev-b-name&gt;String&lt;/dev-b-name&gt;<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;	 &lt;deviceb href=&quot;/api/jssdk/swag-dtu/devices/{id}&quot; uri=&quot;/api/jssdk/swag-dtu/links/{linkId}&quot;&gt;<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;id&gt;Integer&lt;/id&gt;<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;name&gt;String&lt;/name&gt;<br/>
@@ -450,6 +465,21 @@ public interface SwagDTURest {
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;id&gt;Integer&lt;/id&gt;<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;name&gt;String&lt;/name&gt;<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;	 &lt;/devicea&gt;<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;	 &lt;linkId&gt;String&lt;/linkId&gt;<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;	 &lt;curr-speed&gt;Integer&lt;/curr-speed&gt;<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;	 &lt;ptpb href=&quot;/api/jssdk/swag-dtu/ptps/{pTPId}&quot; uri=&quot;/api/jssdk/swag-dtu/links/{linkId}&quot;&gt;<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;ptpid&gt;Integer&lt;/ptpid&gt;<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;name&gt;String&lt;/name&gt;<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;	 &lt;/ptpb&gt;<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;	 &lt;dev-a-name&gt;String&lt;/dev-a-name&gt;<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;	 &lt;ptpa href=&quot;/api/jssdk/swag-dtu/ptps/{pTPId}&quot; uri=&quot;/api/jssdk/swag-dtu/links/{linkId}&quot;&gt;<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;ptpid&gt;Integer&lt;/ptpid&gt;<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;name&gt;String&lt;/name&gt;<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;	 &lt;/ptpa&gt;<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;	 &lt;dev-b-ip-addr&gt;String&lt;/dev-b-ip-addr&gt;<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;	 &lt;mtu-str&gt;String&lt;/mtu-str&gt;<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;	 &lt;dev-b-interface&gt;String&lt;/dev-b-interface&gt;<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;	 &lt;dev-a-interface&gt;String&lt;/dev-a-interface&gt;<br/>
    * &lt;/link&gt;
    * 
    * 
@@ -458,19 +488,10 @@ public interface SwagDTURest {
    * &nbsp;&nbsp;	&quot;link&quot; : {<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;	&quot;@href&quot; : &quot;/api/jssdk/swag-dtu/current-link-list/{linkId}&quot; ,<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;	&quot;@uri&quot; : &quot;/api/jssdk/swag-dtu/links/{linkId}&quot; ,<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;	&quot;linkId&quot; : &quot;String&quot; ,<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;	&quot;ptpb&quot; : {<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;@href&quot; : &quot;/api/jssdk/swag-dtu/ptps/{pTPId}&quot; ,<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;@uri&quot; : &quot;/api/jssdk/swag-dtu/links/{linkId}&quot; ,<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;ptpid&quot; : &quot;Integer&quot; ,<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;name&quot; : &quot;String&quot;<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;	} ,<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;	&quot;ptpa&quot; : {<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;@href&quot; : &quot;/api/jssdk/swag-dtu/ptps/{pTPId}&quot; ,<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;@uri&quot; : &quot;/api/jssdk/swag-dtu/links/{linkId}&quot; ,<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;ptpid&quot; : &quot;Integer&quot; ,<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;name&quot; : &quot;String&quot;<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;	} ,<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;	&quot;dev-a-ip-addr&quot; : &quot;String&quot; ,<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;	&quot;speed-str&quot; : &quot;String&quot; ,<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;	&quot;operation-status&quot; : &quot;String&quot; ,<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;	&quot;dev-b-name&quot; : &quot;String&quot; ,<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;	&quot;deviceb&quot; : {<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;@href&quot; : &quot;/api/jssdk/swag-dtu/devices/{id}&quot; ,<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;@uri&quot; : &quot;/api/jssdk/swag-dtu/links/{linkId}&quot; ,<br/>
@@ -482,7 +503,26 @@ public interface SwagDTURest {
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;@uri&quot; : &quot;/api/jssdk/swag-dtu/links/{linkId}&quot; ,<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;id&quot; : &quot;Integer&quot; ,<br/>
    * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;name&quot; : &quot;String&quot;<br/>
-   * &nbsp;&nbsp;&nbsp;&nbsp;	}<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;	} ,<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;	&quot;linkId&quot; : &quot;String&quot; ,<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;	&quot;curr-speed&quot; : &quot;Integer&quot; ,<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;	&quot;ptpb&quot; : {<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;@href&quot; : &quot;/api/jssdk/swag-dtu/ptps/{pTPId}&quot; ,<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;@uri&quot; : &quot;/api/jssdk/swag-dtu/links/{linkId}&quot; ,<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;ptpid&quot; : &quot;Integer&quot; ,<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;name&quot; : &quot;String&quot;<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;	} ,<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;	&quot;dev-a-name&quot; : &quot;String&quot; ,<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;	&quot;ptpa&quot; : {<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;@href&quot; : &quot;/api/jssdk/swag-dtu/ptps/{pTPId}&quot; ,<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;@uri&quot; : &quot;/api/jssdk/swag-dtu/links/{linkId}&quot; ,<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;ptpid&quot; : &quot;Integer&quot; ,<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&quot;name&quot; : &quot;String&quot;<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;	} ,<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;	&quot;dev-b-ip-addr&quot; : &quot;String&quot; ,<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;	&quot;mtu-str&quot; : &quot;String&quot; ,<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;	&quot;dev-b-interface&quot; : &quot;String&quot; ,<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;	&quot;dev-a-interface&quot; : &quot;String&quot;<br/>
    * &nbsp;&nbsp;	}<br/>
    * }
    * 

@@ -10,70 +10,6 @@
       </xs:annotation>
    </xs:element>
 
-  <xs:complexType name="gen_links-links-ptpb">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="ptpid" type="xs:int">
-            <xs:annotation>
-               <xs:appinfo>
-                  <space-appinfo>
-                     <read-only/>
-                  </space-appinfo>
-               </xs:appinfo>
-            </xs:annotation>
-         </xs:element>
-      <xs:element minOccurs="0" name="name" type="xs:string">
-            <xs:annotation>
-               <xs:appinfo>
-                  <space-appinfo>
-                     <read-only/>
-                  </space-appinfo>
-               </xs:appinfo>
-            </xs:annotation>
-         </xs:element>
-    </xs:sequence>
-    <xs:attribute name="href" type="xs:string" use="required">
-         <xs:annotation>
-            <xs:appinfo>
-               <space-appinfo>
-                  <link>/api/jssdk/swag-dtu/ptps/{pTPId}</link>
-               </space-appinfo>
-            </xs:appinfo>
-         </xs:annotation>
-      </xs:attribute>
-  </xs:complexType>
-
-  <xs:complexType name="gen_links-links-ptpa">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="ptpid" type="xs:int">
-            <xs:annotation>
-               <xs:appinfo>
-                  <space-appinfo>
-                     <read-only/>
-                  </space-appinfo>
-               </xs:appinfo>
-            </xs:annotation>
-         </xs:element>
-      <xs:element minOccurs="0" name="name" type="xs:string">
-            <xs:annotation>
-               <xs:appinfo>
-                  <space-appinfo>
-                     <read-only/>
-                  </space-appinfo>
-               </xs:appinfo>
-            </xs:annotation>
-         </xs:element>
-    </xs:sequence>
-    <xs:attribute name="href" type="xs:string" use="required">
-         <xs:annotation>
-            <xs:appinfo>
-               <space-appinfo>
-                  <link>/api/jssdk/swag-dtu/ptps/{pTPId}</link>
-               </space-appinfo>
-            </xs:appinfo>
-         </xs:annotation>
-      </xs:attribute>
-  </xs:complexType>
-
   <xs:complexType name="gen_links-links-deviceb">
     <xs:sequence>
       <xs:element minOccurs="0" name="id" type="xs:int">
@@ -142,8 +78,78 @@
       </xs:attribute>
   </xs:complexType>
 
+  <xs:complexType name="gen_links-links-ptpb">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ptpid" type="xs:int">
+            <xs:annotation>
+               <xs:appinfo>
+                  <space-appinfo>
+                     <read-only/>
+                  </space-appinfo>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+      <xs:element minOccurs="0" name="name" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <space-appinfo>
+                     <read-only/>
+                  </space-appinfo>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+    </xs:sequence>
+    <xs:attribute name="href" type="xs:string" use="required">
+         <xs:annotation>
+            <xs:appinfo>
+               <space-appinfo>
+                  <link>/api/jssdk/swag-dtu/ptps/{pTPId}</link>
+               </space-appinfo>
+            </xs:appinfo>
+         </xs:annotation>
+      </xs:attribute>
+  </xs:complexType>
+
+  <xs:complexType name="gen_links-links-ptpa">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ptpid" type="xs:int">
+            <xs:annotation>
+               <xs:appinfo>
+                  <space-appinfo>
+                     <read-only/>
+                  </space-appinfo>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+      <xs:element minOccurs="0" name="name" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <space-appinfo>
+                     <read-only/>
+                  </space-appinfo>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+    </xs:sequence>
+    <xs:attribute name="href" type="xs:string" use="required">
+         <xs:annotation>
+            <xs:appinfo>
+               <space-appinfo>
+                  <link>/api/jssdk/swag-dtu/ptps/{pTPId}</link>
+               </space-appinfo>
+            </xs:appinfo>
+         </xs:annotation>
+      </xs:attribute>
+  </xs:complexType>
+
   <xs:complexType name="gen_links-links">
     <xs:sequence>
+      <xs:element name="dev-a-ip-addr" type="xs:string"/>
+      <xs:element name="speed-str" type="xs:string"/>
+      <xs:element name="operation-status" type="xs:string"/>
+      <xs:element name="dev-b-name" type="xs:string"/>
+      <xs:element name="deviceb" type="gen_links-links-deviceb"/>
+      <xs:element name="devicea" type="gen_links-links-devicea"/>
       <xs:element minOccurs="0" name="linkId" type="xs:string">
             <xs:annotation>
                <xs:appinfo>
@@ -153,10 +159,14 @@
                </xs:appinfo>
             </xs:annotation>
          </xs:element>
+      <xs:element name="curr-speed" type="xs:int"/>
       <xs:element name="ptpb" type="gen_links-links-ptpb"/>
+      <xs:element name="dev-a-name" type="xs:string"/>
       <xs:element name="ptpa" type="gen_links-links-ptpa"/>
-      <xs:element name="deviceb" type="gen_links-links-deviceb"/>
-      <xs:element name="devicea" type="gen_links-links-devicea"/>
+      <xs:element name="dev-b-ip-addr" type="xs:string"/>
+      <xs:element name="mtu-str" type="xs:string"/>
+      <xs:element name="dev-b-interface" type="xs:string"/>
+      <xs:element name="dev-a-interface" type="xs:string"/>
     </xs:sequence>
     <xs:attribute name="uri" type="xs:string"/>
     <xs:attribute name="href" type="xs:string">
