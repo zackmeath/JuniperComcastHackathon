@@ -404,6 +404,53 @@ public class SwagDTURestImpl extends WebSvcAbstract implements SwagDTURest {
 
   /**
    * <pre>
+   * <b>Method:</b>getDevice
+   *
+   * <b>Description:</b> This is an  auto generated method with stub
+   * implementation which uses the <code>vnd.jssdk.swagdtu.SwagDTU</code> EJB bean and exposes
+   * it's method with Rest web services interface.
+   * @param apic UriContext
+   * @param id Integer
+   * @return vnd.jssdk.swagdtu.rest.v1.Device
+   */
+  public Device getDevice(UriContext apic, Integer id) throws Exception {
+    //GeneralMethodGenerator
+    vnd.jssdk.swagdtu.rest.v1.Device retDevice = new vnd.jssdk.swagdtu.rest.v1.Device();
+    try {
+
+      // Call bean method: getDevice
+      vnd.jssdk.swagdtu.Device beanDevice = null;
+      beanDevice = getBean().getDevice(apic.getApicontext(), id == null ? 0 : id);
+
+      // Prepare return value: retDevice
+      retDevice.copyFrom(beanDevice);
+    } catch (WebApplicationException e) {
+      Response response = e.getResponse();
+      JSAuditlogHelper.addDescriptionToAuditLog((response != null && response.getEntity() != null)
+          ? response.getEntity().toString()
+          : e.getMessage());
+      throw e;
+    } catch (EJBException e) {
+      if (e.getCause() instanceof WebApplicationException) {
+        Response response = ((WebApplicationException) e.getCause()).getResponse();
+        JSAuditlogHelper
+            .addDescriptionToAuditLog((response != null && response.getEntity() != null) ? response
+                .getEntity().toString() : ((WebApplicationException) e.getCause()).getMessage());
+        throw (WebApplicationException) e.getCause();
+      }
+      JSAuditlogHelper.addDescriptionToAuditLog(e.getMessage());
+      throw new WebApplicationException(Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+          .entity(e.getMessage()).build());
+    } catch (Exception e) {
+      JSAuditlogHelper.addDescriptionToAuditLog(e.getMessage());
+      throw e;
+    }
+
+    return retDevice;
+  }
+
+  /**
+   * <pre>
    * <b>Method:</b>getCurrentLinkList
    *
    * <b>Description:</b> This is an  auto generated method with stub
@@ -460,26 +507,25 @@ public class SwagDTURestImpl extends WebSvcAbstract implements SwagDTURest {
 
   /**
    * <pre>
-   * <b>Method:</b>getDevice
+   * <b>Method:</b>getLink
    *
    * <b>Description:</b> This is an  auto generated method with stub
    * implementation which uses the <code>vnd.jssdk.swagdtu.SwagDTU</code> EJB bean and exposes
    * it's method with Rest web services interface.
-   * @param apic UriContext
-   * @param id Integer
-   * @return vnd.jssdk.swagdtu.rest.v1.Device
+   * @param linkId String
+   * @return vnd.jssdk.swagdtu.rest.v1.Link
    */
-  public Device getDevice(UriContext apic, Integer id) throws Exception {
+  public Link getLink(String linkId) throws Exception {
     //GeneralMethodGenerator
-    vnd.jssdk.swagdtu.rest.v1.Device retDevice = new vnd.jssdk.swagdtu.rest.v1.Device();
+    vnd.jssdk.swagdtu.rest.v1.Link retLink = new vnd.jssdk.swagdtu.rest.v1.Link();
     try {
 
-      // Call bean method: getDevice
-      vnd.jssdk.swagdtu.Device beanDevice = null;
-      beanDevice = getBean().getDevice(apic.getApicontext(), id == null ? 0 : id);
+      // Call bean method: getLink
+      vnd.jssdk.swagdtu.Link beanLink = null;
+      beanLink = getBean().getLink(linkId);
 
-      // Prepare return value: retDevice
-      retDevice.copyFrom(beanDevice);
+      // Prepare return value: retLink
+      retLink.copyFrom(beanLink);
     } catch (WebApplicationException e) {
       Response response = e.getResponse();
       JSAuditlogHelper.addDescriptionToAuditLog((response != null && response.getEntity() != null)
@@ -502,7 +548,7 @@ public class SwagDTURestImpl extends WebSvcAbstract implements SwagDTURest {
       throw e;
     }
 
-    return retDevice;
+    return retLink;
   }
 
   /**

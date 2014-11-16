@@ -104,6 +104,8 @@ public interface SwagDTU extends JobManagerCallerInterface3 {
 	/**
 	 * get single device form list
 	 
-	public Device getCurrentDevice(int id);
-	*/
+	/*
+	 * Get individual link
+	 */
+	public Link getLink(String linkId);
 }   

@@ -144,16 +144,26 @@
 
   <xs:complexType name="gen_links-links">
     <xs:sequence>
+      <xs:element minOccurs="0" name="linkId" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <space-appinfo>
+                     <read-only/>
+                  </space-appinfo>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
       <xs:element name="ptpb" type="gen_links-links-ptpb"/>
       <xs:element name="ptpa" type="gen_links-links-ptpa"/>
       <xs:element name="deviceb" type="gen_links-links-deviceb"/>
       <xs:element name="devicea" type="gen_links-links-devicea"/>
     </xs:sequence>
+    <xs:attribute name="uri" type="xs:string"/>
     <xs:attribute name="href" type="xs:string">
          <xs:annotation>
             <xs:appinfo>
                <space-appinfo>
-                  <link>/api/jssdk/swag-dtu/current-link-list</link>
+                  <link>/api/jssdk/swag-dtu/current-link-list/{linkId}</link>
                </space-appinfo>
             </xs:appinfo>
          </xs:annotation>

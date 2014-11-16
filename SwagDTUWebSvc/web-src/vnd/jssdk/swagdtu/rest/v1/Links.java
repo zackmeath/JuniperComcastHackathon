@@ -44,7 +44,7 @@ public class Links {
 
 
   @XmlElement(name = "link", required = true)
-  @HATEOAS(href = "/api/jssdk/swag-dtu/current-link-list", context = LinkTypeEnum.GLOBAL)
+  @HATEOAS(uri = "/{linkId}", href = "/api/jssdk/swag-dtu/current-link-list/{linkId}", context = LinkTypeEnum.GLOBAL)
   @Generated(value = "Generated", comments = "hasDefaultValue:false,title:Links,readOnly:false")
   @Title(name = "Links")
   private java.util.Collection<vnd.jssdk.swagdtu.rest.v1.Links.Link> links;
@@ -120,6 +120,7 @@ public class Links {
       if (bean == null) {
         return;
       }
+      this.setLinkId(bean.getLinkId());
 
       // copy property: ptpB : vnd.jssdk.swagdtu.rest.v1.Links.Link.PtpB : vnd.jssdk.swagdtu.PTP
       vnd.jssdk.swagdtu.rest.v1.Links.Link.PtpB ptpB =
@@ -147,42 +148,75 @@ public class Links {
     }
 
 
+    /***
+     * Link ID
+     * 
+     * @key 
+     **/
+
+    @XmlElement(name = "linkId", required = false)
+    @Generated(value = "Generated", comments = "hasDefaultValue:false,title:Link ID,javaname:String,readOnly:true,ejbType:java.lang.String")
+    @Title(name = "Link ID")
+    private String linkId;
+
 
     @XmlElement(name = "ptpb", required = true)
-    @HATEOAS(href = "/api/jssdk/swag-dtu/ptps/{pTPId}", context = LinkTypeEnum.GLOBAL)
+    @HATEOAS(uri = "", href = "/api/jssdk/swag-dtu/ptps/{pTPId}", context = LinkTypeEnum.GLOBAL)
     @Generated(value = "Generated", comments = "title:PtpB,hasDefaultValue:false,readOnly:false,ejbType:vnd.jssdk.swagdtu.PTP")
     @Title(name = "PtpB")
     private vnd.jssdk.swagdtu.rest.v1.Links.Link.PtpB ptpB;
 
 
     @XmlElement(name = "ptpa", required = true)
-    @HATEOAS(href = "/api/jssdk/swag-dtu/ptps/{pTPId}", context = LinkTypeEnum.GLOBAL)
+    @HATEOAS(uri = "", href = "/api/jssdk/swag-dtu/ptps/{pTPId}", context = LinkTypeEnum.GLOBAL)
     @Generated(value = "Generated", comments = "title:PtpA,hasDefaultValue:false,readOnly:false,ejbType:vnd.jssdk.swagdtu.PTP")
     @Title(name = "PtpA")
     private vnd.jssdk.swagdtu.rest.v1.Links.Link.PtpA ptpA;
 
 
     @XmlElement(name = "deviceb", required = true)
-    @HATEOAS(href = "/api/jssdk/swag-dtu/devices/{id}", context = LinkTypeEnum.GLOBAL)
+    @HATEOAS(uri = "", href = "/api/jssdk/swag-dtu/devices/{id}", context = LinkTypeEnum.GLOBAL)
     @Generated(value = "Generated", comments = "title:DeviceB,hasDefaultValue:false,readOnly:false,ejbType:vnd.jssdk.swagdtu.Device")
     @Title(name = "DeviceB")
     private vnd.jssdk.swagdtu.rest.v1.Links.Link.DeviceB deviceB;
 
 
     @XmlElement(name = "devicea", required = true)
-    @HATEOAS(href = "/api/jssdk/swag-dtu/devices/{id}", context = LinkTypeEnum.GLOBAL)
+    @HATEOAS(uri = "", href = "/api/jssdk/swag-dtu/devices/{id}", context = LinkTypeEnum.GLOBAL)
     @Generated(value = "Generated", comments = "title:DeviceA,hasDefaultValue:false,readOnly:false,ejbType:vnd.jssdk.swagdtu.Device")
     @Title(name = "DeviceA")
     private vnd.jssdk.swagdtu.rest.v1.Links.Link.DeviceA deviceA;
 
     /***
-     * @HyperlinkTemplate /api/jssdk/swag-dtu/current-link-list
+     * @HyperlinkTemplate /api/jssdk/swag-dtu/current-link-lists/{linkId}
+     **/
+
+    @XmlAttribute(name = "uri", required = false)
+    @Generated(value = "Generated", comments = "hasDefaultValue:false,javaname:String,readOnly:true")
+    private String uri;
+
+    /***
+     * @HyperlinkTemplate /api/jssdk/swag-dtu/current-link-list/{linkId}
      **/
 
     @XmlAttribute(name = "href", required = false)
     @Generated(value = "Generated", comments = "hasDefaultValue:false,javaname:String,readOnly:true")
     private String link;
 
+
+    /**
+     * @param linkId
+     */
+    public void setLinkId(String linkId) {
+      this.linkId = linkId;
+    }
+
+    /**
+     * @return String
+     */
+    public String getLinkId() {
+      return linkId;
+    }
 
     /**
      * @param ptpB
@@ -238,6 +272,20 @@ public class Links {
      */
     public vnd.jssdk.swagdtu.rest.v1.Links.Link.DeviceA getDeviceA() {
       return deviceA;
+    }
+
+    /**
+     * @param uri
+     */
+    public void setUri(String uri) {
+      this.uri = uri;
+    }
+
+    /**
+     * @return String
+     */
+    public String getUri() {
+      return uri;
     }
 
     /**

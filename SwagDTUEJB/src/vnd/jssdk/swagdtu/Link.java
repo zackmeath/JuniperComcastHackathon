@@ -38,8 +38,8 @@ public class Link {
 	private String linkId;	
 	
 //getters and setters
-	public void setlinkId(String linkId){
-		this.linkId = linkId;
+	public void setlinkId(String tmpLinkId){
+		this.linkId = tmpLinkId;
 	}
 	public String getLinkId(){
 		return linkId;

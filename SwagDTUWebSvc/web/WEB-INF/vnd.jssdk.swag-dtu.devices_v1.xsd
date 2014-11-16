@@ -31,7 +31,7 @@
                </xs:appinfo>
             </xs:annotation>
          </xs:element>
-      <xs:element name="ip-addr" type="xs:string">
+      <xs:element name="ipAddr" type="xs:string">
             <xs:annotation>
                <xs:appinfo>
                   <space-appinfo>

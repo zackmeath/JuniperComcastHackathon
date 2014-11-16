@@ -280,6 +280,9 @@ public class SwagDTUImpl extends JobWorker implements SwagDTU, SwagDTULocal {
 							if ((    tmpDevice.getId() == link.getDeviceA().getId() || tmpDevice.getId() == link.getDeviceB().getId())  &&  
 									(tmpPtp.getDeviceID() == link.getDeviceB().getId() || tmpPtp.getDeviceID() == link.getDeviceA().getId())
 							   ) {
+								//Device devB = getDevice(apiCtx,tmpPtp.deviceID);
+								//link = getLink(tmpDevice.getId()+""+devB.getId());
+								//link.setPtpA(tmpPtp);
 								preExistingLink = true;
 							}
 						}
@@ -290,8 +293,13 @@ public class SwagDTUImpl extends JobWorker implements SwagDTU, SwagDTULocal {
 						tmplink.setDeviceA(tmpDevice);
 						Device devB = getDevice(apiCtx,tmpPtp.deviceID);
 						tmplink.setDeviceB(devB);
-						tmplink.setPtpB(tmpPtp);						
+						tmplink.setPtpB(tmpPtp);	
+						//Link ID will be the id of the two devices added together.
+						String tmpLinkId = devB.getId()+""+tmpDevice.getId();
+						tmplink.setlinkId(tmpLinkId);
 						resultLinks.add(tmplink);
+						
+						
 						
 					}
 				}
@@ -888,7 +896,18 @@ public class SwagDTUImpl extends JobWorker implements SwagDTU, SwagDTULocal {
 			f.close();
 		}
 	}
-
+	
+	/**
+	 * get individual link from ID
+	 */
+	public Link getLink(String id){
+		for (Link link : linkListGettable){
+			if (link.getLinkId().equals(id)){
+				return link;
+			}
+		}
+		return null;
+	}
 
 
 	/**
