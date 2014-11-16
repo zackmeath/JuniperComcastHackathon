@@ -1,0 +1,60 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0">
+
+  <xs:element name="device" type="device"/>
+
+  <xs:complexType name="device">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:int">
+            <xs:annotation>
+               <xs:appinfo>
+                  <space-appinfo>
+                     <sortable/>
+                     <read-only/>
+                  </space-appinfo>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+      <xs:element name="platform" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <space-appinfo>
+                     <sortable/>
+                  </space-appinfo>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+      <xs:element name="ip-addr" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <space-appinfo>
+                     <sortable/>
+                  </space-appinfo>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+      <xs:element name="status" type="xs:string"/>
+      <xs:element name="name" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <space-appinfo>
+                     <sortable/>
+                  </space-appinfo>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+      <xs:element name="longitude" type="xs:float"/>
+      <xs:element name="latitude" type="xs:float"/>
+      <xs:element name="info-url" type="xs:string"/>
+    </xs:sequence>
+    <xs:attribute name="uri" type="xs:string"/>
+    <xs:attribute name="href" type="xs:string">
+         <xs:annotation>
+            <xs:appinfo>
+               <space-appinfo>
+                  <link>/api/jssdk/swag-dtu/devices/{id}</link>
+               </space-appinfo>
+            </xs:appinfo>
+         </xs:annotation>
+      </xs:attribute>
+  </xs:complexType>
+</xs:schema>

@@ -459,6 +459,53 @@ public class SwagDTURestImpl extends WebSvcAbstract implements SwagDTURest {
   }
 
   /**
+   * <pre>
+   * <b>Method:</b>getDevice
+   *
+   * <b>Description:</b> This is an  auto generated method with stub
+   * implementation which uses the <code>vnd.jssdk.swagdtu.SwagDTU</code> EJB bean and exposes
+   * it's method with Rest web services interface.
+   * @param apic UriContext
+   * @param id Integer
+   * @return vnd.jssdk.swagdtu.rest.v1.Device
+   */
+  public Device getDevice(UriContext apic, Integer id) throws Exception {
+    //GeneralMethodGenerator
+    vnd.jssdk.swagdtu.rest.v1.Device retDevice = new vnd.jssdk.swagdtu.rest.v1.Device();
+    try {
+
+      // Call bean method: getDevice
+      vnd.jssdk.swagdtu.Device beanDevice = null;
+      beanDevice = getBean().getDevice(apic.getApicontext(), id == null ? 0 : id);
+
+      // Prepare return value: retDevice
+      retDevice.copyFrom(beanDevice);
+    } catch (WebApplicationException e) {
+      Response response = e.getResponse();
+      JSAuditlogHelper.addDescriptionToAuditLog((response != null && response.getEntity() != null)
+          ? response.getEntity().toString()
+          : e.getMessage());
+      throw e;
+    } catch (EJBException e) {
+      if (e.getCause() instanceof WebApplicationException) {
+        Response response = ((WebApplicationException) e.getCause()).getResponse();
+        JSAuditlogHelper
+            .addDescriptionToAuditLog((response != null && response.getEntity() != null) ? response
+                .getEntity().toString() : ((WebApplicationException) e.getCause()).getMessage());
+        throw (WebApplicationException) e.getCause();
+      }
+      JSAuditlogHelper.addDescriptionToAuditLog(e.getMessage());
+      throw new WebApplicationException(Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+          .entity(e.getMessage()).build());
+    } catch (Exception e) {
+      JSAuditlogHelper.addDescriptionToAuditLog(e.getMessage());
+      throw e;
+    }
+
+    return retDevice;
+  }
+
+  /**
    * Create the bean instance
    * @return vnd.jssdk.swagdtu.SwagDTU
    */

@@ -373,6 +373,53 @@ public interface SwagDTURest {
   @Generated(value = "REST Wizard", comments = "yieldTime:100,retryEnabled:false,retryCount:3,audit_detail_enabled:false,generation:0,signature:()QPagingResult<QLink;>;")
   public vnd.jssdk.swagdtu.rest.v1.Links getCurrentLinkList() throws Exception;
 
+  /***
+   * get individual device based on ID
+   * 
+   * @summary get individual device based on ID
+   * 
+   * @outputXML 
+   * &lt;device href=&quot;/api/jssdk/swag-dtu/devices/{id}&quot; uri=&quot;/api/jssdk/swag-dtu/devices/{id}&quot;&gt;<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;	 &lt;id&gt;Integer&lt;/id&gt;<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;	 &lt;platform&gt;String&lt;/platform&gt;<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;	 &lt;ip-addr&gt;String&lt;/ip-addr&gt;<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;	 &lt;status&gt;String&lt;/status&gt;<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;	 &lt;name&gt;String&lt;/name&gt;<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;	 &lt;longitude&gt;Float&lt;/longitude&gt;<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;	 &lt;latitude&gt;Float&lt;/latitude&gt;<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;	 &lt;info-url&gt;String&lt;/info-url&gt;<br/>
+   * &lt;/device&gt;
+   * 
+   * 
+   * @outputJSON 
+   * {<br/>
+   * &nbsp;&nbsp;	&quot;device&quot; : {<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;	&quot;@href&quot; : &quot;/api/jssdk/swag-dtu/devices/{id}&quot; ,<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;	&quot;@uri&quot; : &quot;/api/jssdk/swag-dtu/devices/{id}&quot; ,<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;	&quot;id&quot; : &quot;Integer&quot; ,<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;	&quot;platform&quot; : &quot;String&quot; ,<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;	&quot;ip-addr&quot; : &quot;String&quot; ,<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;	&quot;status&quot; : &quot;String&quot; ,<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;	&quot;name&quot; : &quot;String&quot; ,<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;	&quot;longitude&quot; : &quot;Float&quot; ,<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;	&quot;latitude&quot; : &quot;Float&quot; ,<br/>
+   * &nbsp;&nbsp;&nbsp;&nbsp;	&quot;info-url&quot; : &quot;String&quot;<br/>
+   * &nbsp;&nbsp;	}<br/>
+   * }
+   * 
+   * 
+   * @param apic Apic
+   * @param id ID
+   **/
+  @Path("/devices/{id}")
+  @GET
+  @RBAC(type = {CRUDEnum.READ}, capability = {"SwagDTUCap"})
+  @Produces({"application/vnd.jssdk.swag-dtu.device+xml;version=1;q=0.01",
+      "application/vnd.jssdk.swag-dtu.device+json;version=1;q=0.01"})
+  @Generated(value = "REST Wizard", comments = "yieldTime:100,retryEnabled:false,retryCount:3,audit_detail_enabled:false,generation:0,signature:(QApiContext;I)QDevice;")
+  public vnd.jssdk.swagdtu.rest.v1.Device getDevice(@Context UriContext apic,
+      @PathParam("id") Integer id) throws Exception;
+
   /**
    * Root Resource.
    */
