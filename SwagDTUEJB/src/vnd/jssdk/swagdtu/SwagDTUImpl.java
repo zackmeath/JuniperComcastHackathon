@@ -274,32 +274,45 @@ public class SwagDTUImpl extends JobWorker implements SwagDTU, SwagDTULocal {
 					//		}
 					//	}
 					//}
-					
+					Link existingLink = new Link();
 					if(!resultLinks.isEmpty()) {
 						for (Link link : resultLinks) {
 							if ((    tmpDevice.getId() == link.getDeviceA().getId() || tmpDevice.getId() == link.getDeviceB().getId())  &&  
 									(tmpPtp.getDeviceID() == link.getDeviceB().getId() || tmpPtp.getDeviceID() == link.getDeviceA().getId())
-							   ) {
-								//Device devB = getDevice(apiCtx,tmpPtp.deviceID);
-								//link = getLink(tmpDevice.getId()+""+devB.getId());
-								//link.setPtpA(tmpPtp);
+							   ) {								
 								preExistingLink = true;
+								existingLink=link;
 							}
 						}
 					}
 					//if PreExistingLink isn't true, then create new link and set device A and other attributes.
+					Device devB = getDevice(apiCtx,tmpPtp.deviceID);
+					String tmpLinkId;
 					if(!preExistingLink){
 						Link tmplink = new Link();
 						tmplink.setDeviceA(tmpDevice);
-						Device devB = getDevice(apiCtx,tmpPtp.deviceID);
 						tmplink.setDeviceB(devB);
 						tmplink.setPtpB(tmpPtp);	
-						//Link ID will be the id of the two devices added together.
-						String tmpLinkId = devB.getId()+""+tmpDevice.getId();
+						//Link ID will be the id of the two devices added together.						
+						//so that the larger id is always in front
+						if(devB.getId() > tmpDevice.getId()){
+							tmpLinkId = devB.getId()+""+tmpDevice.getId();
+						}else{
+							tmpLinkId=tmpDevice.getId()+""+devB.getId();
+						}
+						
 						tmplink.setlinkId(tmpLinkId);
-						resultLinks.add(tmplink);
-						
-						
+						resultLinks.add(tmplink);						
+					}else{
+						//Link already exists, so we need to get it from the list and populate it with the ptpa
+						if(devB.getId() > tmpDevice.getId()){
+							tmpLinkId = devB.getId()+""+tmpDevice.getId();
+						}else{
+							tmpLinkId=tmpDevice.getId()+""+devB.getId();
+						}
+						existingLink.setPtpA(tmpPtp);
+						resultLinks.remove(existingLink);
+						resultLinks.add(existingLink);
 						
 					}
 				}
