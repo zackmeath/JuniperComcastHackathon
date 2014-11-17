@@ -113,7 +113,7 @@ public class Links {
 
   @XmlType(name = "gen_links-links")
   @XmlAccessorType(XmlAccessType.NONE)
-  @Generated(value = "Generated", comments = "isEnvelope:false,source:vnd.jssdk.swagdtu.Link,isReference:false,generation:0,checked:[devAIpAddr&#44;speedStr&#44;operationStatus&#44;devBName&#44;deviceB&#44;deviceA&#44;linkId&#44;currSpeed&#44;ptpB&#44;devAName&#44;ptpA&#44;devBIpAddr&#44;mtuStr&#44;devBInterface&#44;devAInterface]")
+  @Generated(value = "Generated", comments = "isEnvelope:false,source:vnd.jssdk.swagdtu.Link,isReference:false,generation:0,checked:[devAIpAddr&#44;linkColor&#44;speedStr&#44;operationStatus&#44;devBName&#44;deviceB&#44;deviceA&#44;linkId&#44;currSpeed&#44;ptpB&#44;devAName&#44;ptpA&#44;devBIpAddr&#44;mtuStr&#44;devBInterface&#44;devAInterface]")
   public static class Link {
 
     public void copyFrom(vnd.jssdk.swagdtu.Link bean) {
@@ -121,6 +121,7 @@ public class Links {
         return;
       }
       this.setDevAIpAddr(bean.getDevAIpAddr());
+      this.setLinkColor(bean.getLinkColor());
       this.setSpeedStr(bean.getSpeedStr());
       this.setOperationStatus(bean.getOperationStatus());
       this.setDevBName(bean.getDevBName());
@@ -162,16 +163,25 @@ public class Links {
      * Dev A IP Addr
      **/
 
-    @XmlElement(name = "dev-a-ip-addr", required = true)
+    @XmlElement(name = "devAIpAddr", required = true)
     @Generated(value = "Generated", comments = "hasDefaultValue:false,title:Dev A IP Addr,javaname:String,readOnly:false,ejbType:java.lang.String")
     @Title(name = "Dev A IP Addr")
     private String devAIpAddr;
 
     /***
+     * Link Color
+     **/
+
+    @XmlElement(name = "linkColor", required = true)
+    @Generated(value = "Generated", comments = "hasDefaultValue:false,title:Link Color,javaname:String,readOnly:false,ejbType:java.lang.String")
+    @Title(name = "Link Color")
+    private String linkColor;
+
+    /***
      * Speed Str
      **/
 
-    @XmlElement(name = "speed-str", required = true)
+    @XmlElement(name = "speedStr", required = true)
     @Generated(value = "Generated", comments = "hasDefaultValue:false,title:Speed Str,javaname:String,readOnly:false,ejbType:java.lang.String")
     @Title(name = "Speed Str")
     private String speedStr;
@@ -180,7 +190,7 @@ public class Links {
      * Operation Status
      **/
 
-    @XmlElement(name = "operation-status", required = true)
+    @XmlElement(name = "operationStatus", required = true)
     @Generated(value = "Generated", comments = "hasDefaultValue:false,title:Operation Status,javaname:String,readOnly:false,ejbType:java.lang.String")
     @Title(name = "Operation Status")
     private String operationStatus;
@@ -189,7 +199,7 @@ public class Links {
      * Dev B Name
      **/
 
-    @XmlElement(name = "dev-b-name", required = true)
+    @XmlElement(name = "devBName", required = true)
     @Generated(value = "Generated", comments = "hasDefaultValue:false,title:Dev B Name,javaname:String,readOnly:false,ejbType:java.lang.String")
     @Title(name = "Dev B Name")
     private String devBName;
@@ -223,7 +233,7 @@ public class Links {
      * Curr Speed
      **/
 
-    @XmlElement(name = "curr-speed", required = true, type = Integer.class)
+    @XmlElement(name = "currSpeed", required = true, type = Integer.class)
     @Generated(value = "Generated", comments = "hasDefaultValue:false,title:Curr Speed,javaname:int,readOnly:false,defaultValue:0,ejbType:I")
     @Title(name = "Curr Speed")
     private Integer currSpeed;
@@ -239,7 +249,7 @@ public class Links {
      * Dev A Name
      **/
 
-    @XmlElement(name = "dev-a-name", required = true)
+    @XmlElement(name = "devAName", required = true)
     @Generated(value = "Generated", comments = "hasDefaultValue:false,title:Dev A Name,javaname:String,readOnly:false,ejbType:java.lang.String")
     @Title(name = "Dev A Name")
     private String devAName;
@@ -255,7 +265,7 @@ public class Links {
      * Dev B IP Addr
      **/
 
-    @XmlElement(name = "dev-b-ip-addr", required = true)
+    @XmlElement(name = "devBIpAddr", required = true)
     @Generated(value = "Generated", comments = "hasDefaultValue:false,title:Dev B IP Addr,javaname:String,readOnly:false,ejbType:java.lang.String")
     @Title(name = "Dev B IP Addr")
     private String devBIpAddr;
@@ -264,7 +274,7 @@ public class Links {
      * Mtu Str
      **/
 
-    @XmlElement(name = "mtu-str", required = true)
+    @XmlElement(name = "mtuStr", required = true)
     @Generated(value = "Generated", comments = "hasDefaultValue:false,title:Mtu Str,javaname:String,readOnly:false,ejbType:java.lang.String")
     @Title(name = "Mtu Str")
     private String mtuStr;
@@ -273,7 +283,7 @@ public class Links {
      * Dev B Interface
      **/
 
-    @XmlElement(name = "dev-b-interface", required = true)
+    @XmlElement(name = "devBInterface", required = true)
     @Generated(value = "Generated", comments = "hasDefaultValue:false,title:Dev B Interface,javaname:String,readOnly:false,ejbType:java.lang.String")
     @Title(name = "Dev B Interface")
     private String devBInterface;
@@ -282,7 +292,7 @@ public class Links {
      * Dev A Interface
      **/
 
-    @XmlElement(name = "dev-a-interface", required = true)
+    @XmlElement(name = "devAInterface", required = true)
     @Generated(value = "Generated", comments = "hasDefaultValue:false,title:Dev A Interface,javaname:String,readOnly:false,ejbType:java.lang.String")
     @Title(name = "Dev A Interface")
     private String devAInterface;
@@ -316,6 +326,20 @@ public class Links {
      */
     public String getDevAIpAddr() {
       return devAIpAddr;
+    }
+
+    /**
+     * @param linkColor
+     */
+    public void setLinkColor(String linkColor) {
+      this.linkColor = linkColor;
+    }
+
+    /**
+     * @return String
+     */
+    public String getLinkColor() {
+      return linkColor;
     }
 
     /**

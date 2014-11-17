@@ -1,0 +1,42 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0">
+
+  <xs:element name="lsps" type="lsPs"/>
+
+  <xs:complexType name="gen_lsps-lsps">
+    <xs:sequence>
+      <xs:element name="num-hops" type="xs:int"/>
+      <xs:element name="speed-avg" type="xs:int"/>
+      <xs:element name="lsp-interface" type="xs:string"/>
+      <xs:element name="path-usable" type="xs:boolean"/>
+      <xs:element name="lowest-mtu" type="xs:int"/>
+      <xs:element name="lowest-speed" type="xs:int"/>
+      <xs:element minOccurs="0" name="lsp-id" type="xs:int">
+            <xs:annotation>
+               <xs:appinfo>
+                  <space-appinfo>
+                     <read-only/>
+                  </space-appinfo>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+    </xs:sequence>
+    <xs:attribute name="uri" type="xs:string"/>
+    <xs:attribute name="href" type="xs:string">
+         <xs:annotation>
+            <xs:appinfo>
+               <space-appinfo>
+                  <link>/api/jssdk/swag-dtu/current-lsp-list/{lspId}</link>
+               </space-appinfo>
+            </xs:appinfo>
+         </xs:annotation>
+      </xs:attribute>
+  </xs:complexType>
+
+  <xs:complexType name="lsPs">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="lsp" type="gen_lsps-lsps"/>
+    </xs:sequence>
+    <xs:attribute name="uri" type="xs:string"/>
+    <xs:attribute name="total" type="xs:int"/>
+  </xs:complexType>
+</xs:schema>

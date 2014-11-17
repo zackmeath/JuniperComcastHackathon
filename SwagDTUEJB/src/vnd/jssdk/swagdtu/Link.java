@@ -46,6 +46,19 @@ public class Link {
 	private String devBInterface;
 	private String devAInterface;
 	private String operationStatus;
+	private String linkColor;
+	//Traffic data
+	private int interfaceAInputBytes;
+	private int interfaceBInputBytes;
+	private int interfaceAInputPackets;
+	private int interfaceBInputPackets;
+	private String interfaceAInputBps;
+	private int interfaceBInputBps;
+	private int interfaceBOutputBps;
+	private int interfaceAOutputBps;
+	private int interfaceAOutputBytes;
+	private int interfaceAOutputPackets;
+	private int mtu;
 	
 //getters and setters
 	public void setlinkId(String tmpLinkId){
@@ -138,6 +151,78 @@ public class Link {
 	}
 	public void setDevAInterface(String devAInterface) {
 		this.devAInterface = devAInterface;
+	}
+	public String getLinkColor() {
+		return linkColor;
+	}
+	public void setLinkColor(String linkColor) {
+		this.linkColor = linkColor;
+	}
+	public int getMtu() {
+		return mtu;
+	}
+	public void setMtu(int mtu) {
+		this.mtu = mtu;
+	}
+	public int getInterfaceAInputBytes() {
+		return interfaceAInputBytes;
+	}
+	public void setInterfaceAInputBytes(int interfaceAInputBytes) {
+		this.interfaceAInputBytes = interfaceAInputBytes;
+	}
+	public int getInterfaceBInputBytes() {
+		return interfaceBInputBytes;
+	}
+	public void setInterfaceBInputBytes(int interfaceBInputBytes) {
+		this.interfaceBInputBytes = interfaceBInputBytes;
+	}
+	public int getInterfaceAInputPackets() {
+		return interfaceAInputPackets;
+	}
+	public void setInterfaceAInputPackets(int interfaceAInputPackets) {
+		this.interfaceAInputPackets = interfaceAInputPackets;
+	}
+	public String getInterfaceAInputBps() {
+		return interfaceAInputBps;
+	}
+	public void setInterfaceAInputBps(String string) {
+		this.interfaceAInputBps = string;
+	}
+	public int getInterfaceBInputPackets() {
+		return interfaceBInputPackets;
+	}
+	public void setInterfaceBInputPackets(int interfaceBInputPackets) {
+		this.interfaceBInputPackets = interfaceBInputPackets;
+	}
+	public int getInterfaceAOutputBps() {
+		return interfaceAOutputBps;
+	}
+	public void setInterfaceAOutputBps(int interfaceAOutputBps) {
+		this.interfaceAOutputBps = interfaceAOutputBps;
+	}
+	public int getInterfaceBOutputBps() {
+		return interfaceBOutputBps;
+	}
+	public void setInterfaceBOutputBps(int interfaceBOutputBps) {
+		this.interfaceBOutputBps = interfaceBOutputBps;
+	}
+	public int getInterfaceBInputBps() {
+		return interfaceBInputBps;
+	}
+	public void setInterfaceBInputBps(int interfaceBInputBps) {
+		this.interfaceBInputBps = interfaceBInputBps;
+	}
+	public int getInterfaceAOutputPackets() {
+		return interfaceAOutputPackets;
+	}
+	public void setInterfaceAOutputPackets(int interfaceAOutputPackets) {
+		this.interfaceAOutputPackets = interfaceAOutputPackets;
+	}
+	public int getInterfaceAOoutputBytes() {
+		return interfaceAOutputBytes;
+	}
+	public void setInterfaceAOutputBytes(int interfaceAOoutputBytes) {
+		this.interfaceAOutputBytes = interfaceAOoutputBytes;
 	}
 	
 

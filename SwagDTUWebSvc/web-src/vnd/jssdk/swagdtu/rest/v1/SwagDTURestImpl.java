@@ -39,6 +39,10 @@ public class SwagDTURestImpl extends WebSvcAbstract implements SwagDTURest {
   @XmlElement(name = "current-link-lists")
   private HATEOASMethodObject getgetCurrentLinkListlinks;
   @Generated(value = "REST Wizard", comments = "source:vnd.jssdk.swagdtu.rest.v1.SwagDTURest,type:collection")
+  @HATEOASMethod(href = "/current-lsp-lists", description = "current-lsp-lists")
+  @XmlElement(name = "current-lsp-lists")
+  private HATEOASMethodObject getgetCurrentLspListlsps;
+  @Generated(value = "REST Wizard", comments = "source:vnd.jssdk.swagdtu.rest.v1.SwagDTURest,type:collection")
   @HATEOASMethod(href = "/ptps", description = "ptps")
   @XmlElement(name = "ptps")
   private HATEOASMethodObject getgetAllPtpsptps;
@@ -549,6 +553,61 @@ public class SwagDTURestImpl extends WebSvcAbstract implements SwagDTURest {
     }
 
     return retLink;
+  }
+
+  /**
+   * <pre>
+   * <b>Method:</b>getCurrentLspList
+   *
+   * <b>Description:</b> This is an  auto generated method with stub
+   * implementation which uses the <code>vnd.jssdk.swagdtu.SwagDTU</code> EJB bean and exposes
+   * it's method with Rest web services interface.
+   * @return vnd.jssdk.swagdtu.rest.v1.LSPs
+   */
+  public LSPs getCurrentLspList() throws Exception {
+    //GeneralMethodGenerator
+    vnd.jssdk.swagdtu.rest.v1.LSPs lSPs = new vnd.jssdk.swagdtu.rest.v1.LSPs();
+    try {
+
+      // Call bean method: getCurrentLspList
+      net.juniper.jmp.PagingResult<vnd.jssdk.swagdtu.LSP> ejbLSPList = null;
+      ejbLSPList = getBean().getCurrentLspList();
+
+      java.util.ArrayList<vnd.jssdk.swagdtu.rest.v1.LSPs.LSP> restLSPs =
+          new java.util.ArrayList<vnd.jssdk.swagdtu.rest.v1.LSPs.LSP>();
+      if (ejbLSPList != null) {
+        for (vnd.jssdk.swagdtu.LSP lsp : ejbLSPList) {
+          vnd.jssdk.swagdtu.rest.v1.LSPs.LSP restLSP = new vnd.jssdk.swagdtu.rest.v1.LSPs.LSP();
+          restLSP.copyFrom(lsp);
+          restLSPs.add(restLSP);
+        }
+        lSPs.setTotalSize(ejbLSPList.getPagingContext().getTotalRecords());
+      } else
+        lSPs.setTotalSize(0);
+      lSPs.setLSPs(restLSPs);
+    } catch (WebApplicationException e) {
+      Response response = e.getResponse();
+      JSAuditlogHelper.addDescriptionToAuditLog((response != null && response.getEntity() != null)
+          ? response.getEntity().toString()
+          : e.getMessage());
+      throw e;
+    } catch (EJBException e) {
+      if (e.getCause() instanceof WebApplicationException) {
+        Response response = ((WebApplicationException) e.getCause()).getResponse();
+        JSAuditlogHelper
+            .addDescriptionToAuditLog((response != null && response.getEntity() != null) ? response
+                .getEntity().toString() : ((WebApplicationException) e.getCause()).getMessage());
+        throw (WebApplicationException) e.getCause();
+      }
+      JSAuditlogHelper.addDescriptionToAuditLog(e.getMessage());
+      throw new WebApplicationException(Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+          .entity(e.getMessage()).build());
+    } catch (Exception e) {
+      JSAuditlogHelper.addDescriptionToAuditLog(e.getMessage());
+      throw e;
+    }
+
+    return lSPs;
   }
 
   /**

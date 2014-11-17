@@ -144,10 +144,11 @@
 
   <xs:complexType name="gen_links-links">
     <xs:sequence>
-      <xs:element name="dev-a-ip-addr" type="xs:string"/>
-      <xs:element name="speed-str" type="xs:string"/>
-      <xs:element name="operation-status" type="xs:string"/>
-      <xs:element name="dev-b-name" type="xs:string"/>
+      <xs:element name="devAIpAddr" type="xs:string"/>
+      <xs:element name="linkColor" type="xs:string"/>
+      <xs:element name="speedStr" type="xs:string"/>
+      <xs:element name="operationStatus" type="xs:string"/>
+      <xs:element name="devBName" type="xs:string"/>
       <xs:element name="deviceb" type="gen_links-links-deviceb"/>
       <xs:element name="devicea" type="gen_links-links-devicea"/>
       <xs:element minOccurs="0" name="linkId" type="xs:string">
@@ -159,14 +160,14 @@
                </xs:appinfo>
             </xs:annotation>
          </xs:element>
-      <xs:element name="curr-speed" type="xs:int"/>
+      <xs:element name="currSpeed" type="xs:int"/>
       <xs:element name="ptpb" type="gen_links-links-ptpb"/>
-      <xs:element name="dev-a-name" type="xs:string"/>
+      <xs:element name="devAName" type="xs:string"/>
       <xs:element name="ptpa" type="gen_links-links-ptpa"/>
-      <xs:element name="dev-b-ip-addr" type="xs:string"/>
-      <xs:element name="mtu-str" type="xs:string"/>
-      <xs:element name="dev-b-interface" type="xs:string"/>
-      <xs:element name="dev-a-interface" type="xs:string"/>
+      <xs:element name="devBIpAddr" type="xs:string"/>
+      <xs:element name="mtuStr" type="xs:string"/>
+      <xs:element name="devBInterface" type="xs:string"/>
+      <xs:element name="devAInterface" type="xs:string"/>
     </xs:sequence>
     <xs:attribute name="uri" type="xs:string"/>
     <xs:attribute name="href" type="xs:string">

@@ -14,6 +14,14 @@
                 	</xs:appinfo>
     			</xs:annotation>
             </xs:element>
+			<xs:element name="current-lsp-lists" type="hateoasMethodObject" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+                	<xs:appinfo>
+                		<collection/>
+						<read-only/>
+                	</xs:appinfo>
+    			</xs:annotation>
+            </xs:element>
 			<xs:element name="ptps" type="hateoasMethodObject" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
                 	<xs:appinfo>

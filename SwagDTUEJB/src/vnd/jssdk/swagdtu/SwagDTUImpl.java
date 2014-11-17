@@ -7,13 +7,22 @@
  * Wed Nov 12 16:16:16 EST 2014   ${USERNAME}      Initial creation  
  *******************************************************************************/  
 package vnd.jssdk.swagdtu; 
+import java.io.BufferedReader;
+import java.io.ByteArrayInputStream;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.File;
+import java.io.InputStreamReader;
 import java.io.RandomAccessFile;
+import java.io.StringReader;
+import java.io.UnsupportedEncodingException;
 import java.net.URL;
 import java.net.URLConnection;
+import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 
 import javax.ejb.Local;
@@ -22,6 +31,9 @@ import javax.ejb.Stateless;
 import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
 import javax.ws.rs.core.Response;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 
 import net.juniper.jmp.ApiContext;
 import net.juniper.jmp.PagingContext;
@@ -44,14 +56,26 @@ import net.juniper.jmp.security.JSRestClient2;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.ParseException;
+import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.message.BasicHeader;
 import org.apache.http.util.EntityUtils;
 import org.apache.log4j.Logger;
 import org.codehaus.jettison.json.JSONArray;
 import org.codehaus.jettison.json.JSONException;
 import org.codehaus.jettison.json.JSONObject;
 import org.jboss.vfs.VirtualFile;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
 
+import com.sshtools.j2ssh.util.Base64.InputStream;
+import com.sun.jersey.api.client.ClientResponse;
 
 import vnd.AppConstants;
 
@@ -74,6 +98,9 @@ public class SwagDTUImpl extends JobWorker implements SwagDTU, SwagDTULocal {
 	private static final String NO_RESPONSE = "Unable to get response";
 	private PagingResult<Device> deviceCollection = null;
 	private PagingResult<PTP> ptpCollection = null;
+	private PagingResult<LSP> lspCollection =null;
+	
+	private static PagingResult<LSP> LspListGettable= new PagingResult<LSP>();
 	private static PagingResult<Link> linkListGettable=new PagingResult<Link>();
 	private static PagingResult<Device> deviceListGettable=null;
 	private static PagingResult<PTP> ptpListGettable= null;
@@ -84,9 +111,8 @@ public class SwagDTUImpl extends JobWorker implements SwagDTU, SwagDTULocal {
 	private String JSON_DEVICES = AppConstants.SPACE_DATATYPE_PREFIX + ".device-management.devices+json;version=1";
 	private String JSON_DEVICE = AppConstants.SPACE_DATATYPE_PREFIX + ".device-management.device+json;version=1";
 	private String JSON_PTPS = AppConstants.SPACE_DATATYPE_PREFIX+".managed-domain.ptps+json;version=1";
-	private String JSON_PTP=AppConstants.SPACE_DATATYPE_PREFIX+".managed-domain.ptp+json;version=1";
-	private String ptpQueueURL="/api/hornet-q/queues/jms.queue.ptpQueue";
-	private String linkQueueURL="/api/hornet-q/queues/jms.queue.linkQueue";
+	private String JSON_RPCS = AppConstants.SPACE_DATATYPE_PREFIX+".device-management.rpc+xml;version=1";
+	private String JSON_PTP=AppConstants.SPACE_DATATYPE_PREFIX+".managed-domain.ptp+json;version=1";	
 	private JSRestClient2 client;
 	/**
 	 * Instance Logger to log messages
@@ -108,7 +134,7 @@ public class SwagDTUImpl extends JobWorker implements SwagDTU, SwagDTULocal {
 	 * @return JobInfoTO reference to JobInfoTo
 	 */
 	@JobData(
-			name = "Refresh Topology", iconFileName = "/tmp/mx960.png"
+			name = "Refresh Topology", iconFileName = "/tmp/refresh.jpg"
 			)
 	@Schedulable
 	@TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
@@ -164,9 +190,24 @@ public class SwagDTUImpl extends JobWorker implements SwagDTU, SwagDTULocal {
 			jobMgr.setJobInstanceResult(jobInstanceId,"Long running request failed",JobStatus.FAILURE,null);
 		}
 		
-		jobinfo.setDetails("generating links");
-		jobMgr.setJobInstanceResult(jobInstanceId,ptpObject,JobStatus.SUCCESS);
+		jobinfo.setDetails("LSPs");
+		PagingResult<LSP> lspObject = getAllLsps();
+		if(lspObject!=null){
+			logger.info("Succesfully generated LSPs");
+			SwagDTUImpl.LspListGettable=lspObject;
+		}else{
+			logger.error("Failed to generate LSPs");
+			jobMgr.setJobInstanceResult(jobInstanceId, "Long running Request failed",JobStatus.FAILURE,null);
+		}
+		
+		
+		jobMgr.setJobInstanceResult(jobInstanceId,"long running request succeded!",JobStatus.SUCCESS);
 		return jobinfo;
+	}
+	
+	public PagingResult<LSP> getCurrentLspList(){
+		logger.info("test");
+		return SwagDTUImpl.LspListGettable;
 	}
 	public PagingResult<Device> getCurrentDeviceList(){
 		return SwagDTUImpl.deviceListGettable;
@@ -183,6 +224,91 @@ public class SwagDTUImpl extends JobWorker implements SwagDTU, SwagDTULocal {
 	public PagingResult<Link> getCurrentLinkList(){
 		return SwagDTUImpl.linkListGettable;
 	}
+	
+	/**
+	 * Given a link, get detailed traffic for it and update Information.
+	 */
+	public Link updateLinkWithTrafic(ApiContext apiCtx, PagingContext pagingCtx,Link tmpLink ){
+		Link updateLink=tmpLink;
+		RpcStats rpc;
+		try {
+			//interface A
+			rpc = getDetailedTraffic(apiCtx,pagingCtx,tmpLink.getDeviceA().getId(),tmpLink.getDevAInterface());
+			if (rpc!=null){
+				tmpLink.setInterfaceAInputBytes(rpc.getInputBytes());
+				tmpLink.setInterfaceAInputBps(rpc.getInputBps());
+				tmpLink.setInterfaceAInputPackets(rpc.getInputPackets());
+				tmpLink.setInterfaceAOutputBps(rpc.getOutputBps());
+				tmpLink.setInterfaceAOutputPackets(rpc.getOutputPackets());
+				tmpLink.setInterfaceAOutputBytes(rpc.getOutputBytes());
+			}
+			rpc=null;
+			//interfaceB
+			rpc = getDetailedTraffic(apiCtx,pagingCtx,tmpLink.getDeviceA().getId(),tmpLink.getDevAInterface());
+			if(rpc!=null){
+				tmpLink.setInterfaceAInputBytes(rpc.getInputBytes());
+				tmpLink.setInterfaceAInputBps(rpc.getInputBps());
+				tmpLink.setInterfaceAInputPackets(rpc.getInputPackets());
+				tmpLink.setInterfaceAOutputBps(rpc.getOutputBps());
+				tmpLink.setInterfaceAOutputPackets(rpc.getOutputPackets());
+				tmpLink.setInterfaceAOutputBytes(rpc.getOutputBytes());
+			}
+			
+		} catch (PreconditionFailedException e) {
+			logger.info("hit exception querying traffic");
+			e.printStackTrace();
+		} catch (ForbiddenException e) {
+			logger.info("hit exception querying traffic");
+			e.printStackTrace();
+		}
+		
+		
+		return updateLink;
+		
+	}
+	
+	/**
+	 * Get detailed traffic for device object and put it back
+	 */
+	public RpcStats getDetailedTraffic(ApiContext apiCtx, 
+			PagingContext pagingCtx,int devId,String interfaceId) throws PreconditionFailedException,ForbiddenException{
+			RpcStats rpcResult=null;
+			HttpEntity entity =null;
+		try {
+				setupHttpClient(apiCtx);
+			} catch (Exception e) {
+				// This will result in HTTP error code 412, instead of 500.
+				throw new PreconditionFailedException(e.getLocalizedMessage());
+			}
+			
+			InternalApiContext iac = (InternalApiContext) apiCtx;
+			
+			String url = "/api/space/device-management/devices/"+devId+"/exec-rpc";		
+			// Get response from the service
+			HttpResponse response = postRPC(url, interfaceId);
+			entity = response.getEntity();
+			if (response != null) {
+				int status = response.getStatusLine().getStatusCode();
+	
+				// Convert error code to EJB exceptions - these would be properly handled by the REST layer
+				if (status == Response.Status.NO_CONTENT.getStatusCode()) {
+					return null; 
+				} else if (status == Response.Status.UNAUTHORIZED.getStatusCode()) {
+					throw new ForbiddenException(response.getStatusLine().getReasonPhrase());		// Since client had access to run this API, we should never hit this.
+				} else if (status == Response.Status.OK.getStatusCode()) {
+					rpcResult = getRPCObject(response, pagingCtx,apiCtx);
+				} else {
+					throw new PreconditionFailedException(response.getStatusLine().getReasonPhrase());
+				}
+			}
+			return rpcResult;
+				
+		}
+		
+	
+	
+	
+	
 	/**
 	 * Gets all ptps from the apis
 	 */
@@ -248,6 +374,91 @@ public class SwagDTUImpl extends JobWorker implements SwagDTU, SwagDTULocal {
 		}
 	}
 	
+	/**
+	 * This will populate the LSP collection with the LSPS and relevant data for determining path
+	 */
+	private PagingResult<LSP> getAllLsps(){
+		//LSP1
+		LSP newLsp;
+		PagingResult<Link> tmpLinks = new PagingResult<Link>();
+		lspCollection= new PagingResult<LSP>();
+		for (String linkId : LSP.LSP1 ){
+			tmpLinks.add(getLink(linkId));
+		}
+		//iterate over links used in LSP, get information
+		newLsp = getLspObject(tmpLinks,1);
+		lspCollection.add(newLsp);
+		
+		//LSP2
+		tmpLinks = new PagingResult<Link>();
+		for (String linkId : LSP.LSP2 ){
+			tmpLinks.add(getLink(linkId));
+		}
+		newLsp = getLspObject(tmpLinks,2);
+		lspCollection.add(newLsp);
+		
+		//LSP3
+		tmpLinks = new PagingResult<Link>();
+		for (String linkId : LSP.LSP3 ){
+			tmpLinks.add(getLink(linkId));
+		}
+		newLsp = getLspObject(tmpLinks,3);
+		lspCollection.add(newLsp);
+		
+		//LSP4
+		tmpLinks = new PagingResult<Link>();
+		for (String linkId : LSP.LSP4 ){
+			tmpLinks.add(getLink(linkId));
+		}
+		newLsp = getLspObject(tmpLinks,4);
+		lspCollection.add(newLsp);
+		
+		return lspCollection;
+	}
+	
+	/**
+	 * Gets LSP object from list of links
+	 * @param tmpLinks
+	 * @param lsp id
+	 * @return  LSP
+	 */
+	private LSP getLspObject(PagingResult<Link> tmpLinks,int id){
+		LSP tmpLsp=new LSP();
+		int lowSpeed=0;
+		String interfaceToAccess;
+		int speedAvg=0;
+		boolean pathUsable=true;
+		int lowestMtu=0;
+		for (Link tmpLink : tmpLinks){
+			if( lowSpeed==0 || tmpLink.getCurrSpeed()< lowSpeed){
+				lowSpeed=tmpLink.getCurrSpeed();
+				tmpLsp.setLowestSpeed(tmpLink.getCurrSpeed());
+			}
+			if(lowestMtu==0 || tmpLink.getMtu() < lowestMtu){
+				lowestMtu=tmpLink.getMtu();
+				tmpLsp.setLowestMtu(tmpLink.getMtu());
+			}
+			speedAvg+=tmpLink.getCurrSpeed();
+			if(!tmpLink.getOperationStatus().equalsIgnoreCase("Up")){
+				pathUsable=false;			
+			}
+			tmpLsp.setPathUsable(pathUsable);			
+		}
+		speedAvg=speedAvg/tmpLinks.size();
+		tmpLsp.setNumHops((tmpLinks.size()*2));
+		tmpLsp.setSpeedAvg(speedAvg);
+		tmpLsp.setLspId(id);
+		
+		return tmpLsp;
+	}
+
+	 /**
+	  * gets all the links and using the device list and ptp list
+	  * @param apiCtx
+	  * @param pagingCtx
+	  * @return PagingResult<Link>
+	  * @throws PreconditionFailedException
+	  */
 	public PagingResult<Link> getAllLinks(ApiContext apiCtx,
 			PagingContext pagingCtx) throws PreconditionFailedException {
 		PagingResult<Link> resultLinks = new PagingResult<Link>();
@@ -300,6 +511,7 @@ public class SwagDTUImpl extends JobWorker implements SwagDTU, SwagDTULocal {
 						tmplink.setCurrSpeed(tmpPtp.getSpeed());
 						tmplink.setSpeedStr(tmpPtp.getSpeedStr());
 						tmplink.setMtuStr(tmpPtp.getMtuStr());
+						tmplink.setMtu(tmpPtp.getMtu());
 						tmplink.setOperationStatus(tmpPtp.getOperationStatus());
 						//Link ID will be the id of the two devices added together.						
 						//so that the larger id is always in front
@@ -317,14 +529,27 @@ public class SwagDTUImpl extends JobWorker implements SwagDTU, SwagDTULocal {
 							existingLink.setCurrSpeed(tmpPtp.getSpeed());
 							existingLink.setSpeedStr(tmpPtp.getSpeedStr());
 						}
+						//Decide what the link color should be depending on speed.
+						int tmpSpeed = existingLink.getCurrSpeed();
+						
+						if(existingLink.getOperationStatus().equalsIgnoreCase("Down")){
+							existingLink.setLinkColor("Red");
+						}else if(tmpSpeed >= 1000){
+							existingLink.setLinkColor("Blue");
+						}else if(tmpSpeed >= 500 ){
+							existingLink.setLinkColor("Green");
+						}else{
+							existingLink.setLinkColor("Orange");
+						}
 						//If the other interface is up, and this is down. Then set the link state to down, since won't work
 						if( (!existingLink.getOperationStatus().equalsIgnoreCase("down")) &&(! existingLink.getOperationStatus().equalsIgnoreCase(tmpPtp.getOperationStatus()))){
 							existingLink.setOperationStatus(tmpPtp.getOperationStatus());
 						}
 						existingLink.setDevAInterface(tmpPtp.getName());
 						existingLink.setPtpA(tmpPtp);
+						Link linkWithTraffic = updateLinkWithTrafic(apiCtx,pagingCtx,existingLink);
 						resultLinks.remove(existingLink);
-						resultLinks.add(existingLink);
+						resultLinks.add(linkWithTraffic);
 						
 					}
 				}
@@ -432,6 +657,50 @@ public class SwagDTUImpl extends JobWorker implements SwagDTU, SwagDTULocal {
 		}
 
 	}
+/**
+ * executes post request for rpc specifically.
+ * @param url
+ * @param interfaceId
+ * @return
+ */
+	private HttpResponse postRPC(String url,String interfaceId){		
+		HttpResponse response = null;		
+		String body ="<netconf>"
+				+ "<rpcCommands>"
+				+ "<rpcCommand>"
+				+"<![CDATA[<get-interface-information>"
+				+ "<interface-name>"+interfaceId+"</interface-name>"
+						+ "<extensive/>"
+						+ "</get-interface-information>"
+						+ "]]>"
+						+ "</rpcCommand>"
+						+ "</rpcCommands>"
+						+ "</netconf>";	
+		try {
+			HttpPost request = new HttpPost(url);
+			request.setHeader("Accept", "application/vnd.net.juniper.space.device-management.rpc+xml;version=1");
+			request.setHeader("Content-Type", "application/vnd.net.juniper.space.device-management.rpc+xml;version=1;charset=UTF-8"); 
+			StringEntity sEntity = new StringEntity(body,"UTF-8");
+			request.setEntity(sEntity);
+			response= client.getClient().request(request);
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClientProtocolException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+			
+		
+		
+		return response;
+	}
+		
+		
+	
 	/**
 	 * 
 	 * This method is an utility method to call the service GET method and
@@ -442,7 +711,6 @@ public class SwagDTUImpl extends JobWorker implements SwagDTU, SwagDTULocal {
 	 * @return response String representation of the data received from the
 	 *         service
 	 */
-
 	private HttpResponse get(String url, String mediaType) {
 		HttpResponse response = null;
 		try {
@@ -544,8 +812,79 @@ public class SwagDTUImpl extends JobWorker implements SwagDTU, SwagDTULocal {
 		else
 			device.setInfoUrl("http://www.juniper.net/us/en/products-services/");
 	}
+	/**
+	 * Gets rpc object from rest response
+	 * @param response
+	 * @param ctx
+	 * @param apic
+	 * @return
+	 * @throws IOException 
+	 * @throws SAXException 
+	 * @throws UnsupportedEncodingException 
+	 * @throws ParserConfigurationException 
+	 */
 	
-	
+	private RpcStats getRPCObject(HttpResponse response,PagingContext ctx,ApiContext apic){
+		RpcStats tmpRpc = new RpcStats();
+		HttpEntity tmpEnt = response.getEntity();	
+		Document doc =null;
+		
+		if (response != null) {			
+				String responseXml = null;
+				try {
+					responseXml = EntityUtils.toString(tmpEnt);
+				} catch (ParseException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+				
+				try {
+					DocumentBuilderFactory dbFactory=DocumentBuilderFactory.newInstance();
+					DocumentBuilder dBuilder;
+					dBuilder = dbFactory.newDocumentBuilder();
+					doc =  dBuilder.parse(new InputSource(new ByteArrayInputStream(responseXml.getBytes("utf-8"))));
+				} catch (ParserConfigurationException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (UnsupportedEncodingException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (SAXException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}			
+			
+				NodeList nlist=doc.getChildNodes();
+				Node tmpnode = nlist.item(0);
+				tmpnode.getChildNodes();				
+				//String node = doc.getNodeName();
+				//Node node = doc.getElementById("traffic-statistics");
+				//NodeList nList = doc.getElementsByTagName("traffic-statistics");
+				//Node node1=doc.getElementById("netConfReplies");
+				//Element node2=doc.getElementById("output-packets");
+				//Element node3=doc.getElementById("traffic-statistics");
+				/*
+				for (int temp = 0; temp< nList.getLength(); temp++){
+					Node nNode =nList.item(temp);
+					String currElement = nNode.getNodeName();
+					Element eElement = (Element) nNode;
+					tmpRpc.setInputBps(eElement.getAttribute("input-bps"));
+					tmpRpc.setInputBytes(Integer.parseInt(eElement.getAttribute("input-bytes")));
+					*/
+		//}
+		
+		
+		}
+		return tmpRpc;
+	}
+
 	
 	
 	/**

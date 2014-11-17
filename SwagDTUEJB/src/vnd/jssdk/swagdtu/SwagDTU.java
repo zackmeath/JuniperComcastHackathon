@@ -90,7 +90,10 @@ public interface SwagDTU extends JobManagerCallerInterface3 {
 	 */
 	public PagingResult<PTP> getCurrentPtpList();
 	
-	
+	/**
+	 * return the current LSPs and attributes
+	 */
+	public PagingResult<LSP> getCurrentLspList();
 	/**
 	 * return current list of devices
 	 */
