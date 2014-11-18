@@ -79,6 +79,9 @@ import com.sun.jersey.api.client.ClientResponse;
 
 import vnd.AppConstants;
 
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
+
 //lold
 @Stateless(name = "SwagDTU")
 @Remote(SwagDTU.class)
@@ -195,7 +198,7 @@ public class SwagDTUImpl extends JobWorker implements SwagDTU, SwagDTULocal {
 		if(lspObject!=null){
 			logger.info("Succesfully generated LSPs");
 			SwagDTUImpl.LspListGettable=lspObject;
-		}else{
+		} else{
 			logger.error("Failed to generate LSPs");
 			jobMgr.setJobInstanceResult(jobInstanceId, "Long running Request failed",JobStatus.FAILURE,null);
 		}
@@ -243,14 +246,14 @@ public class SwagDTUImpl extends JobWorker implements SwagDTU, SwagDTULocal {
 			}
 			rpc=null;
 			//interfaceB
-			rpc = getDetailedTraffic(apiCtx,pagingCtx,tmpLink.getDeviceA().getId(),tmpLink.getDevAInterface());
+			rpc = getDetailedTraffic(apiCtx,pagingCtx,tmpLink.getDeviceB().getId(),tmpLink.getDevBInterface());
 			if(rpc!=null){
-				tmpLink.setInterfaceAInputBytes(rpc.getInputBytes());
-				tmpLink.setInterfaceAInputBps(rpc.getInputBps());
-				tmpLink.setInterfaceAInputPackets(rpc.getInputPackets());
-				tmpLink.setInterfaceAOutputBps(rpc.getOutputBps());
-				tmpLink.setInterfaceAOutputPackets(rpc.getOutputPackets());
-				tmpLink.setInterfaceAOutputBytes(rpc.getOutputBytes());
+				tmpLink.setInterfaceBInputBytes(rpc.getInputBytes());
+				tmpLink.setInterfaceBInputBps(rpc.getInputBps());
+				tmpLink.setInterfaceBInputPackets(rpc.getInputPackets());
+				tmpLink.setInterfaceBOutputBps(rpc.getOutputBps());
+				tmpLink.setInterfaceBOutputPackets(rpc.getOutputPackets());
+				tmpLink.setInterfaceBOutputBytes(rpc.getOutputBytes());
 			}
 			
 		} catch (PreconditionFailedException e) {
@@ -426,6 +429,9 @@ public class SwagDTUImpl extends JobWorker implements SwagDTU, SwagDTULocal {
 		int speedAvg=0;
 		boolean pathUsable=true;
 		int lowestMtu=0;
+		int packetSum = 0;
+		int bpsSum = 0;
+		int byteSum = 0;
 		for (Link tmpLink : tmpLinks){
 			if( lowSpeed==0 || tmpLink.getCurrSpeed()< lowSpeed){
 				lowSpeed=tmpLink.getCurrSpeed();
@@ -439,8 +445,15 @@ public class SwagDTUImpl extends JobWorker implements SwagDTU, SwagDTULocal {
 			if(!tmpLink.getOperationStatus().equalsIgnoreCase("Up")){
 				pathUsable=false;			
 			}
-			tmpLsp.setPathUsable(pathUsable);			
+			tmpLsp.setPathUsable(pathUsable);
+			packetSum += tmpLink.getInterfaceBInputPackets() + tmpLink.getInterfaceAInputPackets();
+			bpsSum += tmpLink.getInterfaceBInputBps() + tmpLink.getInterfaceAInputBps();
+			byteSum += tmpLink.getInterfaceAInputBytes() + tmpLink.getInterfaceBInputBytes();
 		}
+		int size = tmpLinks.size();
+		tmpLsp.setAvgPackets( packetSum / (size * 2) );
+		tmpLsp.setAvgBps( bpsSum / (size * 2) );
+		tmpLsp.setAvgBytes( byteSum / (size * 2) );
 		speedAvg=speedAvg/tmpLinks.size();
 		tmpLsp.setNumHops((tmpLinks.size()*2));
 		tmpLsp.setSpeedAvg(speedAvg);
@@ -824,7 +837,7 @@ public class SwagDTUImpl extends JobWorker implements SwagDTU, SwagDTULocal {
 	private RpcStats getRPCObject(HttpResponse response,PagingContext ctx,ApiContext apic){
 		RpcStats tmpRpc = new RpcStats();
 		HttpEntity tmpEnt = response.getEntity();	
-		Document doc =null;
+		Document doc = null;
 		
 		if (response != null) {			
 				String responseXml = null;
@@ -837,10 +850,69 @@ public class SwagDTUImpl extends JobWorker implements SwagDTU, SwagDTULocal {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
+
 				String test =null;
-		}					
+							
+
+				String bytes = "<input-bytes> ";
+				String bps = "<input-bps> ";
+				String pack = "<input-packets> ";
+
 				
+				Pattern patBytes = Pattern.compile(bytes);
+				Pattern patBps = Pattern.compile(bps);
+				Pattern patPack = Pattern.compile(pack);
+
+				Matcher matcher = patBytes.matcher(responseXml);
+	            matcher.find();
+	            int start = matcher.end();
+	            String newStr = responseXml.substring(start);
+	            int bytesInt = Integer.parseInt(newStr.substring(newStr.indexOf(" ")));
+	            tmpRpc.setInputBytes(bytesInt);
+	            
+	            matcher = patBps.matcher(responseXml);
+	            matcher.find();
+	            start = matcher.end();
+	            newStr = responseXml.substring(start);
+	            int bpsInt = Integer.parseInt(newStr.substring(newStr.indexOf(" ")));
+	            tmpRpc.setInputBps(bpsInt);
+	            
+	            matcher = patPack.matcher(responseXml);
+	            matcher.find();
+	            start = matcher.end();
+	            newStr = responseXml.substring(start);
+	            int packInt = Integer.parseInt(newStr.substring(newStr.indexOf(" ")));
+	            tmpRpc.setInputPackets(packInt);
 				
+
+				try {
+					DocumentBuilderFactory dbFactory=DocumentBuilderFactory.newInstance();
+					DocumentBuilder dBuilder;
+					dBuilder = dbFactory.newDocumentBuilder();
+					doc =  dBuilder.parse(new InputSource(new ByteArrayInputStream(responseXml.getBytes("utf-8"))));
+					doc.getDocumentElement().normalize();
+				} catch (ParserConfigurationException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (UnsupportedEncodingException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (SAXException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}			
+			
+				NodeList nlist=doc.getChildNodes();
+				Node tmpnode = nlist.item(0);
+				tmpnode.getChildNodes();
+				
+		}
+		
+		
+
 		return tmpRpc;
 	}
 
