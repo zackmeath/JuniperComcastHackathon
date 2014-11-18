@@ -52,15 +52,29 @@ public class Link {
 	private int interfaceBInputBytes;
 	private int interfaceAInputPackets;
 	private int interfaceBInputPackets;
-	private String interfaceAInputBps;
+	private int interfaceAInputBps;
 	private int interfaceBInputBps;
 	private int interfaceBOutputBps;
 	private int interfaceAOutputBps;
 	private int interfaceAOutputBytes;
 	private int interfaceAOutputPackets;
+	private int interfaceBOutputPackets;
+	private int interfaceBOutputBytes;
 	private int mtu;
 	
 //getters and setters
+	public int getInterfaceBOutputPackets(){
+		return interfaceBOutputPackets;
+	}
+	public int getInterfaceBOutputBytes(){
+		return interfaceBOutputBytes;
+	}
+	public void setInterfaceBOutputBytes(int b){
+		interfaceBOutputBytes = b;
+	}
+	public void setInterfaceBOutputPackets(int p){
+		interfaceBOutputPackets = p;
+	}
 	public void setlinkId(String tmpLinkId){
 		this.linkId = tmpLinkId;
 	}
@@ -182,11 +196,11 @@ public class Link {
 	public void setInterfaceAInputPackets(int interfaceAInputPackets) {
 		this.interfaceAInputPackets = interfaceAInputPackets;
 	}
-	public String getInterfaceAInputBps() {
+	public int getInterfaceAInputBps() {
 		return interfaceAInputBps;
 	}
-	public void setInterfaceAInputBps(String string) {
-		this.interfaceAInputBps = string;
+	public void setInterfaceAInputBps(int bps) {
+		this.interfaceAInputBps = bps;
 	}
 	public int getInterfaceBInputPackets() {
 		return interfaceBInputPackets;

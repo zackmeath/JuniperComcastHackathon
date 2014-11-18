@@ -195,7 +195,7 @@ public class SwagDTUImpl extends JobWorker implements SwagDTU, SwagDTULocal {
 		if(lspObject!=null){
 			logger.info("Succesfully generated LSPs");
 			SwagDTUImpl.LspListGettable=lspObject;
-		}else{
+		} else{
 			logger.error("Failed to generate LSPs");
 			jobMgr.setJobInstanceResult(jobInstanceId, "Long running Request failed",JobStatus.FAILURE,null);
 		}
@@ -236,7 +236,7 @@ public class SwagDTUImpl extends JobWorker implements SwagDTU, SwagDTULocal {
 			rpc = getDetailedTraffic(apiCtx,pagingCtx,tmpLink.getDeviceA().getId(),tmpLink.getDevAInterface());
 			if (rpc!=null){
 				tmpLink.setInterfaceAInputBytes(rpc.getInputBytes());
-				tmpLink.setInterfaceAInputBps(rpc.getInputBps());
+				tmpLink.setInterfaceAInputBps(Integer.parseInt(rpc.getInputBps()));
 				tmpLink.setInterfaceAInputPackets(rpc.getInputPackets());
 				tmpLink.setInterfaceAOutputBps(rpc.getOutputBps());
 				tmpLink.setInterfaceAOutputPackets(rpc.getOutputPackets());
@@ -244,14 +244,14 @@ public class SwagDTUImpl extends JobWorker implements SwagDTU, SwagDTULocal {
 			}
 			rpc=null;
 			//interfaceB
-			rpc = getDetailedTraffic(apiCtx,pagingCtx,tmpLink.getDeviceA().getId(),tmpLink.getDevAInterface());
+			rpc = getDetailedTraffic(apiCtx,pagingCtx,tmpLink.getDeviceB().getId(),tmpLink.getDevBInterface());
 			if(rpc!=null){
-				tmpLink.setInterfaceAInputBytes(rpc.getInputBytes());
-				tmpLink.setInterfaceAInputBps(rpc.getInputBps());
-				tmpLink.setInterfaceAInputPackets(rpc.getInputPackets());
-				tmpLink.setInterfaceAOutputBps(rpc.getOutputBps());
-				tmpLink.setInterfaceAOutputPackets(rpc.getOutputPackets());
-				tmpLink.setInterfaceAOutputBytes(rpc.getOutputBytes());
+				tmpLink.setInterfaceBInputBytes(rpc.getInputBytes());
+				tmpLink.setInterfaceBInputBps(Integer.parseInt(rpc.getInputBps()));
+				tmpLink.setInterfaceBInputPackets(rpc.getInputPackets());
+				tmpLink.setInterfaceBOutputBps(rpc.getOutputBps());
+				tmpLink.setInterfaceBOutputPackets(rpc.getOutputPackets());
+				tmpLink.setInterfaceBOutputBytes(rpc.getOutputBytes());
 			}
 			
 		} catch (PreconditionFailedException e) {
@@ -429,6 +429,9 @@ public class SwagDTUImpl extends JobWorker implements SwagDTU, SwagDTULocal {
 		int speedAvg=0;
 		boolean pathUsable=true;
 		int lowestMtu=0;
+		int packetSum = 0;
+		int bpsSum = 0;
+		int byteSum = 0;
 		for (Link tmpLink : tmpLinks){
 			if( lowSpeed==0 || tmpLink.getCurrSpeed()< lowSpeed){
 				lowSpeed=tmpLink.getCurrSpeed();
@@ -442,8 +445,15 @@ public class SwagDTUImpl extends JobWorker implements SwagDTU, SwagDTULocal {
 			if(!tmpLink.getOperationStatus().equalsIgnoreCase("Up")){
 				pathUsable=false;			
 			}
-			tmpLsp.setPathUsable(pathUsable);			
+			tmpLsp.setPathUsable(pathUsable);
+			packetSum += tmpLink.getInterfaceBInputPackets() + tmpLink.getInterfaceAInputPackets();
+			bpsSum += tmpLink.getInterfaceBInputBps() + tmpLink.getInterfaceAInputBps();
+			byteSum += tmpLink.getInterfaceAInputBytes() + tmpLink.getInterfaceBInputBytes();
 		}
+		int size = tmpLinks.size();
+		tmpLsp.setAvgPackets( packetSum / (size * 2) );
+		tmpLsp.setAvgBps( bpsSum / (size * 2) );
+		tmpLsp.setAvgBytes( byteSum / (size * 2) );
 		speedAvg=speedAvg/tmpLinks.size();
 		tmpLsp.setNumHops((tmpLinks.size()*2));
 		tmpLsp.setSpeedAvg(speedAvg);
