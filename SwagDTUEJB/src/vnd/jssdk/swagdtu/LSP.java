@@ -28,8 +28,13 @@ public class LSP {
 		//whether the path is usable, if there's any down links. it's not
 		private boolean pathUsable;
 		
+		//traffic data (calculated using the input on each interface on the LSP)
+		
+		//average bytes per second
 		private float avgBps;
+		//average packets on each interface
 		private float avgPackets;
+		//average bytes on each interface
 		private float avgBytes;
 		
 		
@@ -45,7 +50,6 @@ public class LSP {
 		public float getAvgPackets() {
 			return avgPackets;
 		}
-		
 		public void setAvgBps(float bps) {
 			avgBps = bps;
 		}
