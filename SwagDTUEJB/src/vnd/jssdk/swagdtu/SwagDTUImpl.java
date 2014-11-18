@@ -229,10 +229,9 @@ public class SwagDTUImpl extends JobWorker implements SwagDTU, SwagDTULocal {
 	 * Given a link, get detailed traffic for it and update Information.
 	 */
 	public Link updateLinkWithTrafic(ApiContext apiCtx, PagingContext pagingCtx,Link tmpLink ){
-		Link updateLink=tmpLink;
 		RpcStats rpc;
-		try {
-			//interface A
+		//interfaceA
+		try {	
 			rpc = getDetailedTraffic(apiCtx,pagingCtx,tmpLink.getDeviceA().getId(),tmpLink.getDevAInterface());
 			if (rpc!=null){
 				tmpLink.setInterfaceAInputBytes(rpc.getInputBytes());
@@ -263,8 +262,7 @@ public class SwagDTUImpl extends JobWorker implements SwagDTU, SwagDTULocal {
 		}
 		
 		
-		return updateLink;
-		
+		return tmpLink;		
 	}
 	
 	/**
@@ -283,10 +281,9 @@ public class SwagDTUImpl extends JobWorker implements SwagDTU, SwagDTULocal {
 			
 			InternalApiContext iac = (InternalApiContext) apiCtx;
 			
-			String url = "/api/space/device-management/devices/"+devId+"/exec-rpc";		
+			String url = "/api/space/device-management/devices/"+devId+"/exec-rpc?filter=(TAG%20-eq%20'physical-interface')";		
 			// Get response from the service
 			HttpResponse response = postRPC(url, interfaceId);
-			entity = response.getEntity();
 			if (response != null) {
 				int status = response.getStatusLine().getStatusCode();
 	
@@ -840,48 +837,10 @@ public class SwagDTUImpl extends JobWorker implements SwagDTU, SwagDTULocal {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
+				String test =null;
+		}					
 				
 				
-				try {
-					DocumentBuilderFactory dbFactory=DocumentBuilderFactory.newInstance();
-					DocumentBuilder dBuilder;
-					dBuilder = dbFactory.newDocumentBuilder();
-					doc =  dBuilder.parse(new InputSource(new ByteArrayInputStream(responseXml.getBytes("utf-8"))));
-				} catch (ParserConfigurationException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (UnsupportedEncodingException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (SAXException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}			
-			
-				NodeList nlist=doc.getChildNodes();
-				Node tmpnode = nlist.item(0);
-				tmpnode.getChildNodes();				
-				//String node = doc.getNodeName();
-				//Node node = doc.getElementById("traffic-statistics");
-				//NodeList nList = doc.getElementsByTagName("traffic-statistics");
-				//Node node1=doc.getElementById("netConfReplies");
-				//Element node2=doc.getElementById("output-packets");
-				//Element node3=doc.getElementById("traffic-statistics");
-				/*
-				for (int temp = 0; temp< nList.getLength(); temp++){
-					Node nNode =nList.item(temp);
-					String currElement = nNode.getNodeName();
-					Element eElement = (Element) nNode;
-					tmpRpc.setInputBps(eElement.getAttribute("input-bps"));
-					tmpRpc.setInputBytes(Integer.parseInt(eElement.getAttribute("input-bytes")));
-					*/
-		//}
-		
-		
-		}
 		return tmpRpc;
 	}
 
