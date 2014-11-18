@@ -2,7 +2,7 @@ package vnd.jssdk.swagdtu;
 
 public class RpcStats {
 	private int inputBytes;
-	private String inputBps;
+	private int inputBps;
 	private int outputBytes;
 	private int outputBps;
 	private int inputPackets;
@@ -16,11 +16,11 @@ public class RpcStats {
 	public void setInputBytes(int inputBytes) {
 		this.inputBytes = inputBytes;
 	}
-	public String getInputBps() {
+	public int getInputBps() {
 		return inputBps;
 	}
-	public void setInputBps(String string) {
-		this.inputBps = string;
+	public void setInputBps(int bpsInt) {
+		this.inputBps = bpsInt;
 	}
 	public int getOutputBytes() {
 		return outputBytes;
